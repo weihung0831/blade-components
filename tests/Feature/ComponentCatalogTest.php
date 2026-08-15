@@ -34,6 +34,16 @@ it('renders component detail pages', function (string $slug, string $name) {
     'icon button' => ['icon-button', 'Icon button'],
 ]);
 
+it('shows an installation section with the component source and theme tokens', function (string $slug) {
+    $this->get("/components/{$slug}")
+        ->assertSuccessful()
+        ->assertSee('Installation')
+        ->assertSee("resources/views/components/ui/{$slug}.blade.php")
+        ->assertSee('resources/css/app.css')
+        ->assertSee('--color-jade-500')
+        ->assertSee('--ease-snap');
+})->with(['button', 'icon-button']);
+
 it('renders code snippets without leaking blade compilation artifacts', function () {
     $this->get('/components/button')->assertDontSee('endComponentClass');
 });

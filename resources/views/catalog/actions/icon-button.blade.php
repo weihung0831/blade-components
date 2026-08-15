@@ -103,6 +103,8 @@
                 </x-ui.icon-button>
             </x-demo>
 
+            <x-install class="rise" style="animation-delay: 360ms" slug="icon-button" />
+
         </div>
     </div>
 </x-layout>

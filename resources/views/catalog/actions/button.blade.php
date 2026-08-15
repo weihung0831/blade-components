@@ -75,6 +75,8 @@
                 <x-ui.button variant="secondary" disabled>Preview</x-ui.button>
             </x-demo>
 
+            <x-install class="rise" style="animation-delay: 360ms" slug="button" />
+
         </div>
     </div>
 </x-layout>
