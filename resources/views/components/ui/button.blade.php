@@ -1,0 +1,30 @@
+@props([
+    'variant' => 'primary',
+    'size' => 'md',
+    'href' => null,
+])
+
+@php
+    $base = 'inline-flex items-center justify-center rounded-lg font-medium transition-[transform,background-color,border-color,color] duration-150 ease-snap active:scale-[0.97] disabled:pointer-events-none disabled:opacity-40';
+
+    $variants = [
+        'primary' => 'bg-jade-500 text-ink-950 hover:bg-jade-400',
+        'secondary' => 'border border-white/10 text-zinc-300 hover:border-white/25',
+        'ghost' => 'text-zinc-400 hover:bg-white/5 hover:text-cream',
+        'danger' => 'border border-red-500/20 bg-red-500/10 text-red-400 hover:bg-red-500/20',
+    ];
+
+    $sizes = [
+        'sm' => 'h-8 px-3 text-[13px]',
+        'md' => 'h-10 px-5 text-sm',
+        'lg' => 'h-11 px-6 text-[15px]',
+    ];
+
+    $classes = $base.' '.($variants[$variant] ?? $variants['primary']).' '.($sizes[$size] ?? $sizes['md']);
+@endphp
+
+@if ($href)
+    <a href="{{ $href }}" {{ $attributes->merge(['class' => $classes]) }}>{{ $slot }}</a>
+@else
+    <button {{ $attributes->merge(['type' => 'button', 'class' => $classes]) }}>{{ $slot }}</button>
+@endif
