@@ -1,4 +1,4 @@
-@props(['title' => 'blade-components — Hand-crafted UI for Laravel Blade'])
+@props(['title' => 'BLADE-COMPONENTS — Hand-crafted UI for Laravel Blade'])
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,11 +19,13 @@
                     <rect width="28" height="28" rx="7.5" fill="#4ea396" />
                     <path d="M7 19 L11 9 M12.5 19 L16.5 9 M18 19 L22 9" stroke="#fefbee" stroke-width="2.6" stroke-linecap="round" fill="none" />
                 </svg>
-                <span class="text-[15px] font-semibold tracking-tight text-cream">blade<span class="text-jade-400">-</span>components</span>
+                <span class="text-[13px] font-semibold tracking-[0.12em] text-cream">BLADE<span class="text-jade-400">-</span>COMPONENTS</span>
             </a>
             <nav class="flex items-center gap-6 text-sm">
                 <a href="{{ route('components') }}"
-                    class="hidden transition-colors duration-150 sm:block {{ request()->routeIs('components') ? 'text-cream' : 'text-zinc-400 hover:text-cream' }}">Components</a>
+                    class="hidden transition-colors duration-150 sm:block {{ request()->routeIs('components', 'components.*') ? 'text-cream' : 'text-zinc-400 hover:text-cream' }}">Components</a>
+                <a href="{{ route('templates') }}"
+                    class="hidden transition-colors duration-150 sm:block {{ request()->routeIs('templates') ? 'text-cream' : 'text-zinc-400 hover:text-cream' }}">Templates</a>
                 <a href="#" class="hidden text-zinc-400 transition-colors duration-150 hover:text-cream sm:block">Docs</a>
                 <a href="#" class="text-zinc-400 transition-colors duration-150 hover:text-cream">GitHub</a>
                 <span class="rounded-full border border-white/10 px-2.5 py-0.5 font-mono text-xs text-zinc-500">v0.1.0</span>
@@ -47,7 +49,7 @@
                     <rect width="28" height="28" rx="7.5" fill="#1a1a21" />
                     <path d="M7 19 L11 9 M12.5 19 L16.5 9 M18 19 L22 9" stroke="#4ea396" stroke-width="2.6" stroke-linecap="round" fill="none" />
                 </svg>
-                blade-components © 2026
+                BLADE-COMPONENTS © 2026
             </span>
             <span>MIT License</span>
         </div>
