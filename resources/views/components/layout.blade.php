@@ -28,11 +28,11 @@
             </a>
             <nav class="flex items-center gap-6 text-sm">
                 <a href="{{ route('components') }}"
-                    class="hidden transition-colors duration-150 sm:block {{ request()->routeIs('components', 'components.*') ? 'text-cream' : 'text-zinc-400 hover:text-cream' }}">Components</a>
+                    class="hidden transition-colors duration-150 sm:block {{ request()->routeIs('components', 'components.*') ? 'text-jade-400' : 'text-zinc-400 hover:text-jade-400' }}">Components</a>
                 <a href="{{ route('templates') }}"
-                    class="hidden transition-colors duration-150 sm:block {{ request()->routeIs('templates') ? 'text-cream' : 'text-zinc-400 hover:text-cream' }}">Templates</a>
-                <a href="#" class="hidden text-zinc-400 transition-colors duration-150 hover:text-cream sm:block">Docs</a>
-                <a href="https://github.com/weihung0831/blade-components" target="_blank" rel="noopener" class="text-zinc-400 transition-colors duration-150 hover:text-cream">GitHub</a>
+                    class="hidden transition-colors duration-150 sm:block {{ request()->routeIs('templates') ? 'text-jade-400' : 'text-zinc-400 hover:text-jade-400' }}">Templates</a>
+                <a href="#" class="hidden text-zinc-400 transition-colors duration-150 hover:text-jade-400 sm:block">Docs</a>
+                <a href="https://github.com/weihung0831/blade-components" target="_blank" rel="noopener" class="text-zinc-400 transition-colors duration-150 hover:text-jade-400">GitHub</a>
                 <button type="button" data-theme-toggle aria-label="Toggle color theme"
                     class="grid size-7 place-items-center rounded-md text-zinc-400 transition-[transform,color] duration-150 ease-snap hover:text-cream active:scale-[0.92]">
                     <svg class="size-4 light:hidden" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3.25" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.5v1.6M8 12.9v1.6M1.5 8h1.6M12.9 8h1.6M3.4 3.4l1.13 1.13M11.47 11.47l1.13 1.13M12.6 3.4l-1.13 1.13M4.53 11.47 3.4 12.6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>

@@ -9,7 +9,7 @@
                     @foreach ($categories as $category => $items)
                         <li>
                             <a href="#{{ Str::slug($category) }}" data-spy-link
-                                class="-ml-px flex items-center justify-between border-l border-transparent py-1.5 pr-2 pl-4 text-zinc-400 transition-colors duration-150 hover:border-jade-500 hover:text-cream data-active:border-jade-500 data-active:text-cream">
+                                class="-ml-px flex items-center justify-between border-l border-transparent py-1.5 pr-2 pl-4 text-zinc-400 transition-colors duration-150 hover:border-jade-500 hover:text-jade-400 data-active:border-jade-500 data-active:text-jade-400">
                                 {{ $category }}
                                 <span class="font-mono text-xs text-zinc-600">{{ sprintf('%02d', count($items)) }}</span>
                             </a>

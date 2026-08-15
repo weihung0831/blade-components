@@ -2,7 +2,7 @@
 @php
     $tag = $soon ? 'div' : 'a';
 @endphp
-<{{ $tag }} {{ $attributes->merge(['class' => 'rise group overflow-hidden rounded-xl border border-white/8 bg-ink-900 transition-colors duration-150'.($soon ? '' : ' hover:border-white/20')]) }}>
+<{{ $tag }} {{ $attributes->merge(['class' => 'rise group overflow-hidden rounded-xl border border-white/8 bg-ink-900 transition-colors duration-150'.($soon ? '' : ' hover:border-jade-500/60')]) }}>
     <div class="dot-grid grid h-40 place-items-center border-b border-white/5 {{ $soon ? 'opacity-60 grayscale-25' : '' }}">
         {{ $slot }}
     </div>
