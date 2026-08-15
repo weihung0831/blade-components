@@ -55,16 +55,18 @@ it('shows an installation section with the component source and theme tokens', f
         ->assertSee('--ease-snap');
 })->with(['button', 'icon-button']);
 
-it('offers vue and react versions of the button behind code tabs', function () {
-    $this->get('/components/button')
+it('offers vue and react versions behind code tabs', function (string $slug, string $componentName) {
+    $this->get("/components/{$slug}")
         ->assertSuccessful()
         ->assertSee('data-code-tab', false)
-        ->assertSee('UiButton')
-        ->assertSee('resources/js/components/ui/Button.vue')
+        ->assertSee("resources/js/components/ui/{$componentName}.vue")
         ->assertSee('defineProps')
-        ->assertSee('resources/js/components/ui/Button.jsx')
-        ->assertSee('export function UiButton');
-});
+        ->assertSee("resources/js/components/ui/{$componentName}.jsx")
+        ->assertSee("export function Ui{$componentName}");
+})->with([
+    'button' => ['button', 'Button'],
+    'icon button' => ['icon-button', 'IconButton'],
+]);
 
 it('renders code snippets without leaking blade compilation artifacts', function () {
     $this->get('/components/button')->assertDontSee('endComponentClass');

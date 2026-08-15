@@ -1,11 +1,19 @@
 @props(['title', 'description' => null, 'code', 'vueCode' => null, 'reactCode' => null])
 
 @php
-    $panels = array_filter([
-        'blade' => ['label' => 'Blade', 'code' => $code],
-        'vue' => $vueCode === null ? null : ['label' => 'Vue', 'code' => $vueCode],
-        'react' => $reactCode === null ? null : ['label' => 'React', 'code' => $reactCode],
-    ]);
+    $panels = ['blade' => ['label' => 'Blade', 'code' => $code]];
+
+    if ($vueCode !== null && $vueCode === $reactCode) {
+        $panels['vue react'] = ['label' => 'Vue / React', 'code' => $vueCode];
+    } else {
+        if ($vueCode !== null) {
+            $panels['vue'] = ['label' => 'Vue', 'code' => $vueCode];
+        }
+
+        if ($reactCode !== null) {
+            $panels['react'] = ['label' => 'React', 'code' => $reactCode];
+        }
+    }
 @endphp
 
 <section {{ $attributes }}>

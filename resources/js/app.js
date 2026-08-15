@@ -44,12 +44,15 @@ const codeTabGroups = document.querySelectorAll('[data-code-tabs]');
 if (codeTabGroups.length > 0) {
     const activateCodeLanguage = (language) => {
         codeTabGroups.forEach((group) => {
-            if (!group.querySelector(`[data-code-tab="${language}"]`)) {
+            const buttons = [...group.querySelectorAll('[data-code-tab]')];
+            const target = buttons.find((button) => button.dataset.codeTab.split(' ').includes(language));
+
+            if (!target) {
                 return;
             }
 
-            group.querySelectorAll('[data-code-tab]').forEach((button) => {
-                if (button.dataset.codeTab === language) {
+            buttons.forEach((button) => {
+                if (button === target) {
                     button.dataset.active = '';
                 } else {
                     delete button.dataset.active;
@@ -57,15 +60,17 @@ if (codeTabGroups.length > 0) {
             });
 
             group.querySelectorAll('[data-code-panel]').forEach((panel) => {
-                panel.classList.toggle('hidden', panel.dataset.codePanel !== language);
+                panel.classList.toggle('hidden', !panel.dataset.codePanel.split(' ').includes(language));
             });
         });
     };
 
     document.querySelectorAll('[data-code-tab]').forEach((button) => {
         button.addEventListener('click', () => {
-            localStorage.setItem('code-language', button.dataset.codeTab);
-            activateCodeLanguage(button.dataset.codeTab);
+            const [language] = button.dataset.codeTab.split(' ');
+
+            localStorage.setItem('code-language', language);
+            activateCodeLanguage(language);
         });
     });
 

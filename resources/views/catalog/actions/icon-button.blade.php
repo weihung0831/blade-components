@@ -49,13 +49,77 @@
             <x-ui.icon-button variant="primary" disabled aria-label="Add item">…</x-ui.icon-button>
             <x-ui.icon-button disabled aria-label="Copy">…</x-ui.icon-button>
             BLADE;
+
+            $variantsVueCode = <<<'VUE'
+            <UiIconButton variant="primary" aria-label="Add item">
+                <svg>…</svg>
+            </UiIconButton>
+            <UiIconButton aria-label="Copy">
+                <svg>…</svg>
+            </UiIconButton>
+            <UiIconButton aria-label="Edit">
+                <svg>…</svg>
+            </UiIconButton>
+            <UiIconButton variant="danger" aria-label="Delete">
+                <svg>…</svg>
+            </UiIconButton>
+            VUE;
+
+            $sizesVueCode = <<<'VUE'
+            <UiIconButton size="sm" aria-label="Edit">…</UiIconButton>
+            <UiIconButton aria-label="Edit">…</UiIconButton>
+            <UiIconButton size="lg" aria-label="Edit">…</UiIconButton>
+            VUE;
+
+            $linkVueCode = <<<'VUE'
+            <UiIconButton href="https://github.com/weihung0831" aria-label="GitHub">
+                <svg>…</svg>
+            </UiIconButton>
+            VUE;
+
+            $disabledVueCode = <<<'VUE'
+            <UiIconButton variant="primary" disabled aria-label="Add item">…</UiIconButton>
+            <UiIconButton disabled aria-label="Copy">…</UiIconButton>
+            VUE;
+
+            $variantsReactCode = <<<'REACT'
+            <UiIconButton variant="primary" aria-label="Add item">
+                <svg>…</svg>
+            </UiIconButton>
+            <UiIconButton aria-label="Copy">
+                <svg>…</svg>
+            </UiIconButton>
+            <UiIconButton aria-label="Edit">
+                <svg>…</svg>
+            </UiIconButton>
+            <UiIconButton variant="danger" aria-label="Delete">
+                <svg>…</svg>
+            </UiIconButton>
+            REACT;
+
+            $sizesReactCode = <<<'REACT'
+            <UiIconButton size="sm" aria-label="Edit">…</UiIconButton>
+            <UiIconButton aria-label="Edit">…</UiIconButton>
+            <UiIconButton size="lg" aria-label="Edit">…</UiIconButton>
+            REACT;
+
+            $linkReactCode = <<<'REACT'
+            <UiIconButton href="https://github.com/weihung0831" aria-label="GitHub">
+                <svg>…</svg>
+            </UiIconButton>
+            REACT;
+
+            $disabledReactCode = <<<'REACT'
+            <UiIconButton variant="primary" disabled aria-label="Add item">…</UiIconButton>
+            <UiIconButton disabled aria-label="Copy">…</UiIconButton>
+            REACT;
         @endphp
 
         <div class="mt-12 flex flex-col gap-12">
 
             <x-demo class="rise" style="animation-delay: 120ms" title="Variants"
                 description="Secondary is the default — icon buttons usually live in toolbars. The icon comes in through the slot and is sized for you."
-                :code="$variantsCode">
+                :code="$variantsCode" :vue-code="$variantsVueCode" :react-code="$variantsReactCode">
                 <x-ui.icon-button variant="primary" aria-label="Add item">
                     <svg viewBox="0 0 16 16" fill="none"><path d="M8 3.5v9M3.5 8h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
                 </x-ui.icon-button>
@@ -72,7 +136,7 @@
 
             <x-demo class="rise" style="animation-delay: 180ms" title="Sizes"
                 description="Three sizes via the size prop. The slotted icon scales with the button."
-                :code="$sizesCode">
+                :code="$sizesCode" :vue-code="$sizesVueCode" :react-code="$sizesReactCode">
                 <x-ui.icon-button size="sm" aria-label="Edit">
                     <svg viewBox="0 0 16 16" fill="none"><path d="M11.3 2.7l2 2L6 12l-2.7.7.7-2.7 7.3-7.3Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
                 </x-ui.icon-button>
@@ -86,7 +150,7 @@
 
             <x-demo class="rise" style="animation-delay: 240ms" title="As a link"
                 description="Pass href and it renders an anchor — handy for social and repo links."
-                :code="$linkCode">
+                :code="$linkCode" :vue-code="$linkVueCode" :react-code="$linkReactCode">
                 <x-ui.icon-button href="https://github.com/weihung0831/blade-components" target="_blank" rel="noopener" aria-label="GitHub">
                     <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5a6.5 6.5 0 0 0-2.06 12.67c.33.06.45-.14.45-.31l-.01-1.2c-1.81.4-2.19-.77-2.19-.77-.3-.75-.72-.95-.72-.95-.6-.4.04-.4.04-.4.65.05 1 .68 1 .68.58 1 1.53.7 1.9.54.06-.42.23-.71.41-.87-1.44-.17-2.96-.72-2.96-3.21 0-.71.25-1.29.67-1.75-.07-.16-.29-.83.06-1.72 0 0 .55-.18 1.79.67a6.2 6.2 0 0 1 3.26 0c1.24-.85 1.79-.67 1.79-.67.35.89.13 1.56.06 1.72.42.46.67 1.04.67 1.75 0 2.5-1.52 3.04-2.97 3.2.23.2.44.6.44 1.21l-.01 1.79c0 .17.12.38.45.31A6.5 6.5 0 0 0 8 1.5Z"/></svg>
                 </x-ui.icon-button>
@@ -94,7 +158,7 @@
 
             <x-demo class="rise" style="animation-delay: 300ms" title="Disabled"
                 description="Standard disabled attribute, same treatment as Button."
-                :code="$disabledCode">
+                :code="$disabledCode" :vue-code="$disabledVueCode" :react-code="$disabledReactCode">
                 <x-ui.icon-button variant="primary" disabled aria-label="Add item">
                     <svg viewBox="0 0 16 16" fill="none"><path d="M8 3.5v9M3.5 8h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
                 </x-ui.icon-button>
@@ -103,7 +167,7 @@
                 </x-ui.icon-button>
             </x-demo>
 
-            <x-install class="rise" style="animation-delay: 360ms" slug="icon-button" />
+            <x-install class="rise" style="animation-delay: 360ms" slug="icon-button" :vue="true" :react="true" />
 
         </div>
     </div>
