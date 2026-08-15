@@ -55,13 +55,15 @@ it('shows an installation section with the component source and theme tokens', f
         ->assertSee('--ease-snap');
 })->with(['button', 'icon-button']);
 
-it('offers a vue version of the button behind code tabs', function () {
+it('offers vue and react versions of the button behind code tabs', function () {
     $this->get('/components/button')
         ->assertSuccessful()
         ->assertSee('data-code-tab', false)
         ->assertSee('UiButton')
         ->assertSee('resources/js/components/ui/Button.vue')
-        ->assertSee('defineProps');
+        ->assertSee('defineProps')
+        ->assertSee('resources/js/components/ui/Button.jsx')
+        ->assertSee('export function UiButton');
 });
 
 it('renders code snippets without leaking blade compilation artifacts', function () {

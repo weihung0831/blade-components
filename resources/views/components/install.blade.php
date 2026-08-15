@@ -1,12 +1,22 @@
-@props(['slug', 'vue' => false])
+@props(['slug', 'vue' => false, 'react' => false])
 
 @php
-    $componentPath = 'resources/views/components/ui/'.$slug.'.blade.php';
-    $componentSource = trim(Illuminate\Support\Facades\File::get(base_path($componentPath)));
+    $studlyName = Illuminate\Support\Str::studly($slug);
+
+    $sources = [
+        'blade' => ['label' => 'Blade', 'path' => 'resources/views/components/ui/'.$slug.'.blade.php'],
+    ];
 
     if ($vue) {
-        $vuePath = 'resources/js/components/ui/'.Illuminate\Support\Str::studly($slug).'.vue';
-        $vueSource = trim(Illuminate\Support\Facades\File::get(base_path($vuePath)));
+        $sources['vue'] = ['label' => 'Vue', 'path' => 'resources/js/components/ui/'.$studlyName.'.vue'];
+    }
+
+    if ($react) {
+        $sources['react'] = ['label' => 'React', 'path' => 'resources/js/components/ui/'.$studlyName.'.jsx'];
+    }
+
+    foreach ($sources as $language => $source) {
+        $sources[$language]['code'] = trim(Illuminate\Support\Facades\File::get(base_path($source['path'])));
     }
 
     $tokensCode = <<<'CSS'
@@ -29,33 +39,23 @@
     <p class="mt-1 text-sm text-zinc-500">Two pastes and it runs. No package, no build step beyond Tailwind — the code below is the whole component.</p>
 
     <div class="mt-4 flex flex-col gap-4">
-        <div class="overflow-hidden rounded-xl border border-white/8 bg-ink-900" @if ($vue) data-code-tabs @endif>
-            @if ($vue)
+        <div class="overflow-hidden rounded-xl border border-white/8 bg-ink-900" @if (count($sources) > 1) data-code-tabs @endif>
+            @if (count($sources) > 1)
                 <div class="flex items-center gap-1 border-b border-white/5 px-3 py-2">
-                    <x-code-tab panel="blade" active>Blade</x-code-tab>
-                    <x-code-tab panel="vue">Vue</x-code-tab>
+                    @foreach ($sources as $language => $source)
+                        <x-code-tab :panel="$language" :active="$loop->first">{{ $source['label'] }}</x-code-tab>
+                    @endforeach
                 </div>
-                <div data-code-panel="blade">
-                    <div class="flex items-center gap-3 border-b border-white/5 px-4 py-2.5">
-                        <span class="font-mono text-xs text-jade-400">01</span>
-                        <p class="font-mono text-xs text-zinc-500">Save as <span class="text-zinc-300">{{ $componentPath }}</span></p>
-                    </div>
-                    <x-code-block :code="$componentSource" />
-                </div>
-                <div data-code-panel="vue" class="hidden">
-                    <div class="flex items-center gap-3 border-b border-white/5 px-4 py-2.5">
-                        <span class="font-mono text-xs text-jade-400">01</span>
-                        <p class="font-mono text-xs text-zinc-500">Save as <span class="text-zinc-300">{{ $vuePath }}</span></p>
-                    </div>
-                    <x-code-block :code="$vueSource" />
-                </div>
-            @else
-                <div class="flex items-center gap-3 border-b border-white/5 px-4 py-2.5">
-                    <span class="font-mono text-xs text-jade-400">01</span>
-                    <p class="font-mono text-xs text-zinc-500">Save as <span class="text-zinc-300">{{ $componentPath }}</span></p>
-                </div>
-                <x-code-block :code="$componentSource" />
             @endif
+            @foreach ($sources as $language => $source)
+                <div @if (count($sources) > 1) data-code-panel="{{ $language }}" @endif @class(['hidden' => ! $loop->first])>
+                    <div class="flex items-center gap-3 border-b border-white/5 px-4 py-2.5">
+                        <span class="font-mono text-xs text-jade-400">01</span>
+                        <p class="font-mono text-xs text-zinc-500">Save as <span class="text-zinc-300">{{ $source['path'] }}</span></p>
+                    </div>
+                    <x-code-block :code="$source['code']" />
+                </div>
+            @endforeach
         </div>
 
         <div class="overflow-hidden rounded-xl border border-white/8 bg-ink-900">

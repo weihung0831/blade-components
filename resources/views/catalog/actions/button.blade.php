@@ -65,13 +65,37 @@
             <UiButton disabled>Deploy</UiButton>
             <UiButton variant="secondary" disabled>Preview</UiButton>
             VUE;
+
+            $variantsReactCode = <<<'REACT'
+            <UiButton>Deploy</UiButton>
+            <UiButton variant="secondary">Preview</UiButton>
+            <UiButton variant="ghost">Dismiss</UiButton>
+            <UiButton variant="danger">Delete</UiButton>
+            REACT;
+
+            $sizesReactCode = <<<'REACT'
+            <UiButton size="sm">Small</UiButton>
+            <UiButton>Medium</UiButton>
+            <UiButton size="lg">Large</UiButton>
+            REACT;
+
+            $linkReactCode = <<<'REACT'
+            <UiButton href="/billing" variant="secondary">
+                Upgrade plan
+            </UiButton>
+            REACT;
+
+            $disabledReactCode = <<<'REACT'
+            <UiButton disabled>Deploy</UiButton>
+            <UiButton variant="secondary" disabled>Preview</UiButton>
+            REACT;
         @endphp
 
         <div class="mt-12 flex flex-col gap-12">
 
             <x-demo class="rise" style="animation-delay: 120ms" title="Variants"
                 description="Pick with the variant prop. Primary is the default."
-                :code="$variantsCode" :vue-code="$variantsVueCode">
+                :code="$variantsCode" :vue-code="$variantsVueCode" :react-code="$variantsReactCode">
                 <x-ui.button>Deploy</x-ui.button>
                 <x-ui.button variant="secondary">Preview</x-ui.button>
                 <x-ui.button variant="ghost">Dismiss</x-ui.button>
@@ -80,7 +104,7 @@
 
             <x-demo class="rise" style="animation-delay: 180ms" title="Sizes"
                 description="Three sizes via the size prop. Default is md."
-                :code="$sizesCode" :vue-code="$sizesVueCode">
+                :code="$sizesCode" :vue-code="$sizesVueCode" :react-code="$sizesReactCode">
                 <x-ui.button size="sm">Small</x-ui.button>
                 <x-ui.button>Medium</x-ui.button>
                 <x-ui.button size="lg">Large</x-ui.button>
@@ -88,18 +112,18 @@
 
             <x-demo class="rise" style="animation-delay: 240ms" title="As a link"
                 description="Pass href and it renders an anchor with the same look."
-                :code="$linkCode" :vue-code="$linkVueCode">
+                :code="$linkCode" :vue-code="$linkVueCode" :react-code="$linkReactCode">
                 <x-ui.button href="#" variant="secondary">Upgrade plan</x-ui.button>
             </x-demo>
 
             <x-demo class="rise" style="animation-delay: 300ms" title="Disabled"
                 description="Standard disabled attribute. Pointer events are dropped and opacity lowered."
-                :code="$disabledCode" :vue-code="$disabledVueCode">
+                :code="$disabledCode" :vue-code="$disabledVueCode" :react-code="$disabledReactCode">
                 <x-ui.button disabled>Deploy</x-ui.button>
                 <x-ui.button variant="secondary" disabled>Preview</x-ui.button>
             </x-demo>
 
-            <x-install class="rise" style="animation-delay: 360ms" slug="button" :vue="true" />
+            <x-install class="rise" style="animation-delay: 360ms" slug="button" :vue="true" :react="true" />
 
         </div>
     </div>
