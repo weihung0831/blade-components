@@ -19,6 +19,13 @@
     --color-jade-600: #3a8478;
 
     --ease-snap: cubic-bezier(0.23, 1, 0.32, 1);
+
+    /* Code syntax palette: VS Code Dark+ roles, remapped to Light+ in the light theme. */
+    --color-code-tag: #4ec9b0;
+    --color-code-attr: #9cdcfe;
+    --color-code-string: #ce9178;
+    --color-code-keyword: #569cd6;
+    --color-code-control: #c586c0;
 }
 
 @custom-variant light (&:where([data-theme='light'], [data-theme='light'] *));
@@ -58,10 +65,11 @@
 
     --color-red-400: #c22f33;
 
-    /* Code syntax colors: pastel on dark, ink-heavy on light. */
-    --color-sky-300: #16739e;
-    --color-amber-200: #96650e;
-    --color-violet-300: #6f58c4;
+    --color-code-tag: #267f99;
+    --color-code-attr: #001080;
+    --color-code-string: #a31515;
+    --color-code-keyword: #0000ff;
+    --color-code-control: #af00db;
 }
 
 @utility dot-grid {
