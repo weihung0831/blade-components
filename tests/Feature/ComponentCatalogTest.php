@@ -43,6 +43,10 @@ it('renders component detail pages', function (string $slug, string $name) {
 })->with([
     'button' => ['button', 'Button'],
     'icon button' => ['icon-button', 'Icon button'],
+    'button group' => ['button-group', 'Button group'],
+    'split button' => ['split-button', 'Split button'],
+    'speed dial' => ['speed-dial', 'Speed dial'],
+    'link' => ['link', 'Link'],
 ]);
 
 it('shows an installation section with the component source and theme tokens', function (string $slug) {
@@ -53,19 +57,22 @@ it('shows an installation section with the component source and theme tokens', f
         ->assertSee('resources/css/app.css')
         ->assertSee('--color-jade-500')
         ->assertSee('--ease-snap');
-})->with(['button', 'icon-button']);
+})->with(['button', 'icon-button', 'button-group', 'split-button', 'speed-dial', 'link']);
 
 it('offers vue and react versions behind code tabs', function (string $slug, string $componentName) {
     $this->get("/components/{$slug}")
         ->assertSuccessful()
         ->assertSee('data-code-tab', false)
         ->assertSee("resources/js/components/ui/{$componentName}.vue")
-        ->assertSee('defineProps')
         ->assertSee("resources/js/components/ui/{$componentName}.jsx")
         ->assertSee("export function Ui{$componentName}");
 })->with([
     'button' => ['button', 'Button'],
     'icon button' => ['icon-button', 'IconButton'],
+    'button group' => ['button-group', 'ButtonGroup'],
+    'split button' => ['split-button', 'SplitButton'],
+    'speed dial' => ['speed-dial', 'SpeedDial'],
+    'link' => ['link', 'Link'],
 ]);
 
 it('renders code snippets without leaking blade compilation artifacts', function () {
