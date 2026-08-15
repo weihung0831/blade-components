@@ -39,6 +39,22 @@ document.querySelectorAll('[data-copy-code]').forEach((button) => {
     });
 });
 
+document.querySelectorAll('[data-code-tabs]').forEach((tabs) => {
+    const buttons = tabs.querySelectorAll('[data-code-tab]');
+    const panels = tabs.querySelectorAll('[data-code-panel]');
+
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            buttons.forEach((other) => delete other.dataset.active);
+            button.dataset.active = '';
+
+            panels.forEach((panel) => {
+                panel.classList.toggle('hidden', panel.dataset.codePanel !== button.dataset.codeTab);
+            });
+        });
+    });
+});
+
 const backToTop = document.querySelector('[data-back-to-top]');
 
 if (backToTop) {
