@@ -151,3 +151,7 @@ This project has domain-specific skills available in `**/skills/**`. You MUST ac
 - Do NOT delete tests without approval.
 
 </laravel-boost-guidelines>
+
+# Git
+
+- Git commit messages must be a single line only (no body), written entirely in English.

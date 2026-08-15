@@ -4,6 +4,46 @@
 @source '../../storage/framework/views/*.php';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', 'Cascadia Mono', monospace;
+
+    --color-ink-950: #0b0b0e;
+    --color-ink-900: #111116;
+    --color-ink-800: #1a1a21;
+
+    --color-cream: #fefbee;
+
+    --color-jade-300: #8ed3c6;
+    --color-jade-400: #6abcae;
+    --color-jade-500: #4ea396;
+    --color-jade-600: #3a8478;
+
+    --ease-snap: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@utility dot-grid {
+    background-image: radial-gradient(circle, rgb(255 255 255 / 0.07) 1px, transparent 1px);
+    background-size: 22px 22px;
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@utility rise {
+    animation: rise 500ms var(--ease-snap) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .rise {
+        animation: none;
+    }
 }
