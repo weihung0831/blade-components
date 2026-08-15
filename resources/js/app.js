@@ -69,16 +69,9 @@ if (codeTabGroups.length > 0) {
         button.addEventListener('click', () => {
             const [language] = button.dataset.codeTab.split(' ');
 
-            localStorage.setItem('code-language', language);
             activateCodeLanguage(language);
         });
     });
-
-    const savedCodeLanguage = localStorage.getItem('code-language');
-
-    if (savedCodeLanguage) {
-        activateCodeLanguage(savedCodeLanguage);
-    }
 }
 
 const backToTop = document.querySelector('[data-back-to-top]');

@@ -11,7 +11,7 @@
                 <p class="font-mono text-xs tracking-wider text-jade-400 uppercase">{{ $category }}</p>
                 <h1 class="mt-1.5 text-3xl font-semibold tracking-tight text-cream">{{ $item['name'] }}</h1>
                 <p class="mt-2 max-w-lg text-sm/6 text-zinc-500">
-                    A primary action with a menu trigger attached to its side. Wire the caret to your own dropdown.
+                    A primary action with a dropdown of secondary actions attached. The menu is a native details element — no JavaScript.
                 </p>
             </div>
             <span class="font-mono text-xs text-zinc-600">{{ sprintf('%02d', $item['variants']) }} variants</span>
@@ -19,14 +19,45 @@
 
         @php
             $variantsCode = <<<'BLADE'
-            <x-ui.split-button>Deploy</x-ui.split-button>
-            <x-ui.split-button variant="secondary">Export</x-ui.split-button>
+            <x-ui.split-button>
+                Deploy
+                <x-slot:menu>
+                    <button>Deploy with cache</button>
+                    <button>Rollback</button>
+                </x-slot:menu>
+            </x-ui.split-button>
+
+            <x-ui.split-button variant="secondary">
+                Export
+                <x-slot:menu>
+                    <button>Export as CSV</button>
+                    <button>Export as JSON</button>
+                </x-slot:menu>
+            </x-ui.split-button>
             BLADE;
 
-            $variantsJsCode = <<<'JS'
-            <UiSplitButton>Deploy</UiSplitButton>
-            <UiSplitButton variant="secondary">Export</UiSplitButton>
-            JS;
+            $variantsVueCode = <<<'VUE'
+            <UiSplitButton>
+                Deploy
+                <template #menu>
+                    <button>Deploy with cache</button>
+                    <button>Rollback</button>
+                </template>
+            </UiSplitButton>
+            VUE;
+
+            $variantsReactCode = <<<'REACT'
+            <UiSplitButton
+                menu={
+                    <>
+                        <button>Deploy with cache</button>
+                        <button>Rollback</button>
+                    </>
+                }
+            >
+                Deploy
+            </UiSplitButton>
+            REACT;
 
             $disabledCode = <<<'BLADE'
             <x-ui.split-button disabled>Deploy</x-ui.split-button>
@@ -42,10 +73,22 @@
         <div class="mt-12 flex flex-col gap-12">
 
             <x-demo class="rise" style="animation-delay: 120ms" title="Variants"
-                description="Primary and secondary, matching Button. The caret is a separate focusable button."
-                :code="$variantsCode" :vue-code="$variantsJsCode" :react-code="$variantsJsCode">
-                <x-ui.split-button>Deploy</x-ui.split-button>
-                <x-ui.split-button variant="secondary">Export</x-ui.split-button>
+                description="Click the caret to open the attached menu — plain buttons or links inside get styled for you. Click it again to close."
+                :code="$variantsCode" :vue-code="$variantsVueCode" :react-code="$variantsReactCode">
+                <x-ui.split-button>
+                    Deploy
+                    <x-slot:menu>
+                        <button>Deploy with cache</button>
+                        <button>Rollback</button>
+                    </x-slot:menu>
+                </x-ui.split-button>
+                <x-ui.split-button variant="secondary">
+                    Export
+                    <x-slot:menu>
+                        <button>Export as CSV</button>
+                        <button>Export as JSON</button>
+                    </x-slot:menu>
+                </x-ui.split-button>
             </x-demo>
 
             <x-demo class="rise" style="animation-delay: 180ms" title="Disabled"
