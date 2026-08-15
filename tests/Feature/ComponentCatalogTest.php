@@ -23,6 +23,17 @@ it('renders the templates index with every template', function () {
     }
 });
 
+it('marks templates without a detail page as coming soon', function () {
+    $response = $this->get('/templates')->assertSuccessful();
+
+    $soonCount = collect(TemplateCatalog::all())
+        ->reject(fn (array $template): bool => View::exists('templates.pages.'.$template['slug']))
+        ->count();
+
+    expect($soonCount)->toBeGreaterThan(0)
+        ->and(substr_count($response->getContent(), '>Soon</span>'))->toBe($soonCount);
+});
+
 it('renders component detail pages', function (string $slug, string $name) {
     $this->get("/components/{$slug}")
         ->assertSuccessful()
