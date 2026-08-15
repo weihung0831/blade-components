@@ -7,7 +7,7 @@
             <div>
                 <p class="rise inline-flex items-center gap-2 rounded-full border border-white/10 bg-ink-900 py-1 pr-3 pl-1.5 font-mono text-xs text-zinc-400">
                     <span class="rounded-full bg-jade-500/15 px-2 py-0.5 text-jade-400">New</span>
-                    8 components, zero JavaScript
+                    83 components across 8 categories
                 </p>
 
                 <h1 class="rise mt-6 text-4xl font-semibold tracking-tight text-cream sm:text-5xl lg:text-[3.4rem]/[1.1]" style="animation-delay: 60ms">

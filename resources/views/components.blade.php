@@ -1,4 +1,4 @@
-<x-layout title="Components — blade-components">
+<x-layout title="Components — BLADE-COMPONENTS">
     <div class="mx-auto grid max-w-6xl gap-10 px-6 py-16 pb-28 lg:grid-cols-[190px_1fr]">
 
         {{-- Sidebar --}}
@@ -38,8 +38,10 @@
                         </div>
                         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
                             @foreach ($items as $item)
-                                <x-preview-card :name="$item['name']" :variants="$item['variants']" style="animation-delay: {{ 60 + $loop->index * 50 }}ms">
-                                    <x-dynamic-component :component="'previews.'.$item['slug']" />
+                                <x-preview-card :name="$item['name']" :variants="$item['variants']"
+                                    href="{{ View::exists('catalog.'.Str::slug($category).'.'.$item['slug']) ? route('components.show', $item['slug']) : '#' }}"
+                                    style="animation-delay: {{ min(60 + $loop->index * 50, 360) }}ms">
+                                    <x-dynamic-component :component="'previews.'.Str::slug($category).'.'.$item['slug']" />
                                 </x-preview-card>
                             @endforeach
                         </div>
