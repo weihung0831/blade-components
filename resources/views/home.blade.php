@@ -24,7 +24,7 @@
                         class="inline-flex h-10 items-center rounded-lg bg-jade-500 px-5 text-sm font-medium text-ink-950 transition-[transform,background-color] duration-150 ease-snap hover:bg-jade-400 active:scale-[0.97]">
                         Browse components
                     </a>
-                    <a href="#"
+                    <a href="https://github.com/weihung0831/blade-components" target="_blank" rel="noopener"
                         class="inline-flex h-10 items-center rounded-lg border border-white/10 px-5 text-sm font-medium text-zinc-300 transition-[transform,border-color] duration-150 ease-snap hover:border-white/25 active:scale-[0.97]">
                         View on GitHub
                     </a>
