@@ -1,0 +1,1 @@
+<span class="bg-linear-to-r from-zinc-600 via-cream to-zinc-600 bg-[length:200%_100%] bg-clip-text text-lg font-semibold tracking-tight text-transparent [animation:shimmer_2.5s_linear_infinite]">Ship faster with Blade</span>
