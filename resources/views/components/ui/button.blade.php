@@ -5,7 +5,7 @@
 ])
 
 @php
-    $base = 'inline-flex items-center justify-center rounded-lg font-medium transition-[transform,background-color,border-color,color] duration-150 ease-snap active:scale-[0.97] disabled:pointer-events-none disabled:opacity-40';
+    $base = 'inline-flex items-center justify-center rounded-lg font-medium transition-[transform,background-color,border-color,color] duration-150 ease-snap outline-none focus-visible:ring-2 focus-visible:ring-jade-500/70 active:scale-[0.97] disabled:pointer-events-none disabled:opacity-40';
 
     $variants = [
         'primary' => 'bg-jade-500 text-ink-950 hover:bg-jade-400',

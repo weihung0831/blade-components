@@ -23,13 +23,16 @@ it('renders the templates index with every template', function () {
     }
 });
 
-it('renders the button detail page', function () {
-    $this->get('/components/button')
+it('renders component detail pages', function (string $slug, string $name) {
+    $this->get("/components/{$slug}")
         ->assertSuccessful()
-        ->assertSee('Button')
+        ->assertSee($name)
         ->assertSee('Variants')
-        ->assertSee('x-ui.button');
-});
+        ->assertSee('x-ui.'.$slug);
+})->with([
+    'button' => ['button', 'Button'],
+    'icon button' => ['icon-button', 'Icon button'],
+]);
 
 it('renders code snippets without leaking blade compilation artifacts', function () {
     $this->get('/components/button')->assertDontSee('endComponentClass');

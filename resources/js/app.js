@@ -20,6 +20,25 @@ if (themeToggle) {
     });
 }
 
+document.querySelectorAll('[data-copy-code]').forEach((button) => {
+    const copyIcon = button.querySelector('[data-copy-icon]');
+    const copiedIcon = button.querySelector('[data-copied-icon]');
+    let resetTimer;
+
+    button.addEventListener('click', async () => {
+        await navigator.clipboard.writeText(button.dataset.copyCode);
+
+        copyIcon.classList.add('hidden');
+        copiedIcon.classList.remove('hidden');
+
+        clearTimeout(resetTimer);
+        resetTimer = setTimeout(() => {
+            copyIcon.classList.remove('hidden');
+            copiedIcon.classList.add('hidden');
+        }, 1600);
+    });
+});
+
 const backToTop = document.querySelector('[data-back-to-top]');
 
 if (backToTop) {
