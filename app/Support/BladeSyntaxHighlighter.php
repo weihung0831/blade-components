@@ -7,9 +7,14 @@ class BladeSyntaxHighlighter
     /**
      * Convert a Blade/HTML snippet into markup with Tailwind color spans.
      *
-     * Handles the subset used in demo snippets: tag names, attributes,
-     * quoted attribute values, and angle brackets. Output is HTML-escaped
-     * before any spans are added, so it is safe to render with {!! !!}.
+     * Handles the subset used in demo and install snippets: tag names,
+     * attributes, quoted attribute values, single-quoted strings, angle
+     * brackets, and Blade directives. Output is HTML-escaped before any
+     * spans are added, so it is safe to render with {!! !!}.
+     *
+     * Palette: tags jade, attribute names sky, strings amber, directives
+     * violet, punctuation zinc — the light theme remaps sky/amber/violet
+     * in app.css alongside the other tokens.
      */
     public static function highlight(string $code): string
     {
@@ -17,7 +22,13 @@ class BladeSyntaxHighlighter
 
         $escaped = preg_replace(
             '/([\w:-]+)=&quot;(.*?)&quot;/',
-            '<span class="text-zinc-500">$1</span><span class="text-zinc-600">=</span><span class="text-zinc-200">&quot;$2&quot;</span>',
+            '<span class="text-sky-300">$1</span><span class="text-zinc-600">=</span><span class="text-amber-200">&quot;$2&quot;</span>',
+            $escaped
+        );
+
+        $escaped = preg_replace(
+            '/(&#039;.*?&#039;)/',
+            '<span class="text-amber-200">$1</span>',
             $escaped
         );
 
@@ -31,7 +42,7 @@ class BladeSyntaxHighlighter
 
         return preg_replace(
             '/(?<![\w@])(@[a-zA-Z]\w*)/',
-            '<span class="text-jade-400">$1</span>',
+            '<span class="text-violet-300">$1</span>',
             $escaped
         );
     }
@@ -49,13 +60,13 @@ class BladeSyntaxHighlighter
 
         $escaped = preg_replace(
             '/^(\s*)(--[\w-]+)(\s*:\s*)(.*?)(;)$/',
-            '$1<span class="text-zinc-500">$2</span><span class="text-zinc-600">$3</span><span class="text-zinc-200">$4</span><span class="text-zinc-600">$5</span>',
+            '$1<span class="text-sky-300">$2</span><span class="text-zinc-600">$3</span><span class="text-amber-200">$4</span><span class="text-zinc-600">$5</span>',
             $escaped
         );
 
         $escaped = preg_replace(
             '/^(@[\w-]+)/',
-            '<span class="text-jade-400">$1</span>',
+            '<span class="text-violet-300">$1</span>',
             $escaped
         );
 

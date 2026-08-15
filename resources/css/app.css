@@ -57,6 +57,11 @@
     --color-zinc-700: #b5b5be;
 
     --color-red-400: #c22f33;
+
+    /* Code syntax colors: pastel on dark, ink-heavy on light. */
+    --color-sky-300: #16739e;
+    --color-amber-200: #96650e;
+    --color-violet-300: #6f58c4;
 }
 
 @utility dot-grid {
