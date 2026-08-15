@@ -42,6 +42,12 @@ it('links the button card to its detail page', function () {
     $this->get('/components')->assertSee(route('components.show', 'button'));
 });
 
+it('marks entries without a detail page as coming soon and does not link them', function () {
+    $this->get('/components')
+        ->assertSee('Soon')
+        ->assertDontSee(route('components.show', 'badge'));
+});
+
 it('returns 404 for unknown components', function (string $slug) {
     $this->get("/components/{$slug}")->assertNotFound();
 })->with([

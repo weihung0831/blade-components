@@ -38,8 +38,11 @@
                         </div>
                         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
                             @foreach ($items as $item)
-                                <x-preview-card :name="$item['name']" :variants="$item['variants']"
-                                    href="{{ View::exists('catalog.'.Str::slug($category).'.'.$item['slug']) ? route('components.show', $item['slug']) : '#' }}"
+                                @php
+                                    $isBuilt = View::exists('catalog.'.Str::slug($category).'.'.$item['slug']);
+                                @endphp
+                                <x-preview-card :name="$item['name']" :variants="$item['variants']" :soon="! $isBuilt"
+                                    :href="$isBuilt ? route('components.show', $item['slug']) : null"
                                     style="animation-delay: {{ min(60 + $loop->index * 50, 360) }}ms">
                                     <x-dynamic-component :component="'previews.'.Str::slug($category).'.'.$item['slug']" />
                                 </x-preview-card>
