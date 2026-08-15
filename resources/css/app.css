@@ -21,8 +21,46 @@
     --ease-snap: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
+@custom-variant light (&:where([data-theme='light'], [data-theme='light'] *));
+
+:root {
+    color-scheme: dark;
+}
+
+/*
+ * Light theme: the whole site is painted with theme tokens (ink surfaces,
+ * cream text, white-alpha borders, zinc grays), so flipping the tokens
+ * flips every page without touching markup.
+ */
+[data-theme='light'] {
+    color-scheme: light;
+
+    --color-ink-950: #f2f1ec;
+    --color-ink-900: #faf9f6;
+    --color-ink-800: #e7e5dd;
+
+    --color-cream: #16161c;
+
+    --color-white: #14141a;
+    --color-black: #3f3d38;
+
+    --color-jade-300: #2c665c;
+    --color-jade-400: #35796d;
+    --color-jade-500: #3d8b7d;
+    --color-jade-600: #66b0a2;
+
+    --color-zinc-200: #26262e;
+    --color-zinc-300: #34343e;
+    --color-zinc-400: #4c4c58;
+    --color-zinc-500: #6b6b78;
+    --color-zinc-600: #8f8f9a;
+    --color-zinc-700: #b5b5be;
+
+    --color-red-400: #c22f33;
+}
+
 @utility dot-grid {
-    background-image: radial-gradient(circle, rgb(255 255 255 / 0.07) 1px, transparent 1px);
+    background-image: radial-gradient(circle, color-mix(in oklab, var(--color-white) 8%, transparent) 1px, transparent 1px);
     background-size: 22px 22px;
 }
 

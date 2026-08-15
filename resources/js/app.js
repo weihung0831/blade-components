@@ -4,6 +4,22 @@
  * [data-spy-section]; the active link carries a bare [data-active]
  * attribute styled via Tailwind's data-active: variant.
  */
+const themeToggle = document.querySelector('[data-theme-toggle]');
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const root = document.documentElement;
+
+        if (root.dataset.theme === 'light') {
+            delete root.dataset.theme;
+            localStorage.setItem('theme', 'dark');
+        } else {
+            root.dataset.theme = 'light';
+            localStorage.setItem('theme', 'light');
+        }
+    });
+}
+
 const backToTop = document.querySelector('[data-back-to-top]');
 
 if (backToTop) {

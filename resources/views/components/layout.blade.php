@@ -5,6 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $title }}</title>
+    <script>
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.dataset.theme = 'light';
+        }
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -28,6 +33,11 @@
                     class="hidden transition-colors duration-150 sm:block {{ request()->routeIs('templates') ? 'text-cream' : 'text-zinc-400 hover:text-cream' }}">Templates</a>
                 <a href="#" class="hidden text-zinc-400 transition-colors duration-150 hover:text-cream sm:block">Docs</a>
                 <a href="#" class="text-zinc-400 transition-colors duration-150 hover:text-cream">GitHub</a>
+                <button type="button" data-theme-toggle aria-label="Toggle color theme"
+                    class="grid size-7 place-items-center rounded-md text-zinc-400 transition-[transform,color] duration-150 ease-snap hover:text-cream active:scale-[0.92]">
+                    <svg class="size-4 light:hidden" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3.25" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.5v1.6M8 12.9v1.6M1.5 8h1.6M12.9 8h1.6M3.4 3.4l1.13 1.13M11.47 11.47l1.13 1.13M12.6 3.4l-1.13 1.13M4.53 11.47 3.4 12.6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+                    <svg class="hidden size-4 light:block" viewBox="0 0 16 16" fill="none"><path d="M13.5 9.8A5.8 5.8 0 0 1 6.2 2.5a5.8 5.8 0 1 0 7.3 7.3Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+                </button>
                 <span class="rounded-full border border-white/10 px-2.5 py-0.5 font-mono text-xs text-zinc-500">v0.1.0</span>
             </nav>
         </div>
