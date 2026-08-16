@@ -56,15 +56,15 @@
         <x-ui.button variant="secondary" size="sm">Share report</x-ui.button>
     </x-slot>
 
-    <div class="grid grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <x-templates.dashboard.stat label="Sessions" :value="412800" delta="14.9%" trend="up" hint="vs prior 28 days" />
         <x-templates.dashboard.stat label="Product views" :value="1284900" delta="11.2%" trend="up" hint="across 1,284 stores" />
         <x-templates.dashboard.stat label="Conversion" :value="3.4" :decimals="1" suffix="%" delta="0.3pt" trend="up" hint="paid orders / sessions" />
         <x-templates.dashboard.stat label="Avg order value" :value="86.4" :decimals="2" prefix="$" delta="1.9%" trend="down" hint="promo-heavy month" />
     </div>
 
-    <div class="grid grid-cols-3 gap-4">
-        <x-ui.card class="col-span-2">
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+        <x-ui.card class="lg:col-span-2">
             <x-slot:header>
                 <div class="flex items-baseline justify-between">
                     <div>
@@ -93,7 +93,7 @@
 
             <x-ui.separator class="my-4" />
 
-            <x-ui.meter-group :segments="[
+            <x-ui.meter-group animate :segments="[
                 ['label' => 'Mobile', 'value' => 63, 'color' => 'jade'],
                 ['label' => 'Desktop', 'value' => 31, 'color' => 'mint'],
                 ['label' => 'Tablet', 'value' => 6, 'color' => 'zinc'],
@@ -101,8 +101,8 @@
         </x-ui.card>
     </div>
 
-    <div class="grid grid-cols-3 gap-4">
-        <x-ui.card class="col-span-2">
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+        <x-ui.card class="lg:col-span-2">
             <x-slot:header>
                 <div class="flex items-baseline justify-between">
                     <h2 class="text-sm font-medium text-cream">Checkout funnel</h2>

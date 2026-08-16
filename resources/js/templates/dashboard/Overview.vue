@@ -67,15 +67,15 @@ const risk = [
             <UiButton size="sm">Invite merchant</UiButton>
         </template>
 
-        <div class="grid grid-cols-4 gap-4">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
             <DashboardStat label="MRR" :value="48240" prefix="$" delta="12.4%" trend="up" hint="vs last month" />
             <DashboardStat label="Active merchants" :value="1284" delta="3.1%" trend="up" hint="42 new this month" />
             <DashboardStat label="Net revenue churn" :value="2.1" :decimals="1" suffix="%" delta="0.4pt" trend="down" hint="improved" />
             <DashboardStat label="Seats in use" :value="312" delta="18" trend="up" hint="of 400 licensed" />
         </div>
 
-        <div class="grid grid-cols-3 gap-4">
-            <UiCard class="col-span-2">
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+            <UiCard class="lg:col-span-2">
                 <template #header>
                     <div class="flex items-baseline justify-between">
                         <div>
@@ -94,7 +94,7 @@ const risk = [
                     <h2 class="text-sm font-medium text-cream">Plan mix</h2>
                 </template>
 
-                <UiMeterGroup :segments="planMix" total="1,284 merchants" />
+                <UiMeterGroup animate :segments="planMix" total="1,284 merchants" />
 
                 <UiSeparator class="my-4" />
 
@@ -119,7 +119,7 @@ const risk = [
             </UiCard>
         </div>
 
-        <div class="grid grid-cols-3 gap-4">
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
             <UiCard>
                 <template #header>
                     <div class="flex items-baseline justify-between">
@@ -129,7 +129,7 @@ const risk = [
                 </template>
 
                 <div class="flex flex-col gap-3.5">
-                    <UiProgress v-for="quota in quotas" :key="quota.label" :value="quota.used" :max="quota.limit"
+                    <UiProgress v-for="(quota, index) in quotas" :key="quota.label" :value="quota.used" :max="quota.limit" animate :delay="index * 110"
                         :label="`${quota.label} · ${quota.used}/${quota.limit} ${quota.unit}`" />
                 </div>
             </UiCard>

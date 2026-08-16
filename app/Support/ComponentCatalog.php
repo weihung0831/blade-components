@@ -70,7 +70,7 @@ class ComponentCatalog
                 ['slug' => 'accordion', 'name' => 'Accordion', 'variants' => 2],
                 ['slug' => 'separator', 'name' => 'Separator', 'variants' => 2],
                 ['slug' => 'kbd', 'name' => 'Kbd', 'variants' => 2],
-                ['slug' => 'meter-group', 'name' => 'Meter group', 'variants' => 2],
+                ['slug' => 'meter-group', 'name' => 'Meter group', 'variants' => 3],
                 ['slug' => 'terminal', 'name' => 'Terminal', 'variants' => 2],
             ],
             'Panels' => [
@@ -84,7 +84,7 @@ class ComponentCatalog
             'Feedback' => [
                 ['slug' => 'alert', 'name' => 'Alert', 'variants' => 4],
                 ['slug' => 'toast', 'name' => 'Toast', 'variants' => 4],
-                ['slug' => 'progress', 'name' => 'Progress', 'variants' => 2],
+                ['slug' => 'progress', 'name' => 'Progress', 'variants' => 3],
                 ['slug' => 'skeleton', 'name' => 'Skeleton', 'variants' => 3],
                 ['slug' => 'spinner', 'name' => 'Spinner', 'variants' => 3],
             ],

@@ -46,15 +46,15 @@
         <x-ui.button size="sm">Open payouts</x-ui.button>
     </x-slot>
 
-    <div class="grid grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <x-templates.dashboard.stat label="Gross volume" :value="184920" prefix="$" delta="8.7%" trend="up" hint="platform-wide, 7 days" />
         <x-templates.dashboard.stat label="Orders" :value="14035" delta="6.2%" trend="up" hint="2,004 per day" />
         <x-templates.dashboard.stat label="Refund rate" :value="1.8" :decimals="1" suffix="%" delta="0.2pt" trend="up" hint="watch Osprey returns" />
         <x-templates.dashboard.stat label="Platform fee" :value="5547.6" :decimals="2" prefix="$" delta="8.7%" trend="up" hint="3% of volume" />
     </div>
 
-    <div class="grid grid-cols-3 gap-4">
-        <x-ui.card class="col-span-2">
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+        <x-ui.card class="lg:col-span-2">
             <x-slot:header>
                 <div class="flex items-baseline justify-between">
                     <div>
@@ -104,8 +104,8 @@
         </x-ui.card>
     </div>
 
-    <div class="grid grid-cols-3 gap-4">
-        <x-ui.card class="col-span-2">
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+        <x-ui.card class="lg:col-span-2">
             <x-slot:header>
                 <div class="flex items-baseline justify-between">
                     <h2 class="text-sm font-medium text-cream">Best sellers</h2>
@@ -138,7 +138,7 @@
                 <h2 class="text-sm font-medium text-cream">Refund reasons</h2>
             </x-slot>
 
-            <x-ui.meter-group :segments="[
+            <x-ui.meter-group animate :segments="[
                 ['label' => 'Damaged in transit', 'value' => 44, 'color' => 'jade'],
                 ['label' => 'Wrong size', 'value' => 33, 'color' => 'mint'],
                 ['label' => 'Changed mind', 'value' => 23, 'color' => 'zinc'],

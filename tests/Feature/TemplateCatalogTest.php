@@ -51,11 +51,32 @@ it('ships an installation section with every file in all three languages', funct
 
 it('renders every dashboard screen on its own', function () {
     foreach (TemplateCatalog::screens('dashboard') as $screen) {
-        $this->get(route('templates.screen', ['dashboard', $screen['slug']]))
-            ->assertSuccessful()
-            ->assertSee($screen['name'])
-            ->assertSee('wharf');
+        $url = route('templates.screen', ['dashboard', $screen['slug']]);
+
+        $this->get($url)->assertSuccessful()->assertSee($screen['name']);
+        $this->get($url.'?frame=1')->assertSuccessful()->assertSee('wharf');
     }
+});
+
+it('wires the dashboard sidebar to its sibling screens', function () {
+    $response = $this->get(route('templates.screen', ['dashboard', 'overview']).'?frame=1')->assertSuccessful();
+
+    foreach (TemplateCatalog::screens('dashboard') as $screen) {
+        $response->assertSee(route('templates.screen', ['dashboard', $screen['slug']]));
+    }
+
+    $response->assertSee('target="_top"', false);
+});
+
+it('frames each screen in a device switcher', function () {
+    $response = $this->get(route('templates.screen', ['dashboard', 'overview']))->assertSuccessful();
+
+    foreach (['mobile', 'tablet', 'desktop'] as $device) {
+        $response->assertSee('id="device-'.$device.'"', false);
+    }
+
+    $response->assertSee('<iframe', false)
+        ->assertSee(route('templates.screen', ['dashboard', 'overview']).'?frame=1');
 });
 
 it('returns 404 for templates and screens that do not exist', function (string $path) {

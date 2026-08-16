@@ -88,15 +88,15 @@ const rows = [
             <UiButton variant="secondary" size="sm">Share report</UiButton>
         </template>
 
-        <div class="grid grid-cols-4 gap-4">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
             <DashboardStat label="Sessions" :value="412800" delta="14.9%" trend="up" hint="vs prior 28 days" />
             <DashboardStat label="Product views" :value="1284900" delta="11.2%" trend="up" hint="across 1,284 stores" />
             <DashboardStat label="Conversion" :value="3.4" :decimals="1" suffix="%" delta="0.3pt" trend="up" hint="paid orders / sessions" />
             <DashboardStat label="Avg order value" :value="86.4" :decimals="2" prefix="$" delta="1.9%" trend="down" hint="promo-heavy month" />
         </div>
 
-        <div class="grid grid-cols-3 gap-4">
-            <UiCard class="col-span-2">
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+            <UiCard class="lg:col-span-2">
                 <template #header>
                     <div class="flex items-baseline justify-between">
                         <div>
@@ -125,12 +125,12 @@ const rows = [
 
                 <UiSeparator class="my-4" />
 
-                <UiMeterGroup :segments="devices" label="Devices" total="412.8k sessions" />
+                <UiMeterGroup animate :segments="devices" label="Devices" total="412.8k sessions" />
             </UiCard>
         </div>
 
-        <div class="grid grid-cols-3 gap-4">
-            <UiCard class="col-span-2">
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+            <UiCard class="lg:col-span-2">
                 <template #header>
                     <div class="flex items-baseline justify-between">
                         <h2 class="text-sm font-medium text-cream">Checkout funnel</h2>

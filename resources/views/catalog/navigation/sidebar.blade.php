@@ -11,7 +11,7 @@
                 <p class="font-mono text-xs tracking-wider text-jade-400 uppercase">{{ $category }}</p>
                 <h1 class="mt-1.5 text-3xl font-semibold tracking-tight text-cream">{{ $item['name'] }}</h1>
                 <p class="mt-2 max-w-lg text-sm/6 text-zinc-500">
-                    The console's left edge: grouped links, an active row, and counts where they earn their place. Icons ship with the component — name one per item and skip the SVG wrangling.
+                    The console's left edge: grouped links, an active row, and counts where they earn their place. Icons ship with the component — name one per item and skip the SVG wrangling. Items take href, active, badge, and an optional target.
                 </p>
             </div>
             <span class="font-mono text-xs text-zinc-600">{{ sprintf('%02d', $item['variants']) }} variants</span>

@@ -47,6 +47,32 @@
             $indeterminateReactCode = <<<'REACT'
             <UiProgress label="Provisioning workspace" indeterminate className="w-80" />
             REACT;
+
+            $animateCode = <<<'BLADE'
+            @foreach ($quotas as $quota)
+                <x-ui.progress :label="$quota['label']" :value="$quota['value']"
+                    animate :delay="$loop->index * 110" class="w-80" />
+            @endforeach
+            BLADE;
+
+            $animateVueCode = <<<'VUE'
+            <UiProgress v-for="(quota, index) in quotas" :key="quota.label"
+                :label="quota.label" :value="quota.value" animate :delay="index * 110" class="w-80" />
+            VUE;
+
+            $animateReactCode = <<<'REACT'
+            {quotas.map((quota, index) => (
+                <UiProgress key={quota.label} label={quota.label} value={quota.value}
+                    animate delay={index * 110} className="w-80" />
+            ))}
+            REACT;
+
+            $quotas = [
+                ['label' => 'API calls', 'value' => 70],
+                ['label' => 'Asset storage', 'value' => 60],
+                ['label' => 'Bandwidth', 'value' => 62],
+                ['label' => 'Webhook events', 'value' => 94],
+            ];
         @endphp
 
         <div class="mt-12 flex flex-col gap-12">
@@ -67,7 +93,17 @@
                 <x-ui.progress label="Provisioning workspace" :indeterminate="true" class="w-80" />
             </x-demo>
 
-            <x-install class="rise" style="animation-delay: 240ms" slug="progress" :vue="true" :react="true" />
+            <x-demo class="rise" style="animation-delay: 240ms" title="Growing in"
+                description="Set animate and the fill scales out from the left on first paint. Stagger a stack of them with delay, in milliseconds."
+                :code="$animateCode" :vue-code="$animateVueCode" :react-code="$animateReactCode">
+                <div class="flex w-80 flex-col gap-4">
+                    @foreach ($quotas as $quota)
+                        <x-ui.progress :label="$quota['label']" :value="$quota['value']" animate :delay="$loop->index * 110" />
+                    @endforeach
+                </div>
+            </x-demo>
+
+            <x-install class="rise" style="animation-delay: 300ms" slug="progress" :vue="true" :react="true" />
 
         </div>
     </div>

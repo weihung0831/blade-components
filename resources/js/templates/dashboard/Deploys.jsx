@@ -73,7 +73,7 @@ export function Deploys() {
                 </>
             }
         >
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
                 {services.map((service) => (
                     <div key={service.name} className="rounded-xl border border-white/10 bg-ink-800 p-4">
                         <div className="flex items-center gap-2">
@@ -96,9 +96,9 @@ export function Deploys() {
                 ))}
             </div>
 
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
                 <UiCard
-                    className="col-span-2"
+                    className="lg:col-span-2"
                     header={
                         <div className="flex items-baseline justify-between">
                             <div>

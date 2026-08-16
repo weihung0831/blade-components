@@ -51,7 +51,7 @@
         <x-ui.button size="sm">Deploy main</x-ui.button>
     </x-slot>
 
-    <div class="grid grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
         @foreach ($services as $service)
             <div class="rounded-xl border border-white/10 bg-ink-800 p-4">
                 <div class="flex items-center gap-2">
@@ -78,8 +78,8 @@
         @endforeach
     </div>
 
-    <div class="grid grid-cols-3 gap-4">
-        <x-ui.card class="col-span-2">
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+        <x-ui.card class="lg:col-span-2">
             <x-slot:header>
                 <div class="flex items-baseline justify-between">
                     <div>

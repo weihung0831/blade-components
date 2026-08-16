@@ -286,7 +286,7 @@
 
         <div class="flex flex-col gap-3.5">
             @foreach ($quotas as $quota)
-                <x-ui.progress :value="$quota['used']" :max="$quota['limit']"
+                <x-ui.progress :value="$quota['used']" :max="$quota['limit']" animate :delay="$loop->index * 110"
                     :label="$quota['label'].' · '.$quota['used'].'/'.$quota['limit'].' '.$quota['unit']" />
             @endforeach
         </div>
@@ -303,7 +303,7 @@
         </template>
 
         <div class="flex flex-col gap-3.5">
-            <UiProgress v-for="quota in quotas" :key="quota.label" :value="quota.used" :max="quota.limit"
+            <UiProgress v-for="(quota, index) in quotas" :key="quota.label" :value="quota.used" :max="quota.limit" animate :delay="index * 110"
                 :label="`${quota.label} · ${quota.used}/${quota.limit} ${quota.unit}`" />
         </div>
     </UiCard>
@@ -319,8 +319,8 @@
         }
     >
         <div className="flex flex-col gap-3.5">
-            {quotas.map((quota) => (
-                <UiProgress key={quota.label} value={quota.used} max={quota.limit}
+            {quotas.map((quota, index) => (
+                <UiProgress key={quota.label} value={quota.used} max={quota.limit} animate delay={index * 110}
                     label={`${quota.label} · ${quota.used}/${quota.limit} ${quota.unit}`} />
             ))}
         </div>
@@ -635,7 +635,7 @@
 
                         <div class="flex flex-col gap-3.5">
                             @foreach ($quotas as $quota)
-                                <x-ui.progress :value="$quota['used']" :max="$quota['limit']"
+                                <x-ui.progress :value="$quota['used']" :max="$quota['limit']" animate :delay="$loop->index * 110"
                                     :label="$quota['label'].' · '.$quota['used'].'/'.$quota['limit'].' '.$quota['unit']" />
                             @endforeach
                         </div>

@@ -86,6 +86,30 @@
                 ]}
             />
             REACT;
+
+            $animateCode = <<<'BLADE'
+            <x-ui.meter-group animate class="w-72" label="Plan mix" total="1,284 merchants" :segments="[
+                ['label' => 'Scale', 'value' => 34, 'color' => 'jade'],
+                ['label' => 'Growth', 'value' => 47, 'color' => 'mint'],
+                ['label' => 'Starter', 'value' => 19, 'color' => 'zinc'],
+            ]" />
+            BLADE;
+
+            $animateVueCode = <<<'VUE'
+            <UiMeterGroup animate class="w-72" label="Plan mix" total="1,284 merchants" :segments="[
+                { label: 'Scale', value: 34, color: 'jade' },
+                { label: 'Growth', value: 47, color: 'mint' },
+                { label: 'Starter', value: 19, color: 'zinc' },
+            ]" />
+            VUE;
+
+            $animateReactCode = <<<'REACT'
+            <UiMeterGroup animate className="w-72" label="Plan mix" total="1,284 merchants" segments={[
+                { label: 'Scale', value: 34, color: 'jade' },
+                { label: 'Growth', value: 47, color: 'mint' },
+                { label: 'Starter', value: 19, color: 'zinc' },
+            ]} />
+            REACT;
         @endphp
 
         <div class="mt-12 flex flex-col gap-12">
@@ -117,7 +141,17 @@
                 />
             </x-demo>
 
-            <x-install class="rise" style="animation-delay: 240ms" slug="meter-group" :vue="true" :react="true" />
+            <x-demo class="rise" style="animation-delay: 240ms" title="Growing in"
+                description="Set animate and the bar wipes out from the left while the legend rows follow it in. Tune duration and stagger in milliseconds."
+                :code="$animateCode" :vue-code="$animateVueCode" :react-code="$animateReactCode">
+                <x-ui.meter-group animate class="w-72" label="Plan mix" total="1,284 merchants" :segments="[
+                    ['label' => 'Scale', 'value' => 34, 'color' => 'jade'],
+                    ['label' => 'Growth', 'value' => 47, 'color' => 'mint'],
+                    ['label' => 'Starter', 'value' => 19, 'color' => 'zinc'],
+                ]" />
+            </x-demo>
+
+            <x-install class="rise" style="animation-delay: 300ms" slug="meter-group" :vue="true" :react="true" />
 
         </div>
     </div>

@@ -36,7 +36,7 @@ Route::get('/templates/{slug}/screens/{screen}', function (string $slug, string 
 
     abort_unless($template !== null && View::exists('components.'.$component), 404);
 
-    return view('templates.screen', [
+    return view(request()->boolean('frame') ? 'templates.frame' : 'templates.screen', [
         'template' => $template,
         'component' => $component,
         'screen' => $screen,

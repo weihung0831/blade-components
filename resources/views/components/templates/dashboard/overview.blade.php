@@ -43,15 +43,15 @@
         <x-ui.button size="sm">Invite merchant</x-ui.button>
     </x-slot>
 
-    <div class="grid grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <x-templates.dashboard.stat label="MRR" :value="48240" prefix="$" delta="12.4%" trend="up" hint="vs last month" />
         <x-templates.dashboard.stat label="Active merchants" :value="1284" delta="3.1%" trend="up" hint="42 new this month" />
         <x-templates.dashboard.stat label="Net revenue churn" :value="2.1" :decimals="1" suffix="%" delta="0.4pt" trend="down" hint="improved" />
         <x-templates.dashboard.stat label="Seats in use" :value="312" delta="18" trend="up" hint="of 400 licensed" />
     </div>
 
-    <div class="grid grid-cols-3 gap-4">
-        <x-ui.card class="col-span-2">
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+        <x-ui.card class="lg:col-span-2">
             <x-slot:header>
                 <div class="flex items-baseline justify-between">
                     <div>
@@ -70,7 +70,7 @@
                 <h2 class="text-sm font-medium text-cream">Plan mix</h2>
             </x-slot>
 
-            <x-ui.meter-group :segments="[
+            <x-ui.meter-group animate :segments="[
                 ['label' => 'Scale', 'value' => 34, 'color' => 'jade'],
                 ['label' => 'Growth', 'value' => 47, 'color' => 'mint'],
                 ['label' => 'Starter', 'value' => 19, 'color' => 'zinc'],
@@ -99,7 +99,7 @@
         </x-ui.card>
     </div>
 
-    <div class="grid grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
         <x-ui.card>
             <x-slot:header>
                 <div class="flex items-baseline justify-between">
@@ -110,7 +110,7 @@
 
             <div class="flex flex-col gap-3.5">
                 @foreach ($quotas as $quota)
-                    <x-ui.progress :value="$quota['used']" :max="$quota['limit']"
+                    <x-ui.progress :value="$quota['used']" :max="$quota['limit']" animate :delay="$loop->index * 110"
                         :label="$quota['label'].' · '.$quota['used'].'/'.$quota['limit'].' '.$quota['unit']" />
                 @endforeach
             </div>

@@ -29,7 +29,7 @@
         <x-ui.button size="sm">Invite merchant</x-ui.button>
     </x-slot>
 
-    <div class="grid grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <x-templates.dashboard.stat label="Total merchants" :value="1284" delta="42" trend="up" hint="new this month" />
         <x-templates.dashboard.stat label="On trial" :value="96" delta="11" trend="up" hint="31.8% convert" />
         <x-templates.dashboard.stat label="Past due" :value="14" delta="3" trend="down" hint="dunning day 2–14" />
@@ -64,7 +64,7 @@
 
     <x-ui.table :columns="$columns" :rows="$rows" hover striped />
 
-    <div class="flex items-center justify-between">
+    <div class="flex flex-wrap items-center justify-between gap-3">
         <p class="font-mono text-[11px] text-zinc-600">Showing 1–10 of 1,284 merchants</p>
         <x-ui.pagination :pages="129" :current="1" />
     </div>

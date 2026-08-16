@@ -75,16 +75,16 @@ export function Orders() {
                 </>
             }
         >
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
                 <DashboardStat label="Gross volume" value={184920} prefix="$" delta="8.7%" trend="up" hint="platform-wide, 7 days" />
                 <DashboardStat label="Orders" value={14035} delta="6.2%" trend="up" hint="2,004 per day" />
                 <DashboardStat label="Refund rate" value={1.8} decimals={1} suffix="%" delta="0.2pt" trend="up" hint="watch Osprey returns" />
                 <DashboardStat label="Platform fee" value={5547.6} decimals={2} prefix="$" delta="8.7%" trend="up" hint="3% of volume" />
             </div>
 
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
                 <UiCard
-                    className="col-span-2"
+                    className="lg:col-span-2"
                     header={
                         <div className="flex items-baseline justify-between">
                             <div>
@@ -134,9 +134,9 @@ export function Orders() {
                 </UiCard>
             </div>
 
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
                 <UiCard
-                    className="col-span-2"
+                    className="lg:col-span-2"
                     header={
                         <div className="flex items-baseline justify-between">
                             <h2 className="text-sm font-medium text-cream">Best sellers</h2>
@@ -165,7 +165,7 @@ export function Orders() {
                 </UiCard>
 
                 <UiCard header={<h2 className="text-sm font-medium text-cream">Refund reasons</h2>}>
-                    <UiMeterGroup segments={refunds} label="Reason mix" total="252 refunds" />
+                    <UiMeterGroup animate segments={refunds} label="Reason mix" total="252 refunds" />
 
                     <UiSeparator className="my-4" />
 

@@ -5,6 +5,10 @@ const props = defineProps({
     total: { type: String, default: null },
     max: { type: Number, default: 100 },
     unit: { type: String, default: '%' },
+    animate: { type: Boolean, default: false },
+    duration: { type: Number, default: 900 },
+    delay: { type: Number, default: 0 },
+    stagger: { type: Number, default: 90 },
 });
 
 const colors = {
@@ -18,6 +22,10 @@ const colorClass = (segment) => colors[segment.color] ?? colors.jade;
 const width = (segment) => `${Math.round((segment.value / props.max) * 10000) / 100}%`;
 
 const display = (segment) => (props.unit === '%' ? `${segment.value}%` : `${segment.value} ${props.unit}`);
+
+const timing = (step) => (props.animate
+    ? { animationDelay: `${props.delay + step * props.stagger}ms`, '--ui-meter-duration': `${props.duration}ms` }
+    : null);
 </script>
 
 <template>
@@ -26,11 +34,15 @@ const display = (segment) => (props.unit === '%' ? `${segment.value}%` : `${segm
             <p v-if="label !== null" class="text-sm font-medium text-cream">{{ label }}</p>
             <p v-if="total !== null" class="font-mono text-xs text-zinc-500">{{ total }}</p>
         </div>
-        <div class="flex h-2 overflow-hidden rounded-full bg-ink-800">
+        <div class="flex h-2 overflow-hidden rounded-full bg-ink-800"
+            :class="animate && 'origin-left animate-[ui-meter-grow_var(--ui-meter-duration)_var(--ease-snap)_both]'"
+            :style="timing(0)">
             <span v-for="(segment, index) in segments" :key="index" :class="colorClass(segment)" :style="{ width: width(segment) }"></span>
         </div>
         <div class="mt-3 flex flex-col gap-1.5 text-xs">
-            <span v-for="(segment, index) in segments" :key="index" class="flex items-center gap-2 text-zinc-400">
+            <span v-for="(segment, index) in segments" :key="index" class="flex items-center gap-2 text-zinc-400"
+                :class="animate && 'animate-[ui-meter-fade_var(--ui-meter-duration)_var(--ease-snap)_both]'"
+                :style="timing(index + 1)">
                 <span class="size-2 shrink-0 rounded-full" :class="colorClass(segment)"></span>
                 {{ segment.label }}
                 <span class="ml-auto font-mono text-zinc-500">{{ display(segment) }}</span>
@@ -38,3 +50,25 @@ const display = (segment) => (props.unit === '%' ? `${segment.value}%` : `${segm
         </div>
     </div>
 </template>
+
+<style>
+@keyframes ui-meter-grow {
+    from {
+        transform: scaleX(0);
+    }
+}
+
+@keyframes ui-meter-fade {
+    from {
+        opacity: 0;
+        translate: 0 4px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [class*='ui-meter-grow'],
+    [class*='ui-meter-fade'] {
+        animation: none;
+    }
+}
+</style>

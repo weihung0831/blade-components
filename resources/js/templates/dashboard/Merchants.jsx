@@ -52,7 +52,7 @@ export function Merchants() {
                 </>
             }
         >
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
                 <DashboardStat label="Total merchants" value={1284} delta="42" trend="up" hint="new this month" />
                 <DashboardStat label="On trial" value={96} delta="11" trend="up" hint="31.8% convert" />
                 <DashboardStat label="Past due" value={14} delta="3" trend="down" hint="dunning day 2–14" />
@@ -93,7 +93,7 @@ export function Merchants() {
 
             <UiTable columns={columns} rows={rows} hover striped />
 
-            <div className="flex items-center justify-between">
+            <div className="flex flex-wrap items-center justify-between gap-3">
                 <p className="font-mono text-[11px] text-zinc-600">Showing 1–10 of 1,284 merchants</p>
                 <UiPagination pages={129} current={1} />
             </div>

@@ -41,7 +41,9 @@
                         ? 'bg-jade-500/15 text-jade-300'
                         : 'text-zinc-400 hover:bg-white/5 hover:text-cream';
                 @endphp
-                <a href="{{ $entry['href'] ?? '#' }}" title="{{ $entry['label'] }}" @if ($active) aria-current="page" @endif
+                <a href="{{ $entry['href'] ?? '#' }}" title="{{ $entry['label'] }}"
+                    @isset($entry['target']) target="{{ $entry['target'] }}" @endisset
+                    @if ($active) aria-current="page" @endif
                     class="relative flex items-center rounded-lg text-sm transition-colors duration-150 outline-none focus-visible:ring-2 focus-visible:ring-jade-500/70 {{ $rail ? 'justify-center p-2.5' : 'gap-2.5 px-2.5 py-2' }} {{ $tone }}">
                     <svg class="size-4 shrink-0" viewBox="0 0 16 16" fill="none"><path d="{{ $icons[$entry['icon'] ?? 'dot'] ?? $icons['dot'] }}" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
 

@@ -69,7 +69,7 @@ const rows = [
             <UiButton size="sm">Deploy main</UiButton>
         </template>
 
-        <div class="grid grid-cols-4 gap-4">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
             <div v-for="service in services" :key="service.name" class="rounded-xl border border-white/10 bg-ink-800 p-4">
                 <div class="flex items-center gap-2">
                     <span class="size-1.5 shrink-0 rounded-full" :class="service.state === 'ok' ? 'bg-jade-500' : 'bg-amber-400'"></span>
@@ -89,8 +89,8 @@ const rows = [
             </div>
         </div>
 
-        <div class="grid grid-cols-3 gap-4">
-            <UiCard class="col-span-2">
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+            <UiCard class="lg:col-span-2">
                 <template #header>
                     <div class="flex items-baseline justify-between">
                         <div>

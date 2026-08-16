@@ -71,15 +71,15 @@ const rows = [
             <UiButton size="sm">Open payouts</UiButton>
         </template>
 
-        <div class="grid grid-cols-4 gap-4">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
             <DashboardStat label="Gross volume" :value="184920" prefix="$" delta="8.7%" trend="up" hint="platform-wide, 7 days" />
             <DashboardStat label="Orders" :value="14035" delta="6.2%" trend="up" hint="2,004 per day" />
             <DashboardStat label="Refund rate" :value="1.8" :decimals="1" suffix="%" delta="0.2pt" trend="up" hint="watch Osprey returns" />
             <DashboardStat label="Platform fee" :value="5547.6" :decimals="2" prefix="$" delta="8.7%" trend="up" hint="3% of volume" />
         </div>
 
-        <div class="grid grid-cols-3 gap-4">
-            <UiCard class="col-span-2">
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+            <UiCard class="lg:col-span-2">
                 <template #header>
                     <div class="flex items-baseline justify-between">
                         <div>
@@ -129,8 +129,8 @@ const rows = [
             </UiCard>
         </div>
 
-        <div class="grid grid-cols-3 gap-4">
-            <UiCard class="col-span-2">
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+            <UiCard class="lg:col-span-2">
                 <template #header>
                     <div class="flex items-baseline justify-between">
                         <h2 class="text-sm font-medium text-cream">Best sellers</h2>
@@ -163,7 +163,7 @@ const rows = [
                     <h2 class="text-sm font-medium text-cream">Refund reasons</h2>
                 </template>
 
-                <UiMeterGroup :segments="refunds" label="Reason mix" total="252 refunds" />
+                <UiMeterGroup animate :segments="refunds" label="Reason mix" total="252 refunds" />
 
                 <UiSeparator class="my-4" />
 

@@ -37,6 +37,7 @@ export function UiSidebar({ sections = [], variant = 'full', brand = null, foote
                                 key={entry.label}
                                 href={entry.href ?? '#'}
                                 title={entry.label}
+                                target={entry.target ?? undefined}
                                 aria-current={entry.active ? 'page' : undefined}
                                 className={`relative flex items-center rounded-lg text-sm transition-colors duration-150 outline-none focus-visible:ring-2 focus-visible:ring-jade-500/70 ${rail ? 'justify-center p-2.5' : 'gap-2.5 px-2.5 py-2'} ${tone(entry)}`}
                             >
