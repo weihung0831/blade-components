@@ -30,9 +30,6 @@
                     </a>
                 </div>
 
-                <p class="rise mt-6 font-mono text-[13px] text-zinc-600" style="animation-delay: 240ms">
-                    <span class="text-jade-600">$</span> composer require blade-components
-                </p>
             </div>
 
             {{-- Code window --}}
