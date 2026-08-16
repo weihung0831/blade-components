@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue';
+import { computed, nextTick, ref, watch } from 'vue';
 
 const props = defineProps({
     options: { type: Array, default: () => [] },
@@ -12,6 +12,42 @@ const props = defineProps({
 const model = defineModel({ default: null });
 
 const open = ref(false);
+const root = ref(null);
+const menu = ref(null);
+const dropUp = ref(false);
+
+const clipper = (element) => {
+    let parent = element.parentElement;
+
+    while (parent && parent !== document.body) {
+        if (/(auto|scroll|hidden)/.test(getComputedStyle(parent).overflowY)) {
+            return parent;
+        }
+
+        parent = parent.parentElement;
+    }
+
+    return null;
+};
+
+const place = async () => {
+    if (!open.value) {
+        dropUp.value = false;
+
+        return;
+    }
+
+    await nextTick();
+
+    const box = clipper(root.value);
+    const bounds = box ? box.getBoundingClientRect() : { top: 0, bottom: window.innerHeight };
+    const trigger = root.value.getBoundingClientRect();
+    const needed = menu.value.offsetHeight + 8;
+
+    dropUp.value = bounds.bottom - trigger.bottom < needed && trigger.top - bounds.top > needed;
+};
+
+watch(open, place);
 
 const select = (option) => {
     model.value = option;
@@ -44,14 +80,18 @@ const triggerClasses = computed(() => [
 </script>
 
 <template>
-    <div class="relative block" :class="disabled && 'pointer-events-none opacity-40'">
+    <div ref="root" class="relative block" :class="disabled && 'pointer-events-none opacity-40'">
         <button type="button" :disabled="disabled" @click="open = !open" :class="triggerClasses">
             <span class="truncate" :class="model !== null ? 'text-zinc-300' : 'text-zinc-600'">{{ model ?? placeholder }}</span>
             <svg class="size-3.5 shrink-0 text-zinc-500 transition-transform duration-150 ease-snap" :class="open && 'rotate-180'" viewBox="0 0 16 16" fill="none"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <template v-if="open">
             <div class="fixed inset-0 z-10" @click="open = false"></div>
-            <div class="absolute top-full left-0 z-20 mt-2 w-full min-w-max rounded-lg border border-white/10 bg-ink-900 p-1 shadow-lg shadow-black/40">
+            <div
+                ref="menu"
+                class="absolute left-0 z-20 w-full min-w-max rounded-lg border border-white/10 bg-ink-900 p-1 shadow-lg shadow-black/40"
+                :class="dropUp ? 'bottom-full mb-2' : 'top-full mt-2'"
+            >
                 <button
                     v-for="option in options"
                     :key="option"

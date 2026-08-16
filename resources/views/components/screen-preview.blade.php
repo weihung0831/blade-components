@@ -23,7 +23,7 @@
     </div>
 
     <div class="mt-4 overflow-hidden rounded-xl border border-white/8 bg-ink-900" @if ($panels !== []) data-code-tabs @endif>
-        <div class="max-h-[34rem] overflow-auto {{ $panels !== [] ? 'border-b border-white/5' : '' }}">
+        <div class="h-[42rem] overflow-auto {{ $panels !== [] ? 'border-b border-white/5' : '' }}">
             {{ $slot }}
         </div>
 

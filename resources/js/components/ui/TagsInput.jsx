@@ -58,7 +58,7 @@ export function UiTagsInput({ label = null, placeholder = 'Add a tag…', defaul
                     value={draft}
                     onChange={(event) => setDraft(event.target.value)}
                     onKeyDown={onKeyDown}
-                    className="h-6 min-w-24 flex-1 bg-transparent text-sm text-zinc-300 outline-none placeholder:text-zinc-600"
+                    className="h-6 min-w-24 flex-1 bg-transparent text-xs text-zinc-300 outline-none placeholder:text-zinc-600"
                 />
             </div>
         </div>

@@ -7,6 +7,7 @@ import UiSeparator from '../../components/ui/Separator.vue';
 import UiAvatar from '../../components/ui/Avatar.vue';
 import UiProgress from '../../components/ui/Progress.vue';
 import UiButton from '../../components/ui/Button.vue';
+import UiScrollTop from '../../components/ui/ScrollTop.vue';
 
 const props = defineProps({
     active: { type: String, default: 'Overview' },
@@ -40,7 +41,7 @@ const sections = computed(() => nav.map((section) => ({
 </script>
 
 <template>
-    <div class="flex h-full min-h-[42rem] w-full gap-3 overflow-hidden bg-ink-950 p-3 sm:gap-4 sm:p-4">
+    <div class="flex h-full w-full gap-3 overflow-hidden bg-ink-950 p-3 sm:gap-4 sm:p-4">
         <UiSidebar :sections="sections" class="hidden shrink-0 lg:flex">
             <template #brand>
                 <span class="grid size-7 place-items-center rounded-lg bg-jade-500 font-mono text-[11px] font-bold text-ink-950">///</span>
@@ -68,38 +69,42 @@ const sections = computed(() => nav.map((section) => ({
             </template>
         </UiSidebar>
 
-        <div class="flex min-w-0 flex-1 flex-col gap-3 overflow-y-auto sm:gap-4">
-            <header class="flex h-12 shrink-0 items-center gap-3 rounded-xl border border-white/10 bg-ink-800 px-3 sm:gap-4">
-                <button type="button" aria-label="Open navigation" class="grid size-8 shrink-0 place-items-center rounded-lg text-zinc-400 transition-colors duration-150 hover:bg-white/5 hover:text-cream lg:hidden">
-                    <svg class="size-4" viewBox="0 0 16 16" fill="none"><path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-                </button>
-
-                <UiBreadcrumb :items="crumbs" separator="slash" class="min-w-0 shrink" />
-
-                <div class="ml-auto flex shrink-0 items-center gap-3 sm:gap-4">
-                    <UiSearch size="sm" placeholder="Search merchants, deploys…" shortcut="⌘ K" class="hidden basis-64 md:flex" />
-
-                    <button type="button" aria-label="Alerts" class="relative grid size-8 shrink-0 place-items-center rounded-lg text-zinc-400 transition-colors duration-150 hover:bg-white/5 hover:text-cream">
-                        <svg class="size-4" viewBox="0 0 16 16" fill="none"><path d="M4.5 6.5a3.5 3.5 0 1 1 7 0c0 3 1 4 1 4h-9s1-1 1-4Zm2 4.5v.5a1.5 1.5 0 0 0 3 0V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        <span class="absolute top-1.5 right-1.5 size-1.5 rounded-full bg-jade-400"></span>
+        <div class="relative flex min-w-0 flex-1">
+            <div data-ui-scroll-region class="flex min-w-0 flex-1 flex-col gap-3 overflow-y-auto sm:gap-4">
+                <header class="flex h-12 shrink-0 items-center gap-3 rounded-xl border border-white/10 bg-ink-800 px-3 sm:gap-4">
+                    <button type="button" aria-label="Open navigation" class="grid size-8 shrink-0 place-items-center rounded-lg text-zinc-400 transition-colors duration-150 hover:bg-white/5 hover:text-cream lg:hidden">
+                        <svg class="size-4" viewBox="0 0 16 16" fill="none"><path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
                     </button>
 
-                    <UiSeparator vertical class="my-2.5" />
+                    <UiBreadcrumb :items="crumbs" separator="slash" class="min-w-0 shrink" />
 
-                    <UiAvatar initials="WH" size="sm" color="jade" />
-                </div>
-            </header>
+                    <div class="ml-auto flex shrink-0 items-center gap-3 sm:gap-4">
+                        <UiSearch size="sm" placeholder="Search merchants, deploys…" shortcut="⌘ K" class="hidden basis-64 md:flex" />
 
-            <main class="flex min-w-0 flex-col gap-3 sm:gap-4">
-                <div class="flex flex-wrap items-end justify-between gap-3">
-                    <h1 class="text-xl font-semibold tracking-tight text-cream">{{ title }}</h1>
-                    <div v-if="$slots.actions" class="flex flex-wrap items-center gap-2">
-                        <slot name="actions" />
+                        <button type="button" aria-label="Alerts" class="relative grid size-8 shrink-0 place-items-center rounded-lg text-zinc-400 transition-colors duration-150 hover:bg-white/5 hover:text-cream">
+                            <svg class="size-4" viewBox="0 0 16 16" fill="none"><path d="M4.5 6.5a3.5 3.5 0 1 1 7 0c0 3 1 4 1 4h-9s1-1 1-4Zm2 4.5v.5a1.5 1.5 0 0 0 3 0V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span class="absolute top-1.5 right-1.5 size-1.5 rounded-full bg-jade-400"></span>
+                        </button>
+
+                        <UiSeparator vertical class="my-2.5" />
+
+                        <UiAvatar initials="WH" size="sm" color="jade" />
                     </div>
-                </div>
+                </header>
 
-                <slot />
-            </main>
+                <main class="flex min-w-0 flex-col gap-3 sm:gap-4">
+                    <div class="flex flex-wrap items-end justify-between gap-3">
+                        <h1 class="text-xl font-semibold tracking-tight text-cream">{{ title }}</h1>
+                        <div v-if="$slots.actions" class="flex flex-wrap items-center gap-2">
+                            <slot name="actions" />
+                        </div>
+                    </div>
+
+                    <slot />
+                </main>
+            </div>
+
+            <UiScrollTop anchor="container" variant="progress" :threshold="300" />
         </div>
     </div>
 </template>

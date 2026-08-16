@@ -74,20 +74,6 @@ if (codeTabGroups.length > 0) {
     });
 }
 
-const backToTop = document.querySelector('[data-back-to-top]');
-
-if (backToTop) {
-    const toggle = () => backToTop.toggleAttribute('data-visible', window.scrollY > 600);
-
-    window.addEventListener('scroll', toggle, { passive: true });
-    toggle();
-
-    backToTop.addEventListener('click', () => {
-        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
-    });
-}
-
 const spySections = [...document.querySelectorAll('[data-spy-section]')];
 const spyLinks = [...document.querySelectorAll('[data-spy-link]')];
 

@@ -68,6 +68,12 @@ class TemplateCatalog
                 ['slug' => 'two-factor', 'name' => 'Two-factor', 'description' => 'Six-digit challenge on a new device, with device trust and recovery codes.'],
                 ['slug' => 'invite', 'name' => 'Invite', 'description' => 'Seat invite: role scope, what the seat costs, accept or decline.'],
             ],
+            'settings' => [
+                ['slug' => 'profile', 'name' => 'Profile', 'description' => 'The account itself — identity, password, second factor, and every session it has open.'],
+                ['slug' => 'team', 'name' => 'Team', 'description' => 'Seats against the plan limit, the member list, pending invites, and what each role can reach.'],
+                ['slug' => 'billing', 'name' => 'Billing', 'description' => 'Plan, metered usage with overage rates, payment method, and the invoice history.'],
+                ['slug' => 'api-keys', 'name' => 'API keys', 'description' => 'Server keys shown once, webhook endpoints with delivery health, and the limits they run under.'],
+            ],
             default => [],
         };
     }

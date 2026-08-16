@@ -20,7 +20,7 @@
     $incidents = [17, 18];
 @endphp
 
-<div {{ $attributes->class('flex h-full min-h-[42rem] w-full bg-ink-900') }}>
+<div {{ $attributes->class('flex h-full w-full bg-ink-900') }}>
     <aside class="dot-grid relative hidden w-[42%] max-w-md shrink-0 flex-col justify-between overflow-hidden border-r border-white/5 bg-ink-950 p-8 lg:flex">
         <span aria-hidden="true" class="pointer-events-none absolute -top-24 -left-20 size-72 rounded-full bg-jade-500/10 blur-3xl"></span>
 
@@ -75,37 +75,41 @@
         </div>
     </aside>
 
-    <div class="flex min-w-0 flex-1 flex-col overflow-y-auto">
-        <header class="flex h-14 shrink-0 items-center gap-4 px-5 sm:px-8">
-            <div class="flex items-center gap-2 lg:hidden">
-                <span class="grid size-7 place-items-center rounded-lg bg-jade-500 font-mono text-[11px] font-bold text-ink-950">///</span>
-                <span class="text-sm font-medium text-cream">wharf</span>
-            </div>
+    <div class="relative flex min-w-0 flex-1">
+        <div data-ui-scroll-region class="flex min-w-0 flex-1 flex-col overflow-y-auto">
+            <header class="flex h-14 shrink-0 items-center gap-4 px-5 sm:px-8">
+                <div class="flex items-center gap-2 lg:hidden">
+                    <span class="grid size-7 place-items-center rounded-lg bg-jade-500 font-mono text-[11px] font-bold text-ink-950">///</span>
+                    <span class="text-sm font-medium text-cream">wharf</span>
+                </div>
 
-            @isset($action)
-                <div class="ml-auto flex shrink-0 items-center gap-1.5 text-[13px]">{{ $action }}</div>
-            @endisset
-        </header>
+                @isset($action)
+                    <div class="ml-auto flex shrink-0 items-center gap-1.5 text-[13px]">{{ $action }}</div>
+                @endisset
+            </header>
 
-        <main class="flex flex-1 items-center justify-center px-5 py-8 sm:px-8">
-            <div class="w-full max-w-sm">
-                <h1 class="text-xl font-semibold tracking-tight text-cream">{{ $title }}</h1>
-                @if ($subtitle)
-                    <p class="mt-2 text-[13px]/6 text-zinc-500">{{ $subtitle }}</p>
-                @endif
+            <main class="flex flex-1 items-center justify-center px-5 py-8 sm:px-8">
+                <div class="w-full max-w-sm">
+                    <h1 class="text-xl font-semibold tracking-tight text-cream">{{ $title }}</h1>
+                    @if ($subtitle)
+                        <p class="mt-2 text-[13px]/6 text-zinc-500">{{ $subtitle }}</p>
+                    @endif
 
-                <div class="mt-7">{{ $slot }}</div>
-            </div>
-        </main>
+                    <div class="mt-7">{{ $slot }}</div>
+                </div>
+            </main>
 
-        <footer class="flex h-12 shrink-0 items-center gap-4 border-t border-white/5 px-5 font-mono text-[10px] text-zinc-600 sm:px-8">
-            <span>© 2026 wharf</span>
-            <a href="#" class="transition-colors duration-150 hover:text-zinc-400">Terms</a>
-            <a href="#" class="transition-colors duration-150 hover:text-zinc-400">Privacy</a>
-            <span class="ml-auto flex items-center gap-1.5">
-                <span class="size-1.5 rounded-full bg-jade-400"></span>
-                All systems normal
-            </span>
-        </footer>
+            <footer class="flex h-12 shrink-0 items-center gap-4 border-t border-white/5 px-5 font-mono text-[10px] text-zinc-600 sm:px-8">
+                <span>© 2026 wharf</span>
+                <a href="#" class="transition-colors duration-150 hover:text-zinc-400">Terms</a>
+                <a href="#" class="transition-colors duration-150 hover:text-zinc-400">Privacy</a>
+                <span class="ml-auto flex items-center gap-1.5">
+                    <span class="size-1.5 rounded-full bg-jade-400"></span>
+                    All systems normal
+                </span>
+            </footer>
+        </div>
+
+        <x-ui.scroll-top anchor="container" variant="progress" :threshold="300" />
     </div>
 </div>

@@ -1,3 +1,5 @@
+import { UiScrollTop } from '../../components/ui/ScrollTop';
+
 const events = [
     { time: '02:41:08', name: 'auth.session.created', meta: 'ap-1' },
     { time: '02:40:55', name: 'sso.saml.asserted', meta: 'northbeam' },
@@ -16,7 +18,7 @@ const incidents = [17, 18];
 
 export function AuthShell({ title = 'Sign in', subtitle = null, action = null, children }) {
     return (
-        <div className="flex h-full min-h-[42rem] w-full bg-ink-900">
+        <div className="flex h-full w-full bg-ink-900">
             <aside className="dot-grid relative hidden w-[42%] max-w-md shrink-0 flex-col justify-between overflow-hidden border-r border-white/5 bg-ink-950 p-8 lg:flex">
                 <span aria-hidden="true" className="pointer-events-none absolute -top-24 -left-20 size-72 rounded-full bg-jade-500/10 blur-3xl" />
 
@@ -68,34 +70,38 @@ export function AuthShell({ title = 'Sign in', subtitle = null, action = null, c
                 </div>
             </aside>
 
-            <div className="flex min-w-0 flex-1 flex-col overflow-y-auto">
-                <header className="flex h-14 shrink-0 items-center gap-4 px-5 sm:px-8">
-                    <div className="flex items-center gap-2 lg:hidden">
-                        <span className="grid size-7 place-items-center rounded-lg bg-jade-500 font-mono text-[11px] font-bold text-ink-950">///</span>
-                        <span className="text-sm font-medium text-cream">wharf</span>
-                    </div>
+            <div className="relative flex min-w-0 flex-1">
+                <div data-ui-scroll-region className="flex min-w-0 flex-1 flex-col overflow-y-auto">
+                    <header className="flex h-14 shrink-0 items-center gap-4 px-5 sm:px-8">
+                        <div className="flex items-center gap-2 lg:hidden">
+                            <span className="grid size-7 place-items-center rounded-lg bg-jade-500 font-mono text-[11px] font-bold text-ink-950">///</span>
+                            <span className="text-sm font-medium text-cream">wharf</span>
+                        </div>
 
-                    {action && <div className="ml-auto flex shrink-0 items-center gap-1.5 text-[13px]">{action}</div>}
-                </header>
+                        {action && <div className="ml-auto flex shrink-0 items-center gap-1.5 text-[13px]">{action}</div>}
+                    </header>
 
-                <main className="flex flex-1 items-center justify-center px-5 py-8 sm:px-8">
-                    <div className="w-full max-w-sm">
-                        <h1 className="text-xl font-semibold tracking-tight text-cream">{title}</h1>
-                        {subtitle && <p className="mt-2 text-[13px]/6 text-zinc-500">{subtitle}</p>}
+                    <main className="flex flex-1 items-center justify-center px-5 py-8 sm:px-8">
+                        <div className="w-full max-w-sm">
+                            <h1 className="text-xl font-semibold tracking-tight text-cream">{title}</h1>
+                            {subtitle && <p className="mt-2 text-[13px]/6 text-zinc-500">{subtitle}</p>}
 
-                        <div className="mt-7">{children}</div>
-                    </div>
-                </main>
+                            <div className="mt-7">{children}</div>
+                        </div>
+                    </main>
 
-                <footer className="flex h-12 shrink-0 items-center gap-4 border-t border-white/5 px-5 font-mono text-[10px] text-zinc-600 sm:px-8">
-                    <span>© 2026 wharf</span>
-                    <a href="#" className="transition-colors duration-150 hover:text-zinc-400">Terms</a>
-                    <a href="#" className="transition-colors duration-150 hover:text-zinc-400">Privacy</a>
-                    <span className="ml-auto flex items-center gap-1.5">
-                        <span className="size-1.5 rounded-full bg-jade-400" />
-                        All systems normal
-                    </span>
-                </footer>
+                    <footer className="flex h-12 shrink-0 items-center gap-4 border-t border-white/5 px-5 font-mono text-[10px] text-zinc-600 sm:px-8">
+                        <span>© 2026 wharf</span>
+                        <a href="#" className="transition-colors duration-150 hover:text-zinc-400">Terms</a>
+                        <a href="#" className="transition-colors duration-150 hover:text-zinc-400">Privacy</a>
+                        <span className="ml-auto flex items-center gap-1.5">
+                            <span className="size-1.5 rounded-full bg-jade-400" />
+                            All systems normal
+                        </span>
+                    </footer>
+                </div>
+
+                <UiScrollTop anchor="container" variant="progress" threshold={300} />
             </div>
         </div>
     );

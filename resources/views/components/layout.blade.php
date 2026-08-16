@@ -46,10 +46,7 @@
     {{ $slot }}
 
     {{-- Back to top --}}
-    <button type="button" data-back-to-top aria-label="Back to top"
-        class="pointer-events-none fixed right-6 bottom-6 z-40 grid size-10 translate-y-2 place-items-center rounded-full border border-white/10 bg-ink-900/90 text-zinc-400 opacity-0 backdrop-blur transition-[opacity,translate,color,border-color,background-color] duration-200 ease-snap hover:border-jade-500 hover:bg-jade-500 hover:text-ink-950 active:scale-[0.95] data-visible:pointer-events-auto data-visible:translate-y-0 data-visible:opacity-100">
-        <svg class="size-4" viewBox="0 0 16 16" fill="none"><path d="M8 12.5v-9M4 7l4-3.5L12 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
+    <x-ui.scroll-top variant="progress" :threshold="300" class="z-40" />
 
     {{-- Footer --}}
     <footer class="mt-auto border-t border-white/5">

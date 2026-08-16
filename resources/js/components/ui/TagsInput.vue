@@ -53,7 +53,7 @@ const removeTag = (index) => {
                 v-model="draft"
                 type="text"
                 :placeholder="placeholder"
-                class="h-6 min-w-24 flex-1 bg-transparent text-sm text-zinc-300 outline-none placeholder:text-zinc-600"
+                class="h-6 min-w-24 flex-1 bg-transparent text-xs text-zinc-300 outline-none placeholder:text-zinc-600"
                 @keydown="onKeydown"
             />
         </div>

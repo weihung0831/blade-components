@@ -12,7 +12,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="h-dvh bg-ink-950 font-sans text-zinc-300 antialiased selection:bg-jade-500/30 selection:text-cream">
+<body class="h-dvh overflow-hidden bg-ink-950 font-sans text-zinc-300 antialiased selection:bg-jade-500/30 selection:text-cream">
     <x-dynamic-component :component="$component" />
 </body>
 </html>

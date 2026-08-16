@@ -22,7 +22,7 @@ const visible = ref(false);
 const progress = ref(0);
 
 const region = () =>
-    button.value?.parentElement.querySelector('[data-ui-scroll-region]') ?? button.value?.closest('[data-ui-scroll-region]');
+    button.value?.parentElement.querySelector(':scope > [data-ui-scroll-region]') ?? button.value?.closest('[data-ui-scroll-region]');
 
 const ringStyle = computed(() => ({
     background: `conic-gradient(var(--color-jade-500) calc(${progress.value} * 1%), color-mix(in oklab, var(--color-white) 12%, transparent) 0)`,

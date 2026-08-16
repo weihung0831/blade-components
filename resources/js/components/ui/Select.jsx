@@ -1,4 +1,18 @@
-import { useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
+
+const clipper = (element) => {
+    let parent = element.parentElement;
+
+    while (parent && parent !== document.body) {
+        if (/(auto|scroll|hidden)/.test(getComputedStyle(parent).overflowY)) {
+            return parent;
+        }
+
+        parent = parent.parentElement;
+    }
+
+    return null;
+};
 
 const triggers = {
     outline: 'border border-white/10 bg-ink-950 hover:border-white/25',
@@ -29,6 +43,24 @@ export function UiSelect({
     ...props
 }) {
     const [open, setOpen] = useState(false);
+    const [dropUp, setDropUp] = useState(false);
+    const root = useRef(null);
+    const menu = useRef(null);
+
+    useLayoutEffect(() => {
+        if (!open) {
+            setDropUp(false);
+
+            return;
+        }
+
+        const box = clipper(root.current);
+        const bounds = box ? box.getBoundingClientRect() : { top: 0, bottom: window.innerHeight };
+        const trigger = root.current.getBoundingClientRect();
+        const needed = menu.current.offsetHeight + 8;
+
+        setDropUp(bounds.bottom - trigger.bottom < needed && trigger.top - bounds.top > needed);
+    }, [open]);
 
     const select = (option) => {
         onChange(option);
@@ -47,7 +79,7 @@ export function UiSelect({
     const rootClasses = ['relative block', disabled && 'pointer-events-none opacity-40', className].filter(Boolean).join(' ');
 
     return (
-        <div className={rootClasses} {...props}>
+        <div ref={root} className={rootClasses} {...props}>
             <button type="button" disabled={disabled} onClick={() => setOpen(!open)} className={triggerClasses}>
                 <span className={`truncate ${value !== null ? 'text-zinc-300' : 'text-zinc-600'}`}>{value ?? placeholder}</span>
                 <svg className={`size-3.5 shrink-0 text-zinc-500 transition-transform duration-150 ease-snap ${open ? 'rotate-180' : ''}`} viewBox="0 0 16 16" fill="none"><path d="m4 6 4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
@@ -55,7 +87,10 @@ export function UiSelect({
             {open && (
                 <>
                     <div className="fixed inset-0 z-10" onClick={() => setOpen(false)} />
-                    <div className="absolute top-full left-0 z-20 mt-2 w-full min-w-max rounded-lg border border-white/10 bg-ink-900 p-1 shadow-lg shadow-black/40">
+                    <div
+                        ref={menu}
+                        className={`absolute left-0 z-20 w-full min-w-max rounded-lg border border-white/10 bg-ink-900 p-1 shadow-lg shadow-black/40 ${dropUp ? 'bottom-full mb-2' : 'top-full mt-2'}`}
+                    >
                         {options.map((option) => (
                             <button
                                 key={option}

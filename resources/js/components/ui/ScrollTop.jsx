@@ -11,7 +11,7 @@ const variants = {
 };
 
 const findRegion = (button) =>
-    button.parentElement.querySelector('[data-ui-scroll-region]') ?? button.closest('[data-ui-scroll-region]');
+    button.parentElement.querySelector(':scope > [data-ui-scroll-region]') ?? button.closest('[data-ui-scroll-region]');
 
 export function UiScrollTop({ threshold = 400, variant = 'solid', anchor = 'viewport', className = '', ...props }) {
     const button = useRef(null);

@@ -28,7 +28,7 @@
 @once
     <script>
         const scrollTopRegion = (button) =>
-            button.parentElement.querySelector('[data-ui-scroll-region]') ?? button.closest('[data-ui-scroll-region]');
+            button.parentElement.querySelector(':scope > [data-ui-scroll-region]') ?? button.closest('[data-ui-scroll-region]');
 
         const updateScrollTops = () => {
             document.querySelectorAll('[data-ui-scroll-top]').forEach((button) => {
