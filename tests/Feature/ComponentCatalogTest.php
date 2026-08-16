@@ -83,15 +83,34 @@ it('links the button card to its detail page', function () {
     $this->get('/components')->assertSee(route('components.show', 'button'));
 });
 
-it('marks entries without a detail page as coming soon and does not link them', function () {
-    $this->get('/components')
-        ->assertSee('Soon')
-        ->assertDontSee(route('components.show', 'animated-background'));
+it('links every catalog entry to a detail page, with none left coming soon', function () {
+    $response = $this->get('/components')->assertSuccessful();
+
+    foreach (ComponentCatalog::categories() as $items) {
+        foreach ($items as $item) {
+            $response->assertSee(route('components.show', $item['slug']));
+        }
+    }
+
+    expect(substr_count($response->getContent(), '>Soon</span>'))->toBe(0);
+});
+
+it('renders a detail page for every catalog entry', function () {
+    foreach (ComponentCatalog::categories() as $category => $items) {
+        foreach ($items as $item) {
+            $this->get(route('components.show', $item['slug']))
+                ->assertSuccessful()
+                ->assertSee($category)
+                ->assertSee($item['name'])
+                ->assertSee('x-ui.'.$item['slug'])
+                ->assertSee('Installation');
+        }
+    }
 });
 
 it('returns 404 for unknown components', function (string $slug) {
     $this->get("/components/{$slug}")->assertNotFound();
 })->with([
     'not in catalog' => 'chart',
-    'in catalog without detail page' => 'animated-background',
+    'not a component' => 'dashboard',
 ]);

@@ -123,12 +123,10 @@ class ComponentCatalog
                 ['slug' => 'number-ticker', 'name' => 'Number ticker', 'variants' => 2],
                 ['slug' => 'marquee', 'name' => 'Marquee', 'variants' => 2],
                 ['slug' => 'animated-border', 'name' => 'Animated border', 'variants' => 2],
-                ['slug' => 'orbit', 'name' => 'Orbit', 'variants' => 2],
                 ['slug' => 'animated-column-chart', 'name' => 'Animated column chart', 'variants' => 2],
                 ['slug' => 'animated-bar-chart', 'name' => 'Animated bar chart', 'variants' => 2],
                 ['slug' => 'word-rotate', 'name' => 'Word rotate', 'variants' => 2],
                 ['slug' => 'flip-card', 'name' => 'Flip card', 'variants' => 2],
-                ['slug' => 'meteors', 'name' => 'Meteors', 'variants' => 2],
                 ['slug' => 'spotlight', 'name' => 'Spotlight', 'variants' => 2],
             ],
         ];
