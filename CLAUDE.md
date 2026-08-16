@@ -13,4 +13,6 @@ Laravel Boost 官方指南住在 [BOOST.md](BOOST.md)（由 `php artisan boost:u
 
 # Git
 
-- Git commit messages must be a single line only (no body), written entirely in English.
+Commit message 規則：
+- 標題只寫單行英文，遵循 Conventional Commits（`feat:`、`fix:`、`refactor:`、`chore:`、`docs:` 等前綴）。
+- 不寫敘述性 body，但結尾必須加 trailer：`Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>`。
