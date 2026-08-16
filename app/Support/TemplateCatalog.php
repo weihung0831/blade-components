@@ -18,7 +18,7 @@ class TemplateCatalog
             ['slug' => 'dashboard', 'name' => 'Dashboard', 'description' => 'Admin shell with sidebar, stat tiles, and a data table.', 'pages' => 5],
             ['slug' => 'auth', 'name' => 'Auth pages', 'description' => 'Sign in, sign up, reset, two-factor, and seat invites.', 'pages' => 5],
             ['slug' => 'settings', 'name' => 'Settings', 'description' => 'Account, billing, and team panels with section nav.', 'pages' => 4],
-            ['slug' => 'pricing', 'name' => 'Pricing', 'description' => 'Three-tier pricing with a highlighted plan.', 'pages' => 1],
+            ['slug' => 'pricing', 'name' => 'Pricing', 'description' => 'Plan tiers, a feature matrix, a usage estimator, and a quote request.', 'pages' => 4],
             ['slug' => 'analytics', 'name' => 'Analytics', 'description' => 'KPI row, trend chart, and breakdown panels.', 'pages' => 2],
             ['slug' => 'product', 'name' => 'Product page', 'description' => 'Gallery, price block, and add-to-cart actions.', 'pages' => 2],
             ['slug' => 'checkout', 'name' => 'Checkout', 'description' => 'Address and payment form beside an order summary.', 'pages' => 2],
@@ -73,6 +73,12 @@ class TemplateCatalog
                 ['slug' => 'team', 'name' => 'Team', 'description' => 'Seats against the plan limit, the member list, pending invites, and what each role can reach.'],
                 ['slug' => 'billing', 'name' => 'Billing', 'description' => 'Plan, metered usage with overage rates, payment method, and the invoice history.'],
                 ['slug' => 'api-keys', 'name' => 'API keys', 'description' => 'Server keys shown once, webhook endpoints with delivery health, and the limits they run under.'],
+            ],
+            'pricing' => [
+                ['slug' => 'plans', 'name' => 'Plans', 'description' => 'Three tiers priced the way a platform actually bills — a fee, a seat rate, and metered limits with the overage spelled out.'],
+                ['slug' => 'compare', 'name' => 'Compare', 'description' => 'The whole matrix: quotas, seats, regions, and terms, grouped so a buyer can find the one row they came for.'],
+                ['slug' => 'calculator', 'name' => 'Calculator', 'description' => 'Four sliders, three plans costed side by side, and the invoice that comes out the other end.'],
+                ['slug' => 'enterprise', 'name' => 'Enterprise', 'description' => 'The quote request, plus what procurement and security ask for before the contract moves.'],
             ],
             default => [],
         };

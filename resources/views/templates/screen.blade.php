@@ -56,6 +56,21 @@
                     @endforeach
                 </div>
 
+                <script>
+                    (() => {
+                        const stored = localStorage.getItem('device');
+                        const input = stored ? document.getElementById('device-' + stored) : null;
+
+                        if (input) {
+                            input.checked = true;
+                        }
+
+                        document.querySelectorAll('input[name="device"]').forEach((radio) => {
+                            radio.addEventListener('change', () => localStorage.setItem('device', radio.id.slice(7)));
+                        });
+                    })();
+                </script>
+
                 <x-ui.separator vertical class="my-2" />
 
                 <a href="{{ route('templates.screen', [$template['slug'], $screen]) }}?frame=1" target="_blank" rel="noopener"
