@@ -13,6 +13,8 @@ Laravel Boost 官方指南住在 [BOOST.md](BOOST.md)（由 `php artisan boost:u
 
 # Git
 
+未經明確要求不執行 `git commit`：改完把變更留在 working tree，回報 `git status` 即可，由使用者自己決定何時提交。
+
 Commit message 規則：
 - 標題只寫單行英文，遵循 Conventional Commits（`feat:`、`fix:`、`refactor:`、`chore:`、`docs:` 等前綴）。
 - 不寫敘述性 body，但結尾必須加 trailer：`Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>`。
