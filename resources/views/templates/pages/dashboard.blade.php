@@ -534,7 +534,7 @@
 
             <div class="mt-6 flex flex-col gap-12">
 
-                <x-demo title="Sidebar" padding="p-8" collapsible
+                <x-demo title="Sidebar" padding="p-8"
                     description="Grouped links, an active row, a badge, and the plan card that turns a nav into a SaaS nav."
                     :code="$sidebarCode" :vue-code="$sidebarVueCode" :react-code="$sidebarReactCode">
                     <x-ui.sidebar :sections="$navSections">
@@ -557,7 +557,7 @@
                     </x-ui.sidebar>
                 </x-demo>
 
-                <x-demo title="Topbar" padding="p-8" collapsible
+                <x-demo title="Topbar" padding="p-8"
                     description="Breadcrumb on the left, search and identity on the right. Fixed height so it never jumps."
                     :code="$topbarCode" :vue-code="$topbarVueCode" :react-code="$topbarReactCode">
                     <header class="flex h-12 w-full items-center gap-4 rounded-xl border border-white/10 bg-ink-800 px-3">
@@ -577,7 +577,7 @@
                     </header>
                 </x-demo>
 
-                <x-demo title="Stat row" padding="p-8" collapsible
+                <x-demo title="Stat row" padding="p-8"
                     description="Counting number, delta arrow, and a sparkline drawn straight from an array of numbers — no chart library."
                     :code="$statsCode" :vue-code="$statsVueCode" :react-code="$statsReactCode">
                     <div class="grid w-full grid-cols-4 gap-4">
@@ -592,7 +592,7 @@
                     </div>
                 </x-demo>
 
-                <x-demo title="Chart card" padding="p-8" collapsible
+                <x-demo title="Chart card" padding="p-8"
                     description="Card header carries the framing, the chart carries the data. Highlight the bar you want read first."
                     :code="$chartCode" :vue-code="$chartVueCode" :react-code="$chartReactCode">
                     <x-ui.card class="w-full">
@@ -610,7 +610,7 @@
                     </x-ui.card>
                 </x-demo>
 
-                <x-demo title="Quota list" padding="p-8" collapsible
+                <x-demo title="Quota list" padding="p-8"
                     description="Metered plans need this: what was used, what the ceiling is, and when it resets."
                     :code="$quotaCode" :vue-code="$quotaVueCode" :react-code="$quotaReactCode">
                     <x-ui.card class="w-full max-w-sm">
@@ -630,7 +630,7 @@
                     </x-ui.card>
                 </x-demo>
 
-                <x-demo title="Filter bar" padding="p-8" collapsible
+                <x-demo title="Filter bar" padding="p-8"
                     description="Search, three selects, removable chips for what is already applied, and bulk actions parked on the right."
                     :code="$filterCode" :vue-code="$filterVueCode" :react-code="$filterReactCode">
                     <div class="flex w-full flex-wrap items-center gap-2 rounded-xl border border-white/10 bg-ink-800 p-2">
@@ -654,7 +654,7 @@
                     </div>
                 </x-demo>
 
-                <x-demo title="Tenant table" padding="p-8" collapsible
+                <x-demo title="Tenant table" padding="p-8"
                     description="Click a header to sort. Pass an array cell instead of a string and you get a status dot."
                     :code="$tableCode" :vue-code="$tableVueCode" :react-code="$tableReactCode">
                     <x-ui.table class="w-full" :columns="[
@@ -669,7 +669,7 @@
                     ]" hover striped />
                 </x-demo>
 
-                <x-demo title="Uptime strip" padding="p-8" collapsible
+                <x-demo title="Uptime strip" padding="p-8"
                     description="Thirty spans, one per day. Status-page shorthand that costs nothing to render."
                     :code="$uptimeCode" :vue-code="$uptimeVueCode" :react-code="$uptimeReactCode">
                     <div class="w-56 rounded-xl border border-white/10 bg-ink-800 p-4">

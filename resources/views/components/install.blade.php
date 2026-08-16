@@ -49,21 +49,28 @@
             @endif
             @foreach ($sources as $language => $source)
                 <div @if (count($sources) > 1) data-code-panel="{{ $language }}" @endif @class(['hidden' => ! $loop->first])>
-                    <div class="flex items-center gap-3 border-b border-white/5 px-4 py-2.5">
-                        <span class="font-mono text-xs text-jade-400">01</span>
-                        <p class="font-mono text-xs text-zinc-500">Save as <span class="text-zinc-300">{{ $source['path'] }}</span></p>
-                    </div>
-                    <x-code-block :code="$source['code']" />
+                    <x-code-disclosure>
+                        <x-slot:summary>
+                            <span class="font-mono text-xs text-jade-400">01</span>
+                            <span class="truncate font-mono text-xs text-zinc-500">Save as <span class="text-zinc-300">{{ $source['path'] }}</span></span>
+                            <span class="ml-auto shrink-0 font-mono text-[10px] text-zinc-700">{{ substr_count($source['code'], "\n") + 1 }} lines</span>
+                        </x-slot>
+
+                        <x-code-block :code="$source['code']" />
+                    </x-code-disclosure>
                 </div>
             @endforeach
         </div>
 
         <div class="overflow-hidden rounded-xl border border-white/8 bg-ink-900">
-            <div class="flex items-center gap-3 border-b border-white/5 px-4 py-2.5">
-                <span class="font-mono text-xs text-jade-400">02</span>
-                <p class="font-mono text-xs text-zinc-500">Add these tokens to <span class="text-zinc-300">resources/css/app.css</span> — skip any you already have</p>
-            </div>
-            <x-code-block :code="$tokensCode" lang="css" />
+            <x-code-disclosure>
+                <x-slot:summary>
+                    <span class="font-mono text-xs text-jade-400">02</span>
+                    <span class="truncate font-mono text-xs text-zinc-500">Add these tokens to <span class="text-zinc-300">resources/css/app.css</span> — skip any you already have</span>
+                </x-slot>
+
+                <x-code-block :code="$tokensCode" lang="css" />
+            </x-code-disclosure>
         </div>
     </div>
 </section>

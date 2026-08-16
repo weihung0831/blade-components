@@ -28,10 +28,11 @@ it('keeps the template snippets folded away behind a toggle', function () {
         ->assertSee('Show code');
 });
 
-it('leaves component snippets expanded', function () {
+it('folds component snippets away too', function () {
     $this->get('/components/button')
         ->assertSuccessful()
-        ->assertDontSee('Show code');
+        ->assertSee('Show code')
+        ->assertSee('Hide code');
 });
 
 it('ships an installation section with every file in all three languages', function () {

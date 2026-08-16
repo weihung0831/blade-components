@@ -1,6 +1,7 @@
 @props([
     'label' => 'Show code',
     'closeLabel' => 'Hide code',
+    'hint' => null,
 ])
 
 <details {{ $attributes->class('group/disclosure') }}>
@@ -12,6 +13,10 @@
         @else
             <span class="font-mono text-xs group-open/disclosure:hidden">{{ $label }}</span>
             <span class="hidden font-mono text-xs group-open/disclosure:inline">{{ $closeLabel }}</span>
+
+            @if ($hint)
+                <span class="ml-auto shrink-0 font-mono text-[10px] text-zinc-700 group-open/disclosure:hidden">{{ $hint }}</span>
+            @endif
         @endisset
     </summary>
 

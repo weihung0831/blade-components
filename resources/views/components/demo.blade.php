@@ -1,4 +1,4 @@
-@props(['title', 'description' => null, 'code', 'vueCode' => null, 'reactCode' => null, 'padding' => 'p-10', 'collapsible' => false])
+@props(['title', 'description' => null, 'code', 'vueCode' => null, 'reactCode' => null, 'padding' => 'p-10', 'collapsible' => true])
 
 @php
     $panels = ['blade' => ['label' => 'Blade', 'code' => $code]];
@@ -28,7 +28,7 @@
         </div>
 
         @if ($collapsible)
-            <x-code-disclosure>
+            <x-code-disclosure :hint="implode(' · ', array_column($panels, 'label'))">
                 <x-code-panels :panels="$panels" />
             </x-code-disclosure>
         @else
