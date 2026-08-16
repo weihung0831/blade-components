@@ -86,3 +86,49 @@ it('returns 404 for templates and screens that do not exist', function (string $
     'unknown template' => '/templates/nonsense',
     'unknown screen' => '/templates/dashboard/screens/nonsense',
 ]);
+
+it('renders the auth template page with every screen', function () {
+    $response = $this->get(route('templates.show', 'auth'))->assertSuccessful();
+
+    foreach (TemplateCatalog::screens('auth') as $screen) {
+        $response->assertSee($screen['name'])
+            ->assertSee(route('templates.screen', ['auth', $screen['slug']]));
+    }
+});
+
+it('breaks the auth pages down into blocks with their own snippets', function (string $title) {
+    $this->get(route('templates.show', 'auth'))
+        ->assertSuccessful()
+        ->assertSee('data-code-tab', false)
+        ->assertSee($title);
+})->with(['Provider row', 'Credential fields', 'Workspace context', 'Tenant subdomain', 'Password with meter', 'One-time code', 'Seat invite card', 'Session log']);
+
+it('ships the auth installation section in all three languages', function () {
+    $response = $this->get(route('templates.show', 'auth'))->assertSuccessful();
+
+    foreach (['shell', 'providers', ...array_column(TemplateCatalog::screens('auth'), 'slug')] as $file) {
+        $studly = Str::studly($file);
+
+        $response->assertSee("resources/views/components/templates/auth/{$file}.blade.php")
+            ->assertSee("resources/js/templates/auth/{$studly}.vue")
+            ->assertSee("resources/js/templates/auth/{$studly}.jsx");
+    }
+});
+
+it('renders every auth screen on its own', function () {
+    foreach (TemplateCatalog::screens('auth') as $screen) {
+        $url = route('templates.screen', ['auth', $screen['slug']]);
+
+        $this->get($url)->assertSuccessful()->assertSee($screen['name']);
+        $this->get($url.'?frame=1')->assertSuccessful()->assertSee('wharf');
+    }
+});
+
+it('walks the auth flow from one screen to the next', function () {
+    $this->get(route('templates.screen', ['auth', 'sign-in']).'?frame=1')
+        ->assertSuccessful()
+        ->assertSee(route('templates.screen', ['auth', 'sign-up']))
+        ->assertSee(route('templates.screen', ['auth', 'reset']))
+        ->assertSee(route('templates.screen', ['auth', 'two-factor']))
+        ->assertSee('target="_top"', false);
+});

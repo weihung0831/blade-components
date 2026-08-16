@@ -16,7 +16,7 @@ class TemplateCatalog
     {
         return [
             ['slug' => 'dashboard', 'name' => 'Dashboard', 'description' => 'Admin shell with sidebar, stat tiles, and a data table.', 'pages' => 5],
-            ['slug' => 'auth', 'name' => 'Auth pages', 'description' => 'Login, register, and password reset with float labels.', 'pages' => 3],
+            ['slug' => 'auth', 'name' => 'Auth pages', 'description' => 'Sign in, sign up, reset, two-factor, and seat invites.', 'pages' => 5],
             ['slug' => 'settings', 'name' => 'Settings', 'description' => 'Account, billing, and team panels with section nav.', 'pages' => 4],
             ['slug' => 'pricing', 'name' => 'Pricing', 'description' => 'Three-tier pricing with a highlighted plan.', 'pages' => 1],
             ['slug' => 'analytics', 'name' => 'Analytics', 'description' => 'KPI row, trend chart, and breakdown panels.', 'pages' => 2],
@@ -60,6 +60,13 @@ class TemplateCatalog
                 ['slug' => 'merchants', 'name' => 'Merchants', 'description' => 'The tenant list — filters, a sortable table, bulk actions, and pagination.'],
                 ['slug' => 'deploys', 'name' => 'Deploys', 'description' => 'Infrastructure console: service health, p95 latency, and the deploy log.'],
                 ['slug' => 'orders', 'name' => 'Orders', 'description' => 'Commerce operations: gross volume, order queue, refunds, and payouts.'],
+            ],
+            'auth' => [
+                ['slug' => 'sign-in', 'name' => 'Sign in', 'description' => 'Workspace context, SSO buttons, float-label credentials, and the way out to every other screen.'],
+                ['slug' => 'sign-up', 'name' => 'Sign up', 'description' => 'Trial signup with a tenant subdomain, a strength meter, and the data region spelled out.'],
+                ['slug' => 'reset', 'name' => 'Reset', 'description' => 'One-time link request, resend timer, and what happens when the workspace is on SSO.'],
+                ['slug' => 'two-factor', 'name' => 'Two-factor', 'description' => 'Six-digit challenge on a new device, with device trust and recovery codes.'],
+                ['slug' => 'invite', 'name' => 'Invite', 'description' => 'Seat invite: role scope, what the seat costs, accept or decline.'],
             ],
             default => [],
         };
