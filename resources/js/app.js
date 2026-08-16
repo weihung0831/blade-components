@@ -20,6 +20,18 @@ if (themeToggle) {
     });
 }
 
+window.addEventListener('storage', (event) => {
+    if (event.key !== 'theme') {
+        return;
+    }
+
+    if (event.newValue === 'light') {
+        document.documentElement.dataset.theme = 'light';
+    } else {
+        delete document.documentElement.dataset.theme;
+    }
+});
+
 document.querySelectorAll('[data-copy-code]').forEach((button) => {
     const copyIcon = button.querySelector('[data-copy-icon]');
     const copiedIcon = button.querySelector('[data-copied-icon]');
