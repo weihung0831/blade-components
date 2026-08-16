@@ -86,12 +86,12 @@ it('links the button card to its detail page', function () {
 it('marks entries without a detail page as coming soon and does not link them', function () {
     $this->get('/components')
         ->assertSee('Soon')
-        ->assertDontSee(route('components.show', 'modal'));
+        ->assertDontSee(route('components.show', 'tabs'));
 });
 
 it('returns 404 for unknown components', function (string $slug) {
     $this->get("/components/{$slug}")->assertNotFound();
 })->with([
     'not in catalog' => 'chart',
-    'in catalog without detail page' => 'modal',
+    'in catalog without detail page' => 'tabs',
 ]);

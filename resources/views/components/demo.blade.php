@@ -1,4 +1,4 @@
-@props(['title', 'description' => null, 'code', 'vueCode' => null, 'reactCode' => null])
+@props(['title', 'description' => null, 'code', 'vueCode' => null, 'reactCode' => null, 'padding' => 'p-10'])
 
 @php
     $panels = ['blade' => ['label' => 'Blade', 'code' => $code]];
@@ -23,7 +23,7 @@
     @endif
 
     <div class="mt-4 overflow-hidden rounded-xl border border-white/8 bg-ink-900" @if (count($panels) > 1) data-code-tabs @endif>
-        <div class="dot-grid flex flex-wrap items-center justify-center gap-3 border-b border-white/5 p-10">
+        <div class="dot-grid flex flex-wrap items-center justify-center gap-3 border-b border-white/5 {{ $padding }}">
             {{ $slot }}
         </div>
         @if (count($panels) > 1)

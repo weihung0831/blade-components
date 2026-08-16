@@ -72,7 +72,7 @@
 
         <div class="mt-12 flex flex-col gap-12">
 
-            <x-demo class="rise" style="animation-delay: 120ms" title="Variants"
+            <x-demo class="rise" style="animation-delay: 120ms" title="Variants" padding="px-10 pt-10 pb-36"
                 description="Click the caret to open the attached menu — plain buttons or links inside get styled for you. Click it again to close."
                 :code="$variantsCode" :vue-code="$variantsVueCode" :react-code="$variantsReactCode">
                 <x-ui.split-button>
