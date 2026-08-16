@@ -22,6 +22,27 @@ Route::get('/templates', function () {
     ]);
 })->name('templates');
 
+Route::get('/templates/{slug}', function (string $slug) {
+    $template = TemplateCatalog::find($slug);
+
+    abort_unless($template !== null && View::exists('templates.pages.'.$slug), 404);
+
+    return view('templates.pages.'.$slug, ['template' => $template]);
+})->name('templates.show');
+
+Route::get('/templates/{slug}/screens/{screen}', function (string $slug, string $screen) {
+    $template = TemplateCatalog::find($slug);
+    $component = 'templates.'.$slug.'.'.$screen;
+
+    abort_unless($template !== null && View::exists('components.'.$component), 404);
+
+    return view('templates.screen', [
+        'template' => $template,
+        'component' => $component,
+        'screen' => $screen,
+    ]);
+})->name('templates.screen');
+
 Route::get('/components/{slug}', function (string $slug) {
     $entry = ComponentCatalog::find($slug);
     $view = $entry === null ? null : 'catalog.'.Str::slug($entry['category']).'.'.$slug;

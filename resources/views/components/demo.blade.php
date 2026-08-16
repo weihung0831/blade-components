@@ -1,4 +1,4 @@
-@props(['title', 'description' => null, 'code', 'vueCode' => null, 'reactCode' => null, 'padding' => 'p-10'])
+@props(['title', 'description' => null, 'code', 'vueCode' => null, 'reactCode' => null, 'padding' => 'p-10', 'collapsible' => false])
 
 @php
     $panels = ['blade' => ['label' => 'Blade', 'code' => $code]];
@@ -26,17 +26,13 @@
         <div class="dot-grid flex flex-wrap items-center justify-center gap-3 border-b border-white/5 {{ $padding }}">
             {{ $slot }}
         </div>
-        @if (count($panels) > 1)
-            <div class="flex items-center gap-1 border-b border-white/5 px-3 py-2">
-                @foreach ($panels as $language => $panel)
-                    <x-code-tab :panel="$language" :active="$loop->first">{{ $panel['label'] }}</x-code-tab>
-                @endforeach
-            </div>
-            @foreach ($panels as $language => $panel)
-                <div data-code-panel="{{ $language }}" @class(['hidden' => ! $loop->first])><x-code-block :code="$panel['code']" /></div>
-            @endforeach
+
+        @if ($collapsible)
+            <x-code-disclosure>
+                <x-code-panels :panels="$panels" />
+            </x-code-disclosure>
         @else
-            <x-code-block :code="$code" />
+            <x-code-panels :panels="$panels" />
         @endif
     </div>
 </section>

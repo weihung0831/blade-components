@@ -14,7 +14,7 @@
                     $soon = ! View::exists('templates.pages.'.$template['slug']);
                     $tag = $soon ? 'div' : 'a';
                 @endphp
-                <{{ $tag }} @if (! $soon) href="#" @endif
+                <{{ $tag }} @if (! $soon) href="{{ route('templates.show', $template['slug']) }}" @endif
                     class="rise group overflow-hidden rounded-xl border border-white/8 bg-ink-900 transition-colors duration-150 {{ $soon ? '' : 'hover:border-jade-500/60' }}"
                     style="animation-delay: {{ min(60 + $loop->index * 50, 360) }}ms">
                     <div class="dot-grid h-52 border-b border-white/5 p-5 {{ $soon ? 'opacity-60 grayscale-25' : '' }}">

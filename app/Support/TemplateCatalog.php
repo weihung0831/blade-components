@@ -42,4 +42,42 @@ class TemplateCatalog
     {
         return count(self::all());
     }
+
+    /**
+     * The screens a template ships, in display order.
+     *
+     * Each screen's `slug` must match a view in
+     * `resources/views/components/templates/{template}/{slug}.blade.php`.
+     *
+     * @return list<array{slug: string, name: string, description: string}>
+     */
+    public static function screens(string $template): array
+    {
+        return match ($template) {
+            'dashboard' => [
+                ['slug' => 'overview', 'name' => 'Overview', 'description' => 'Subscription health at a glance: MRR, churn, plan mix, and the quota bar every SaaS console needs.'],
+                ['slug' => 'analytics', 'name' => 'Analytics', 'description' => 'Traffic and conversion for the storefronts merchants run on the platform.'],
+                ['slug' => 'merchants', 'name' => 'Merchants', 'description' => 'The tenant list — filters, a sortable table, bulk actions, and pagination.'],
+                ['slug' => 'deploys', 'name' => 'Deploys', 'description' => 'Infrastructure console: service health, p95 latency, and the deploy log.'],
+                ['slug' => 'orders', 'name' => 'Orders', 'description' => 'Commerce operations: gross volume, order queue, refunds, and payouts.'],
+            ],
+            default => [],
+        };
+    }
+
+    /**
+     * Find a template entry by slug.
+     *
+     * @return array{slug: string, name: string, description: string, pages: int}|null
+     */
+    public static function find(string $slug): ?array
+    {
+        foreach (self::all() as $template) {
+            if ($template['slug'] === $slug) {
+                return $template;
+            }
+        }
+
+        return null;
+    }
 }
