@@ -2,6 +2,7 @@
 
 use App\Support\ComponentCatalog;
 use App\Support\TemplateCatalog;
+use Illuminate\Support\Str;
 
 it('renders the components index with every catalog entry', function () {
     $response = $this->get('/components')->assertSuccessful();
@@ -60,11 +61,13 @@ it('shows an installation section with the component source and theme tokens', f
 })->with(['button', 'icon-button', 'button-group', 'split-button', 'speed-dial', 'link']);
 
 it('offers vue and react versions behind code tabs', function (string $slug, string $componentName) {
+    $directory = 'resources/js/components/ui/'.Str::slug(ComponentCatalog::find($slug)['category']);
+
     $this->get("/components/{$slug}")
         ->assertSuccessful()
         ->assertSee('data-code-tab', false)
-        ->assertSee("resources/js/components/ui/{$componentName}.vue")
-        ->assertSee("resources/js/components/ui/{$componentName}.jsx")
+        ->assertSee("{$directory}/{$componentName}.vue")
+        ->assertSee("{$directory}/{$componentName}.jsx")
         ->assertSee("export function Ui{$componentName}");
 })->with([
     'button' => ['button', 'Button'],

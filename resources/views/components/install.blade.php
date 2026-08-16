@@ -2,17 +2,20 @@
 
 @php
     $studlyName = Illuminate\Support\Str::studly($slug);
+    $entry = App\Support\ComponentCatalog::find($slug);
+    $categoryDir = Illuminate\Support\Str::slug($entry['category']);
+    $jsDir = 'resources/js/components/ui/'.$categoryDir.'/';
 
     $sources = [
         'blade' => ['label' => 'Blade', 'path' => 'resources/views/components/ui/'.$slug.'.blade.php'],
     ];
 
     if ($vue) {
-        $sources['vue'] = ['label' => 'Vue', 'path' => 'resources/js/components/ui/'.$studlyName.'.vue'];
+        $sources['vue'] = ['label' => 'Vue', 'path' => $jsDir.$studlyName.'.vue'];
     }
 
     if ($react) {
-        $sources['react'] = ['label' => 'React', 'path' => 'resources/js/components/ui/'.$studlyName.'.jsx'];
+        $sources['react'] = ['label' => 'React', 'path' => $jsDir.$studlyName.'.jsx'];
     }
 
     foreach ($sources as $language => $source) {

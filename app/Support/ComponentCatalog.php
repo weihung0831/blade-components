@@ -9,7 +9,9 @@ class ComponentCatalog
      *
      * Each component's `slug` must match a preview view in
      * `resources/views/components/previews/{category-slug}/{slug}.blade.php`,
-     * where `{category-slug}` is the kebab-cased category name.
+     * where `{category-slug}` is the kebab-cased category name. The Vue and
+     * React sources shown by `x-install` follow the same grouping, in
+     * `resources/js/components/ui/{category-slug}/{StudlyName}.{vue,jsx}`.
      *
      * @return array<string, list<array{slug: string, name: string, variants: int}>>
      */
