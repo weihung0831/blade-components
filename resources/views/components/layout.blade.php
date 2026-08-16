@@ -14,7 +14,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-ink-950 font-sans text-zinc-300 antialiased selection:bg-jade-500/30 selection:text-cream">
+<body class="flex min-h-dvh flex-col bg-ink-950 font-sans text-zinc-300 antialiased selection:bg-jade-500/30 selection:text-cream">
 
     {{-- Nav --}}
     <header class="sticky top-0 z-40 border-b border-white/5 bg-ink-950/80 backdrop-blur">
@@ -52,10 +52,10 @@
     </button>
 
     {{-- Footer --}}
-    <footer class="border-t border-white/5">
-        <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-8 font-mono text-xs text-zinc-600">
+    <footer class="mt-auto border-t border-white/5">
+        <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 font-mono text-xs text-zinc-600">
             <span class="flex items-center gap-2">
-                <svg class="size-5 shrink-0" viewBox="0 0 28 28" aria-hidden="true">
+                <svg class="size-4 shrink-0" viewBox="0 0 28 28" aria-hidden="true">
                     <rect width="28" height="28" rx="7.5" fill="#4ea396" />
                     <path d="M7 19 L11 9 M12.5 19 L16.5 9 M18 19 L22 9" stroke="#fefbee" stroke-width="2.6" stroke-linecap="round" fill="none" />
                 </svg>
