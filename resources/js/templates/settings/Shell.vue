@@ -5,6 +5,7 @@ import UiBreadcrumb from '../../components/ui/Breadcrumb.vue';
 import UiAvatar from '../../components/ui/Avatar.vue';
 import UiButton from '../../components/ui/Button.vue';
 import UiScrollTop from '../../components/ui/ScrollTop.vue';
+import UiDropdown from '../../components/ui/Dropdown.vue';
 
 const props = defineProps({
     active: { type: String, default: 'Profile' },
@@ -38,9 +39,8 @@ const sections = computed(() => nav.map((section) => ({
     })),
 })));
 
-const flat = computed(() => sections.value.flatMap((section) => section.items));
-
 const crumbs = computed(() => [{ label: 'wharf', href: '#' }, { label: 'Settings', href: '#' }, { label: props.title }]);
+const shortCrumbs = computed(() => crumbs.value.slice(1));
 </script>
 
 <template>
@@ -52,8 +52,9 @@ const crumbs = computed(() => [{ label: 'wharf', href: '#' }, { label: 'Settings
                 Console
             </a>
 
-            <UiSeparator vertical class="my-3.5 hidden sm:block" />
+            <UiSeparator vertical class="my-3.5" />
 
+            <UiBreadcrumb :items="shortCrumbs" separator="slash" class="min-w-0 shrink sm:hidden" />
             <UiBreadcrumb :items="crumbs" separator="slash" class="hidden min-w-0 shrink sm:flex" />
 
             <div class="ml-auto flex shrink-0 items-center gap-3">
@@ -94,15 +95,27 @@ const crumbs = computed(() => [{ label: 'wharf', href: '#' }, { label: 'Settings
 
             <div class="relative flex min-w-0 flex-1">
                 <div data-ui-scroll-region class="flex min-w-0 flex-1 flex-col overflow-y-auto">
-                    <div class="flex shrink-0 gap-1 overflow-x-auto border-b border-white/5 px-4 py-2 lg:hidden">
-                        <a
-                            v-for="item in flat"
-                            :key="item.label"
-                            :href="item.href"
-                            :target="item.screen ? '_top' : null"
-                            class="shrink-0 rounded-lg px-2.5 py-1 text-[13px] transition-colors duration-150"
-                            :class="item.active ? 'bg-jade-500/12 text-jade-300' : 'text-zinc-500 hover:text-cream'"
-                        >{{ item.label }}</a>
+                    <div class="shrink-0 border-b border-white/5 px-4 py-2.5 lg:hidden">
+                        <UiDropdown>
+                            {{ active }}
+
+                            <template #menu>
+                                <template v-for="(section, index) in sections" :key="section.label">
+                                    <p class="px-3 pb-1 font-mono text-[10px] tracking-wider text-zinc-600 uppercase" :class="index > 0 && 'pt-2'">{{ section.label }}</p>
+
+                                    <a
+                                        v-for="item in section.items"
+                                        :key="item.label"
+                                        :href="item.href"
+                                        :target="item.screen ? '_top' : null"
+                                        :class="item.active && 'text-jade-300!'"
+                                    >
+                                        {{ item.label }}
+                                        <span v-if="item.meta" class="ml-auto font-mono text-[10px] text-zinc-600">{{ item.meta }}</span>
+                                    </a>
+                                </template>
+                            </template>
+                        </UiDropdown>
                     </div>
 
                     <div class="mx-auto w-full max-w-3xl shrink-0 px-5 py-8 sm:px-8">

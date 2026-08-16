@@ -30,7 +30,11 @@
         ], $section['items']),
     ], $nav);
 
-    $flat = array_merge(...array_column($sections, 'items'));
+    $crumbs = [
+        ['label' => 'wharf', 'href' => '#'],
+        ['label' => 'Settings', 'href' => '#'],
+        ['label' => $title],
+    ];
 @endphp
 
 <div {{ $attributes->class('flex h-full w-full flex-col overflow-hidden bg-ink-950') }}>
@@ -41,10 +45,10 @@
             Console
         </a>
 
-        <x-ui.separator vertical class="my-3.5 hidden sm:block" />
+        <x-ui.separator vertical class="my-3.5" />
 
-        <x-ui.breadcrumb :items="[['label' => 'wharf', 'href' => '#'], ['label' => 'Settings', 'href' => '#'], ['label' => $title]]"
-            separator="slash" class="hidden min-w-0 shrink sm:flex" />
+        <x-ui.breadcrumb :items="array_slice($crumbs, 1)" separator="slash" class="min-w-0 shrink sm:hidden" />
+        <x-ui.breadcrumb :items="$crumbs" separator="slash" class="hidden min-w-0 shrink sm:flex" />
 
         <div class="ml-auto flex shrink-0 items-center gap-3">
             <span class="hidden items-center gap-2 rounded-full border border-white/10 py-1 pr-3 pl-1 md:inline-flex">
@@ -86,15 +90,26 @@
 
         <div class="relative flex min-w-0 flex-1">
             <div data-ui-scroll-region class="flex min-w-0 flex-1 flex-col overflow-y-auto">
-                <div class="flex shrink-0 gap-1 overflow-x-auto border-b border-white/5 px-4 py-2 lg:hidden">
-                    @foreach ($flat as $item)
-                        <a href="{{ $item['href'] }}" @isset($item['screen']) target="_top" @endisset
-                            @class([
-                                'shrink-0 rounded-lg px-2.5 py-1 text-[13px] transition-colors duration-150',
-                                'bg-jade-500/12 text-jade-300' => $item['active'],
-                                'text-zinc-500 hover:text-cream' => ! $item['active'],
-                            ])>{{ $item['label'] }}</a>
-                    @endforeach
+                <div class="shrink-0 border-b border-white/5 px-4 py-2.5 lg:hidden">
+                    <x-ui.dropdown>
+                        {{ $active }}
+
+                        <x-slot:menu>
+                            @foreach ($sections as $section)
+                                <p @class(['px-3 pb-1 font-mono text-[10px] tracking-wider text-zinc-600 uppercase', 'pt-2' => ! $loop->first])>{{ $section['label'] }}</p>
+
+                                @foreach ($section['items'] as $item)
+                                    <a href="{{ $item['href'] }}" @isset($item['screen']) target="_top" @endisset
+                                        @class(['text-jade-300!' => $item['active']])>
+                                        {{ $item['label'] }}
+                                        @isset($item['meta'])
+                                            <span class="ml-auto font-mono text-[10px] text-zinc-600">{{ $item['meta'] }}</span>
+                                        @endisset
+                                    </a>
+                                @endforeach
+                            @endforeach
+                        </x-slot>
+                    </x-ui.dropdown>
                 </div>
 
                 <div class="mx-auto w-full max-w-3xl shrink-0 px-5 py-8 sm:px-8">

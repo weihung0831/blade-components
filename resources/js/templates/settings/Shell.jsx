@@ -1,8 +1,10 @@
+import { Fragment } from 'react';
 import { UiSeparator } from '../../components/ui/Separator';
 import { UiBreadcrumb } from '../../components/ui/Breadcrumb';
 import { UiAvatar } from '../../components/ui/Avatar';
 import { UiButton } from '../../components/ui/Button';
 import { UiScrollTop } from '../../components/ui/ScrollTop';
+import { UiDropdown } from '../../components/ui/Dropdown';
 
 const nav = [
     { label: 'Personal', items: [
@@ -30,7 +32,6 @@ export function SettingsShell({ active = 'Profile', title = 'Profile', descripti
         })),
     }));
 
-    const flat = sections.flatMap((section) => section.items);
     const crumbs = [{ label: 'wharf', href: '#' }, { label: 'Settings', href: '#' }, { label: title }];
 
     return (
@@ -41,8 +42,9 @@ export function SettingsShell({ active = 'Profile', title = 'Profile', descripti
                     Console
                 </a>
 
-                <UiSeparator vertical className="my-3.5 hidden sm:block" />
+                <UiSeparator vertical className="my-3.5" />
 
+                <UiBreadcrumb items={crumbs.slice(1)} separator="slash" className="min-w-0 shrink sm:hidden" />
                 <UiBreadcrumb items={crumbs} separator="slash" className="hidden min-w-0 shrink sm:flex" />
 
                 <div className="ml-auto flex shrink-0 items-center gap-3">
@@ -85,15 +87,28 @@ export function SettingsShell({ active = 'Profile', title = 'Profile', descripti
 
                 <div className="relative flex min-w-0 flex-1">
                     <div data-ui-scroll-region className="flex min-w-0 flex-1 flex-col overflow-y-auto">
-                        <div className="flex shrink-0 gap-1 overflow-x-auto border-b border-white/5 px-4 py-2 lg:hidden">
-                            {flat.map((item) => (
-                                <a
-                                    key={item.label}
-                                    href={item.href}
-                                    target={item.screen ? '_top' : undefined}
-                                    className={`shrink-0 rounded-lg px-2.5 py-1 text-[13px] transition-colors duration-150 ${item.active ? 'bg-jade-500/12 text-jade-300' : 'text-zinc-500 hover:text-cream'}`}
-                                >{item.label}</a>
-                            ))}
+                        <div className="shrink-0 border-b border-white/5 px-4 py-2.5 lg:hidden">
+                            <UiDropdown
+                                menu={sections.map((section, index) => (
+                                    <Fragment key={section.label}>
+                                        <p className={`px-3 pb-1 font-mono text-[10px] tracking-wider text-zinc-600 uppercase ${index > 0 ? 'pt-2' : ''}`}>{section.label}</p>
+
+                                        {section.items.map((item) => (
+                                            <a
+                                                key={item.label}
+                                                href={item.href}
+                                                target={item.screen ? '_top' : undefined}
+                                                className={item.active ? 'text-jade-300!' : undefined}
+                                            >
+                                                {item.label}
+                                                {item.meta && <span className="ml-auto font-mono text-[10px] text-zinc-600">{item.meta}</span>}
+                                            </a>
+                                        ))}
+                                    </Fragment>
+                                ))}
+                            >
+                                {active}
+                            </UiDropdown>
                         </div>
 
                         <div className="mx-auto w-full max-w-3xl shrink-0 px-5 py-8 sm:px-8">
