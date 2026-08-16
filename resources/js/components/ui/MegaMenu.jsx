@@ -1,0 +1,66 @@
+const grids = { 1: 'sm:grid-cols-1', 2: 'sm:grid-cols-2', 3: 'sm:grid-cols-3', 4: 'sm:grid-cols-4' };
+
+const gridClasses = (menu) => {
+    const span = Math.min(4, (menu.columns ?? []).length + (menu.feature ? 1 : 0));
+
+    return grids[span] ?? 'sm:grid-cols-3';
+};
+
+export function UiMegaMenu({ menus = [], brand = null, end = null, className = '', ...props }) {
+    return (
+        <div className={`relative flex items-center gap-1 rounded-xl border border-white/10 bg-ink-800 px-2 py-1.5 ${className}`.trim()} {...props}>
+            {brand && <div className="mr-1 flex items-center">{brand}</div>}
+
+            {menus.map((menu) => (
+                <details key={menu.label} className="group/mega static sm:relative" name="ui-mega-menu">
+                    <summary
+                        className={`flex cursor-pointer list-none items-center gap-1.5 rounded-md px-2.5 py-1 text-sm text-zinc-400 transition-colors duration-150 outline-none select-none hover:bg-white/5 hover:text-cream focus-visible:ring-2 focus-visible:ring-jade-500/70 [&::-webkit-details-marker]:hidden group-open/mega:bg-white/8 group-open/mega:text-cream group-open/mega:before:fixed group-open/mega:before:inset-0 group-open/mega:before:cursor-default group-open/mega:before:content-['']`}
+                    >
+                        {menu.label}
+                        <svg className="size-3 text-zinc-600 transition-transform duration-150 ease-snap group-open/mega:rotate-180" viewBox="0 0 16 16" fill="none"><path d="m4 6 4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    </summary>
+
+                    <div className="absolute top-full left-0 z-10 mt-1.5 w-full rounded-xl border border-white/10 bg-ink-900 p-5 shadow-xl shadow-black/50 sm:w-max sm:max-w-[min(42rem,90vw)]">
+                        <div className={`grid gap-6 ${gridClasses(menu)}`}>
+                            {(menu.columns ?? []).map((column) => (
+                                <div key={column.title} className="sm:w-48">
+                                    <p className="font-mono text-[10px] tracking-wider text-jade-400 uppercase">{column.title}</p>
+                                    <div className="mt-2.5 flex flex-col gap-0.5">
+                                        {(column.items ?? []).map((entry) => (
+                                            <a
+                                                key={entry.label}
+                                                href={entry.href ?? '#'}
+                                                className="-mx-2 rounded-md px-2 py-1.5 transition-colors duration-150 outline-none hover:bg-white/5 focus-visible:ring-2 focus-visible:ring-jade-500/70"
+                                            >
+                                                <span className="block text-sm text-zinc-200">{entry.label}</span>
+                                                {entry.description && <span className="mt-0.5 block text-xs/5 text-zinc-500">{entry.description}</span>}
+                                            </a>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+
+                            {menu.feature && (
+                                <div className="flex flex-col justify-between rounded-lg border border-jade-500/25 bg-jade-500/8 p-4 sm:w-48">
+                                    <div>
+                                        <p className="text-sm font-medium text-cream">{menu.feature.title}</p>
+                                        <p className="mt-1 text-xs/5 text-zinc-400">{menu.feature.description}</p>
+                                    </div>
+                                    <a
+                                        href={menu.feature.href ?? '#'}
+                                        className="mt-4 inline-flex items-center gap-1.5 rounded text-xs font-medium text-jade-400 transition-colors duration-150 outline-none hover:text-jade-300 focus-visible:ring-2 focus-visible:ring-jade-500/70"
+                                    >
+                                        {menu.feature.action}
+                                        <svg className="size-3" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7m-3-3 3 3-3 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                                    </a>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </details>
+            ))}
+
+            {end && <div className="ml-auto flex items-center gap-2 pl-2">{end}</div>}
+        </div>
+    );
+}
