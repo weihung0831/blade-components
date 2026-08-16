@@ -2,6 +2,7 @@
     'slug',
     'files' => [],
     'components' => [],
+    'description' => null,
 ])
 
 @php
@@ -15,10 +16,11 @@
 
     foreach ($languages as $language => $meta) {
         foreach ($files as $file) {
-            $name = $language === 'blade' ? $file : Illuminate\Support\Str::studly($file);
-            $path = $meta['dir'].$name.$meta['ext'];
+            $basename = $language === 'blade' ? $file['slug'] : Illuminate\Support\Str::studly($file['slug']);
+            $path = $meta['dir'].$basename.$meta['ext'];
 
             $sources[$language][] = [
+                'name' => $file['name'],
                 'path' => $path,
                 'code' => trim(Illuminate\Support\Facades\File::get(base_path($path))),
             ];
@@ -29,7 +31,7 @@
 <section {{ $attributes }}>
     <h2 class="text-lg font-semibold tracking-tight text-cream">Installation</h2>
     <p class="mt-1 max-w-2xl text-sm/6 text-zinc-500">
-        The template is {{ count($files) }} files and no package. Drop them in, install the catalog components below, and the screens run.
+        {{ $description ?? 'No package, no build step beyond Tailwind. Paste the files, install the catalog components below, and it runs.' }}
     </p>
 
     <div class="mt-4 overflow-hidden rounded-xl border border-white/8 bg-ink-900" data-code-tabs>
@@ -45,7 +47,8 @@
                     <x-code-disclosure class="{{ $loop->first ? '' : 'border-t border-white/5' }}">
                         <x-slot:summary>
                             <span class="font-mono text-xs text-jade-400">{{ sprintf('%02d', $loop->iteration) }}</span>
-                            <span class="truncate font-mono text-xs text-zinc-500">Save as <span class="text-zinc-300">{{ $entry['path'] }}</span></span>
+                            <span class="w-28 shrink-0 truncate text-[13px] text-zinc-200">{{ $entry['name'] }}</span>
+                            <span class="truncate font-mono text-[11px] text-zinc-600">Save as <span class="text-zinc-500">{{ $entry['path'] }}</span></span>
                             <span class="ml-auto shrink-0 font-mono text-[10px] text-zinc-700">{{ substr_count($entry['code'], "\n") + 1 }} lines</span>
                         </x-slot>
 

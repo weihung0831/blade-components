@@ -30,14 +30,10 @@
     </x-slot>
 
     <div class="grid grid-cols-4 gap-4">
-        <x-templates.dashboard.stat label="Total merchants" :value="1284" delta="42" trend="up" hint="new this month"
-            :points="[1180, 1195, 1210, 1218, 1240, 1251, 1270, 1284]" />
-        <x-templates.dashboard.stat label="On trial" :value="96" delta="11" trend="up" hint="31.8% convert"
-            :points="[72, 78, 81, 84, 88, 90, 93, 96]" />
-        <x-templates.dashboard.stat label="Past due" :value="14" delta="3" trend="down" hint="dunning day 2–14"
-            :points="[22, 21, 19, 18, 17, 16, 15, 14]" />
-        <x-templates.dashboard.stat label="Seats provisioned" :value="312" delta="5.8%" trend="up" hint="of 400 licensed"
-            :points="[248, 259, 268, 274, 288, 297, 305, 312]" />
+        <x-templates.dashboard.stat label="Total merchants" :value="1284" delta="42" trend="up" hint="new this month" />
+        <x-templates.dashboard.stat label="On trial" :value="96" delta="11" trend="up" hint="31.8% convert" />
+        <x-templates.dashboard.stat label="Past due" :value="14" delta="3" trend="down" hint="dunning day 2–14" />
+        <x-templates.dashboard.stat label="Seats provisioned" :value="312" delta="5.8%" trend="up" hint="of 400 licensed" />
     </div>
 
     <div class="flex flex-wrap items-center gap-2 rounded-xl border border-white/10 bg-ink-800 p-2">

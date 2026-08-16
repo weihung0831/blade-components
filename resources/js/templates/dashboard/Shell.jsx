@@ -28,10 +28,10 @@ export function DashboardShell({ active = 'Overview', title = 'Overview', crumbs
     }));
 
     return (
-        <div className="flex min-h-[42rem] w-full min-w-[64rem] gap-4 bg-ink-950 p-4">
+        <div className="flex h-full min-h-[42rem] w-full min-w-[64rem] gap-4 overflow-hidden bg-ink-950 p-4">
             <UiSidebar
                 sections={sections}
-                className="sticky top-4 h-fit shrink-0"
+                className="shrink-0"
                 brand={
                     <>
                         <span className="grid size-7 place-items-center rounded-lg bg-jade-500 font-mono text-[11px] font-bold text-ink-950">///</span>
@@ -61,7 +61,7 @@ export function DashboardShell({ active = 'Overview', title = 'Overview', crumbs
                 }
             />
 
-            <div className="flex min-w-0 flex-1 flex-col gap-4">
+            <div className="flex min-w-0 flex-1 flex-col gap-4 overflow-y-auto">
                 <header className="flex h-12 shrink-0 items-center gap-4 rounded-xl border border-white/10 bg-ink-800 px-3">
                     <UiBreadcrumb items={crumbs} separator="slash" className="min-w-0 shrink" />
 

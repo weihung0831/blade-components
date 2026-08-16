@@ -1,6 +1,21 @@
 @php
     $screens = App\Support\TemplateCatalog::screens($template['slug']);
 
+    $sourcesFor = function (string $file): array {
+        $studly = Illuminate\Support\Str::studly($file);
+
+        $paths = [
+            'blade' => ['label' => 'Blade', 'path' => 'resources/views/components/templates/dashboard/'.$file.'.blade.php'],
+            'vue' => ['label' => 'Vue', 'path' => 'resources/js/templates/dashboard/'.$studly.'.vue'],
+            'react' => ['label' => 'React', 'path' => 'resources/js/templates/dashboard/'.$studly.'.jsx'],
+        ];
+
+        return array_map(
+            fn (array $source): array => $source + ['code' => trim(Illuminate\Support\Facades\File::get(base_path($source['path'])))],
+            $paths,
+        );
+    };
+
     $revenue = [
         ['label' => 'Sep', 'value' => 28.4],
         ['label' => 'Oct', 'value' => 30.1],
@@ -176,39 +191,39 @@
     $statsCode = <<<'BLADE'
     <div class="grid grid-cols-4 gap-4">
         <x-templates.dashboard.stat label="MRR" :value="48240" prefix="$" delta="12.4%" trend="up"
-            hint="vs last month" :points="[31, 33, 32, 36, 38, 41, 44, 48]" />
+            hint="vs last month" />
         <x-templates.dashboard.stat label="Active merchants" :value="1284" delta="3.1%" trend="up"
-            hint="42 new this month" :points="[1180, 1195, 1210, 1218, 1240, 1251, 1270, 1284]" />
+            hint="42 new this month" />
         <x-templates.dashboard.stat label="Net revenue churn" :value="2.1" :decimals="1" suffix="%" delta="0.4pt" trend="down"
-            hint="improved" :points="[3.4, 3.2, 3.3, 2.9, 2.7, 2.5, 2.4, 2.1]" />
+            hint="improved" />
         <x-templates.dashboard.stat label="Seats in use" :value="312" delta="18" trend="up"
-            hint="of 400 licensed" :points="[248, 259, 268, 274, 288, 297, 305, 312]" />
+            hint="of 400 licensed" />
     </div>
     BLADE;
 
     $statsVueCode = <<<'VUE'
     <div class="grid grid-cols-4 gap-4">
         <DashboardStat label="MRR" :value="48240" prefix="$" delta="12.4%" trend="up"
-            hint="vs last month" :points="[31, 33, 32, 36, 38, 41, 44, 48]" />
+            hint="vs last month" />
         <DashboardStat label="Active merchants" :value="1284" delta="3.1%" trend="up"
-            hint="42 new this month" :points="[1180, 1195, 1210, 1218, 1240, 1251, 1270, 1284]" />
+            hint="42 new this month" />
         <DashboardStat label="Net revenue churn" :value="2.1" :decimals="1" suffix="%" delta="0.4pt" trend="down"
-            hint="improved" :points="[3.4, 3.2, 3.3, 2.9, 2.7, 2.5, 2.4, 2.1]" />
+            hint="improved" />
         <DashboardStat label="Seats in use" :value="312" delta="18" trend="up"
-            hint="of 400 licensed" :points="[248, 259, 268, 274, 288, 297, 305, 312]" />
+            hint="of 400 licensed" />
     </div>
     VUE;
 
     $statsReactCode = <<<'REACT'
     <div className="grid grid-cols-4 gap-4">
         <DashboardStat label="MRR" value={48240} prefix="$" delta="12.4%" trend="up"
-            hint="vs last month" points={[31, 33, 32, 36, 38, 41, 44, 48]} />
+            hint="vs last month" />
         <DashboardStat label="Active merchants" value={1284} delta="3.1%" trend="up"
-            hint="42 new this month" points={[1180, 1195, 1210, 1218, 1240, 1251, 1270, 1284]} />
+            hint="42 new this month" />
         <DashboardStat label="Net revenue churn" value={2.1} decimals={1} suffix="%" delta="0.4pt" trend="down"
-            hint="improved" points={[3.4, 3.2, 3.3, 2.9, 2.7, 2.5, 2.4, 2.1]} />
+            hint="improved" />
         <DashboardStat label="Seats in use" value={312} delta="18" trend="up"
-            hint="of 400 licensed" points={[248, 259, 268, 274, 288, 297, 305, 312]} />
+            hint="of 400 licensed" />
     </div>
     REACT;
 
@@ -521,7 +536,8 @@
                         class="scroll-mt-32"
                         :title="$screen['name']"
                         :description="$screen['description']"
-                        :href="route('templates.screen', [$template['slug'], $screen['slug']])">
+                        :href="route('templates.screen', [$template['slug'], $screen['slug']])"
+                        :panels="$sourcesFor($screen['slug'])">
                         <x-dynamic-component :component="'templates.'.$template['slug'].'.'.$screen['slug']" />
                     </x-screen-preview>
                 @endforeach
@@ -578,17 +594,13 @@
                 </x-demo>
 
                 <x-demo title="Stat row" padding="p-8"
-                    description="Counting number, delta arrow, and a sparkline drawn straight from an array of numbers — no chart library."
+                    description="A number that counts up on first view, a delta arrow that picks its own colour, and room for one line of context."
                     :code="$statsCode" :vue-code="$statsVueCode" :react-code="$statsReactCode">
                     <div class="grid w-full grid-cols-4 gap-4">
-                        <x-templates.dashboard.stat label="MRR" :value="48240" prefix="$" delta="12.4%" trend="up" hint="vs last month"
-                            :points="[31, 33, 32, 36, 38, 41, 44, 48]" />
-                        <x-templates.dashboard.stat label="Active merchants" :value="1284" delta="3.1%" trend="up" hint="42 new this month"
-                            :points="[1180, 1195, 1210, 1218, 1240, 1251, 1270, 1284]" />
-                        <x-templates.dashboard.stat label="Net revenue churn" :value="2.1" :decimals="1" suffix="%" delta="0.4pt" trend="down" hint="improved"
-                            :points="[3.4, 3.2, 3.3, 2.9, 2.7, 2.5, 2.4, 2.1]" />
-                        <x-templates.dashboard.stat label="Seats in use" :value="312" delta="18" trend="up" hint="of 400 licensed"
-                            :points="[248, 259, 268, 274, 288, 297, 305, 312]" />
+                        <x-templates.dashboard.stat label="MRR" :value="48240" prefix="$" delta="12.4%" trend="up" hint="vs last month" />
+                        <x-templates.dashboard.stat label="Active merchants" :value="1284" delta="3.1%" trend="up" hint="42 new this month" />
+                        <x-templates.dashboard.stat label="Net revenue churn" :value="2.1" :decimals="1" suffix="%" delta="0.4pt" trend="down" hint="improved" />
+                        <x-templates.dashboard.stat label="Seats in use" :value="312" delta="18" trend="up" hint="of 400 licensed" />
                     </div>
                 </x-demo>
 
@@ -704,7 +716,8 @@
             data-spy-section
             class="mt-16 scroll-mt-32"
             :slug="$template['slug']"
-            :files="array_merge(['shell', 'stat'], array_column($screens, 'slug'))"
+            :files="[['slug' => 'shell', 'name' => 'App shell'], ['slug' => 'stat', 'name' => 'Stat tile']]"
+            description="Each screen above carries its own source under its preview. These two files are what all five share — paste them first."
             :components="['sidebar', 'breadcrumb', 'search', 'avatar', 'separator', 'card', 'table', 'select', 'chip', 'dropdown', 'progress', 'badge', 'alert', 'timeline', 'meter-group', 'pagination', 'number-ticker', 'animated-column-chart', 'animated-bar-chart']" />
     </div>
 </x-layout>

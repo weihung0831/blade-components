@@ -12,6 +12,12 @@
 
 @foreach ($panels as $language => $panel)
     <div @if ($tabbed) data-code-panel="{{ $language }}" @endif @class(['hidden' => ! $loop->first])>
+        @isset($panel['path'])
+            <div class="border-b border-white/5 px-4 py-2 font-mono text-[11px] text-zinc-600">
+                Save as <span class="text-zinc-400">{{ $panel['path'] }}</span>
+            </div>
+        @endisset
+
         <x-code-block :code="$panel['code']" />
     </div>
 @endforeach

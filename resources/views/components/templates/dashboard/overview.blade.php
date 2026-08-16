@@ -44,14 +44,10 @@
     </x-slot>
 
     <div class="grid grid-cols-4 gap-4">
-        <x-templates.dashboard.stat label="MRR" :value="48240" prefix="$" delta="12.4%" trend="up" hint="vs last month"
-            :points="[31, 33, 32, 36, 38, 41, 44, 48]" />
-        <x-templates.dashboard.stat label="Active merchants" :value="1284" delta="3.1%" trend="up" hint="42 new this month"
-            :points="[1180, 1195, 1210, 1218, 1240, 1251, 1270, 1284]" />
-        <x-templates.dashboard.stat label="Net revenue churn" :value="2.1" :decimals="1" suffix="%" delta="0.4pt" trend="down" hint="improved"
-            :points="[3.4, 3.2, 3.3, 2.9, 2.7, 2.5, 2.4, 2.1]" />
-        <x-templates.dashboard.stat label="Seats in use" :value="312" delta="18" trend="up" hint="of 400 licensed"
-            :points="[248, 259, 268, 274, 288, 297, 305, 312]" />
+        <x-templates.dashboard.stat label="MRR" :value="48240" prefix="$" delta="12.4%" trend="up" hint="vs last month" />
+        <x-templates.dashboard.stat label="Active merchants" :value="1284" delta="3.1%" trend="up" hint="42 new this month" />
+        <x-templates.dashboard.stat label="Net revenue churn" :value="2.1" :decimals="1" suffix="%" delta="0.4pt" trend="down" hint="improved" />
+        <x-templates.dashboard.stat label="Seats in use" :value="312" delta="18" trend="up" hint="of 400 licensed" />
     </div>
 
     <div class="grid grid-cols-3 gap-4">

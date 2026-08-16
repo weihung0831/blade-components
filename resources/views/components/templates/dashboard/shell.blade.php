@@ -26,8 +26,8 @@
     ], $nav);
 @endphp
 
-<div {{ $attributes->class('flex min-h-[42rem] w-full min-w-[64rem] gap-4 bg-ink-950 p-4') }}>
-    <x-ui.sidebar :sections="$sections" class="sticky top-4 h-fit shrink-0">
+<div {{ $attributes->class('flex h-full min-h-[42rem] w-full min-w-[64rem] gap-4 overflow-hidden bg-ink-950 p-4') }}>
+    <x-ui.sidebar :sections="$sections" class="shrink-0">
         <x-slot:brand>
             <span class="grid size-7 place-items-center rounded-lg bg-jade-500 font-mono text-[11px] font-bold text-ink-950">///</span>
             <span class="text-sm font-medium text-cream">wharf</span>
@@ -54,7 +54,7 @@
         </x-slot>
     </x-ui.sidebar>
 
-    <div class="flex min-w-0 flex-1 flex-col gap-4">
+    <div class="flex min-w-0 flex-1 flex-col gap-4 overflow-y-auto">
         <header class="flex h-12 shrink-0 items-center gap-4 rounded-xl border border-white/10 bg-ink-800 px-3">
             <x-ui.breadcrumb :items="$crumbs" separator="slash" class="min-w-0 shrink" />
 

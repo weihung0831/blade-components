@@ -2,6 +2,7 @@
     'title',
     'description' => null,
     'href' => null,
+    'panels' => [],
 ])
 
 <section {{ $attributes }}>
@@ -21,7 +22,15 @@
         @endif
     </div>
 
-    <div class="mt-4 max-h-[34rem] overflow-auto rounded-xl border border-white/8 bg-ink-900">
-        {{ $slot }}
+    <div class="mt-4 overflow-hidden rounded-xl border border-white/8 bg-ink-900" @if ($panels !== []) data-code-tabs @endif>
+        <div class="max-h-[34rem] overflow-auto {{ $panels !== [] ? 'border-b border-white/5' : '' }}">
+            {{ $slot }}
+        </div>
+
+        @if ($panels !== [])
+            <x-code-disclosure label="Show source" close-label="Hide source" :hint="implode(' · ', array_column($panels, 'label'))">
+                <x-code-panels :panels="$panels" />
+            </x-code-disclosure>
+        @endif
     </div>
 </section>

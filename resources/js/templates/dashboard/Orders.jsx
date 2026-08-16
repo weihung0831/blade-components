@@ -76,14 +76,10 @@ export function Orders() {
             }
         >
             <div className="grid grid-cols-4 gap-4">
-                <DashboardStat label="Gross volume" value={184920} prefix="$" delta="8.7%" trend="up" hint="platform-wide, 7 days"
-                    points={[142, 148, 155, 161, 168, 172, 179, 185]} />
-                <DashboardStat label="Orders" value={14035} delta="6.2%" trend="up" hint="2,004 per day"
-                    points={[11800, 12100, 12600, 12900, 13200, 13500, 13800, 14035]} />
-                <DashboardStat label="Refund rate" value={1.8} decimals={1} suffix="%" delta="0.2pt" trend="up" hint="watch Osprey returns"
-                    points={[1.4, 1.4, 1.5, 1.5, 1.6, 1.7, 1.7, 1.8]} />
-                <DashboardStat label="Platform fee" value={5547.6} decimals={2} prefix="$" delta="8.7%" trend="up" hint="3% of volume"
-                    points={[4.2, 4.4, 4.6, 4.8, 5.0, 5.1, 5.3, 5.5]} />
+                <DashboardStat label="Gross volume" value={184920} prefix="$" delta="8.7%" trend="up" hint="platform-wide, 7 days" />
+                <DashboardStat label="Orders" value={14035} delta="6.2%" trend="up" hint="2,004 per day" />
+                <DashboardStat label="Refund rate" value={1.8} decimals={1} suffix="%" delta="0.2pt" trend="up" hint="watch Osprey returns" />
+                <DashboardStat label="Platform fee" value={5547.6} decimals={2} prefix="$" delta="8.7%" trend="up" hint="3% of volume" />
             </div>
 
             <div className="grid grid-cols-3 gap-4">

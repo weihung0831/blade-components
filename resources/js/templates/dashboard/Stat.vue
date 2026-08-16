@@ -1,8 +1,7 @@
 <script setup>
-import { computed } from 'vue';
 import UiNumberTicker from '../../components/ui/NumberTicker.vue';
 
-const props = defineProps({
+defineProps({
     label: { type: String, default: '' },
     value: { type: Number, default: 0 },
     decimals: { type: Number, default: 0 },
@@ -11,7 +10,6 @@ const props = defineProps({
     delta: { type: String, default: null },
     trend: { type: String, default: 'up' },
     hint: { type: String, default: null },
-    points: { type: Array, default: () => [] },
 });
 
 const tones = {
@@ -25,24 +23,10 @@ const arrows = {
     down: 'M8 3.5v9M4 9l4 3.5L12 9',
     flat: 'M3.5 8h9',
 };
-
-const spark = computed(() => {
-    if (props.points.length === 0) {
-        return null;
-    }
-
-    const low = Math.min(...props.points);
-    const span = Math.max(...props.points) - low || 1;
-    const step = props.points.length > 1 ? 100 / (props.points.length - 1) : 100;
-
-    return props.points
-        .map((point, index) => `${(index * step).toFixed(2)},${(24 - ((point - low) / span) * 22).toFixed(2)}`)
-        .join(' ');
-});
 </script>
 
 <template>
-    <div class="group/stat relative overflow-hidden rounded-xl border border-white/10 bg-ink-800 p-4 transition-colors duration-200 hover:border-white/20">
+    <div class="rounded-xl border border-white/10 bg-ink-800 p-4 transition-colors duration-200 hover:border-white/20">
         <p class="font-mono text-[10px] tracking-wider text-zinc-500 uppercase">{{ label }}</p>
 
         <p class="mt-2.5 text-2xl font-semibold tracking-tight text-cream">
@@ -56,11 +40,5 @@ const spark = computed(() => {
             </span>
             <span v-if="hint" class="truncate text-[11px] text-zinc-600">{{ hint }}</span>
         </div>
-
-        <svg v-if="spark" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true"
-            class="pointer-events-none absolute inset-x-0 bottom-0 h-10 w-full opacity-40 transition-opacity duration-300 group-hover/stat:opacity-70">
-            <polyline :points="spark" fill="none" stroke="currentColor" stroke-width="1.25" vector-effect="non-scaling-stroke"
-                :class="trend === 'down' ? 'text-red-400' : 'text-jade-500'" />
-        </svg>
     </div>
 </template>

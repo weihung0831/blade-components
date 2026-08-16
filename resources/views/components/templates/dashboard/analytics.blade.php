@@ -57,14 +57,10 @@
     </x-slot>
 
     <div class="grid grid-cols-4 gap-4">
-        <x-templates.dashboard.stat label="Sessions" :value="412800" delta="14.9%" trend="up" hint="vs prior 28 days"
-            :points="[288, 301, 322, 340, 358, 371, 396, 412]" />
-        <x-templates.dashboard.stat label="Product views" :value="1284900" delta="11.2%" trend="up" hint="across 1,284 stores"
-            :points="[980, 1020, 1075, 1104, 1160, 1198, 1240, 1284]" />
-        <x-templates.dashboard.stat label="Conversion" :value="3.4" :decimals="1" suffix="%" delta="0.3pt" trend="up" hint="paid orders / sessions"
-            :points="[2.8, 2.9, 2.9, 3.0, 3.1, 3.2, 3.3, 3.4]" />
-        <x-templates.dashboard.stat label="Avg order value" :value="86.4" :decimals="2" prefix="$" delta="1.9%" trend="down" hint="promo-heavy month"
-            :points="[92, 91, 90, 89, 89, 88, 87, 86]" />
+        <x-templates.dashboard.stat label="Sessions" :value="412800" delta="14.9%" trend="up" hint="vs prior 28 days" />
+        <x-templates.dashboard.stat label="Product views" :value="1284900" delta="11.2%" trend="up" hint="across 1,284 stores" />
+        <x-templates.dashboard.stat label="Conversion" :value="3.4" :decimals="1" suffix="%" delta="0.3pt" trend="up" hint="paid orders / sessions" />
+        <x-templates.dashboard.stat label="Avg order value" :value="86.4" :decimals="2" prefix="$" delta="1.9%" trend="down" hint="promo-heavy month" />
     </div>
 
     <div class="grid grid-cols-3 gap-4">

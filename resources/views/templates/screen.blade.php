@@ -43,7 +43,7 @@
         </button>
     </div>
 
-    <div class="overflow-x-auto">
+    <div class="h-[calc(100dvh-2.75rem)] overflow-x-auto">
         <x-dynamic-component :component="$component" />
     </div>
 
