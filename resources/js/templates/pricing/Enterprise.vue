@@ -1,11 +1,11 @@
 <script setup>
 import { ref } from 'vue';
 import PricingShell from './Shell.vue';
-import UiButton from '../../components/ui/Button.vue';
-import UiCheckbox from '../../components/ui/Checkbox.vue';
-import UiInput from '../../components/ui/Input.vue';
-import UiSelect from '../../components/ui/Select.vue';
-import UiTextarea from '../../components/ui/Textarea.vue';
+import UiButton from '../../components/ui/actions/Button.vue';
+import UiCheckbox from '../../components/ui/forms/Checkbox.vue';
+import UiInput from '../../components/ui/forms/Input.vue';
+import UiSelect from '../../components/ui/forms/Select.vue';
+import UiTextarea from '../../components/ui/forms/Textarea.vue';
 
 const regions = [
     { label: 'ap-1', meta: 'Taipei', checked: true },

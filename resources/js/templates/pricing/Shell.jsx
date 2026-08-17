@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { UiButton } from '../../components/ui/Button';
-import { UiDropdown } from '../../components/ui/Dropdown';
-import { UiScrollTop } from '../../components/ui/ScrollTop';
+import { UiButton } from '../../components/ui/actions/Button';
+import { UiDropdown } from '../../components/ui/overlay/Dropdown';
+import { UiScrollTop } from '../../components/ui/navigation/ScrollTop';
 
 const tabs = [
     { label: 'Plans', screen: 'plans' },

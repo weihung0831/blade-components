@@ -2,13 +2,13 @@ import { useState } from 'react';
 import { SettingsShell } from './Shell';
 import { SettingsSection } from './Section';
 import { SettingsRow } from './Row';
-import { UiAlert } from '../../components/ui/Alert';
-import { UiBadge } from '../../components/ui/Badge';
-import { UiButton } from '../../components/ui/Button';
-import { UiProgress } from '../../components/ui/Progress';
-import { UiSelect } from '../../components/ui/Select';
-import { UiSwitch } from '../../components/ui/Switch';
-import { UiTagsInput } from '../../components/ui/TagsInput';
+import { UiAlert } from '../../components/ui/feedback/Alert';
+import { UiBadge } from '../../components/ui/data-display/Badge';
+import { UiButton } from '../../components/ui/actions/Button';
+import { UiProgress } from '../../components/ui/feedback/Progress';
+import { UiSelect } from '../../components/ui/forms/Select';
+import { UiSwitch } from '../../components/ui/forms/Switch';
+import { UiTagsInput } from '../../components/ui/forms/TagsInput';
 
 const keys = [
     { name: 'Storefront server', prefix: 'whk_live_9f2c…', scopes: ['orders:write', 'merchants:read'], created: '14 Mar 2026', used: '2m ago', live: true },

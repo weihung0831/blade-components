@@ -3,12 +3,12 @@ import { ref } from 'vue';
 import SettingsShell from './Shell.vue';
 import SettingsSection from './Section.vue';
 import SettingsRow from './Row.vue';
-import UiAvatar from '../../components/ui/Avatar.vue';
-import UiBadge from '../../components/ui/Badge.vue';
-import UiButton from '../../components/ui/Button.vue';
-import UiInput from '../../components/ui/Input.vue';
-import UiSelect from '../../components/ui/Select.vue';
-import UiSwitch from '../../components/ui/Switch.vue';
+import UiAvatar from '../../components/ui/data-display/Avatar.vue';
+import UiBadge from '../../components/ui/data-display/Badge.vue';
+import UiButton from '../../components/ui/actions/Button.vue';
+import UiInput from '../../components/ui/forms/Input.vue';
+import UiSelect from '../../components/ui/forms/Select.vue';
+import UiSwitch from '../../components/ui/forms/Switch.vue';
 
 const sessions = [
     { device: 'MacBook Pro · Chrome 128', where: 'Taipei, TW · 203.0.113.42', seen: 'Active now', current: true },

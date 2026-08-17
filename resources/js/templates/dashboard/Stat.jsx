@@ -1,4 +1,4 @@
-import { UiNumberTicker } from '../../components/ui/NumberTicker';
+import { UiNumberTicker } from '../../components/ui/effects/NumberTicker';
 
 const tones = {
     up: 'text-jade-400',

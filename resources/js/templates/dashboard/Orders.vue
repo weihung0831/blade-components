@@ -2,16 +2,16 @@
 import { ref } from 'vue';
 import DashboardShell from './Shell.vue';
 import DashboardStat from './Stat.vue';
-import UiCard from '../../components/ui/Card.vue';
-import UiSelect from '../../components/ui/Select.vue';
-import UiButton from '../../components/ui/Button.vue';
-import UiBadge from '../../components/ui/Badge.vue';
-import UiSeparator from '../../components/ui/Separator.vue';
-import UiTable from '../../components/ui/Table.vue';
-import UiMeterGroup from '../../components/ui/MeterGroup.vue';
-import UiNumberTicker from '../../components/ui/NumberTicker.vue';
-import UiAnimatedBarChart from '../../components/ui/AnimatedBarChart.vue';
-import UiAnimatedColumnChart from '../../components/ui/AnimatedColumnChart.vue';
+import UiCard from '../../components/ui/data-display/Card.vue';
+import UiSelect from '../../components/ui/forms/Select.vue';
+import UiButton from '../../components/ui/actions/Button.vue';
+import UiBadge from '../../components/ui/data-display/Badge.vue';
+import UiSeparator from '../../components/ui/data-display/Separator.vue';
+import UiTable from '../../components/ui/data-display/Table.vue';
+import UiMeterGroup from '../../components/ui/data-display/MeterGroup.vue';
+import UiNumberTicker from '../../components/ui/effects/NumberTicker.vue';
+import UiAnimatedBarChart from '../../components/ui/effects/AnimatedBarChart.vue';
+import UiAnimatedColumnChart from '../../components/ui/effects/AnimatedColumnChart.vue';
 
 const range = ref('This week');
 

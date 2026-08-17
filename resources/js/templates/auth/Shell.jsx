@@ -1,4 +1,4 @@
-import { UiScrollTop } from '../../components/ui/ScrollTop';
+import { UiScrollTop } from '../../components/ui/navigation/ScrollTop';
 
 const events = [
     { time: '02:41:08', name: 'auth.session.created', meta: 'ap-1' },

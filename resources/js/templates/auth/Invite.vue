@@ -1,9 +1,9 @@
 <script setup>
 import AuthShell from './Shell.vue';
-import UiBadge from '../../components/ui/Badge.vue';
-import UiSeparator from '../../components/ui/Separator.vue';
-import UiProgress from '../../components/ui/Progress.vue';
-import UiButton from '../../components/ui/Button.vue';
+import UiBadge from '../../components/ui/data-display/Badge.vue';
+import UiSeparator from '../../components/ui/data-display/Separator.vue';
+import UiProgress from '../../components/ui/feedback/Progress.vue';
+import UiButton from '../../components/ui/actions/Button.vue';
 
 const to = (screen) => `/templates/auth/screens/${screen}`;
 

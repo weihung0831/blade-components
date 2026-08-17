@@ -2,16 +2,16 @@ import { useState } from 'react';
 import { SettingsShell } from './Shell';
 import { SettingsSection } from './Section';
 import { SettingsRow } from './Row';
-import { UiAvatar } from '../../components/ui/Avatar';
-import { UiBadge } from '../../components/ui/Badge';
-import { UiButton } from '../../components/ui/Button';
-import { UiIconButton } from '../../components/ui/IconButton';
-import { UiPagination } from '../../components/ui/Pagination';
-import { UiProgress } from '../../components/ui/Progress';
-import { UiSearch } from '../../components/ui/Search';
-import { UiSelect } from '../../components/ui/Select';
-import { UiSwitch } from '../../components/ui/Switch';
-import { UiTagsInput } from '../../components/ui/TagsInput';
+import { UiAvatar } from '../../components/ui/data-display/Avatar';
+import { UiBadge } from '../../components/ui/data-display/Badge';
+import { UiButton } from '../../components/ui/actions/Button';
+import { UiIconButton } from '../../components/ui/actions/IconButton';
+import { UiPagination } from '../../components/ui/navigation/Pagination';
+import { UiProgress } from '../../components/ui/feedback/Progress';
+import { UiSearch } from '../../components/ui/forms/Search';
+import { UiSelect } from '../../components/ui/forms/Select';
+import { UiSwitch } from '../../components/ui/forms/Switch';
+import { UiTagsInput } from '../../components/ui/forms/TagsInput';
 
 const members = [
     { name: 'Wei Hung', email: 'wei@northbeam.com', initials: 'WH', role: 'Owner', seen: '2m ago', state: 'active' },

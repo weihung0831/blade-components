@@ -1,11 +1,11 @@
-import { UiSidebar } from '../../components/ui/Sidebar';
-import { UiBreadcrumb } from '../../components/ui/Breadcrumb';
-import { UiSearch } from '../../components/ui/Search';
-import { UiSeparator } from '../../components/ui/Separator';
-import { UiAvatar } from '../../components/ui/Avatar';
-import { UiProgress } from '../../components/ui/Progress';
-import { UiButton } from '../../components/ui/Button';
-import { UiScrollTop } from '../../components/ui/ScrollTop';
+import { UiSidebar } from '../../components/ui/navigation/Sidebar';
+import { UiBreadcrumb } from '../../components/ui/navigation/Breadcrumb';
+import { UiSearch } from '../../components/ui/forms/Search';
+import { UiSeparator } from '../../components/ui/data-display/Separator';
+import { UiAvatar } from '../../components/ui/data-display/Avatar';
+import { UiProgress } from '../../components/ui/feedback/Progress';
+import { UiButton } from '../../components/ui/actions/Button';
+import { UiScrollTop } from '../../components/ui/navigation/ScrollTop';
 
 const nav = [
     { label: 'Platform', items: [

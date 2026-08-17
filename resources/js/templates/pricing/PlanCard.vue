@@ -1,6 +1,6 @@
 <script setup>
-import UiButton from '../../components/ui/Button.vue';
-import UiSeparator from '../../components/ui/Separator.vue';
+import UiButton from '../../components/ui/actions/Button.vue';
+import UiSeparator from '../../components/ui/data-display/Separator.vue';
 
 defineProps({
     name: { type: String, required: true },

@@ -3,13 +3,13 @@ import { ref } from 'vue';
 import SettingsShell from './Shell.vue';
 import SettingsSection from './Section.vue';
 import SettingsRow from './Row.vue';
-import UiAlert from '../../components/ui/Alert.vue';
-import UiBadge from '../../components/ui/Badge.vue';
-import UiButton from '../../components/ui/Button.vue';
-import UiProgress from '../../components/ui/Progress.vue';
-import UiSelect from '../../components/ui/Select.vue';
-import UiSwitch from '../../components/ui/Switch.vue';
-import UiTagsInput from '../../components/ui/TagsInput.vue';
+import UiAlert from '../../components/ui/feedback/Alert.vue';
+import UiBadge from '../../components/ui/data-display/Badge.vue';
+import UiButton from '../../components/ui/actions/Button.vue';
+import UiProgress from '../../components/ui/feedback/Progress.vue';
+import UiSelect from '../../components/ui/forms/Select.vue';
+import UiSwitch from '../../components/ui/forms/Switch.vue';
+import UiTagsInput from '../../components/ui/forms/TagsInput.vue';
 
 const keys = [
     { name: 'Storefront server', prefix: 'whk_live_9f2c…', scopes: ['orders:write', 'merchants:read'], created: '14 Mar 2026', used: '2m ago', live: true },

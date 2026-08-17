@@ -1,5 +1,5 @@
 <script setup>
-import UiScrollTop from '../../components/ui/ScrollTop.vue';
+import UiScrollTop from '../../components/ui/navigation/ScrollTop.vue';
 
 defineProps({
     title: { type: String, default: 'Sign in' },

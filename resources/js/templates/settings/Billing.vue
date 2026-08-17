@@ -3,15 +3,15 @@ import { ref } from 'vue';
 import SettingsShell from './Shell.vue';
 import SettingsSection from './Section.vue';
 import SettingsRow from './Row.vue';
-import UiBadge from '../../components/ui/Badge.vue';
-import UiButton from '../../components/ui/Button.vue';
-import UiInput from '../../components/ui/Input.vue';
-import UiProgress from '../../components/ui/Progress.vue';
-import UiSeparator from '../../components/ui/Separator.vue';
-import UiSwitch from '../../components/ui/Switch.vue';
-import UiTable from '../../components/ui/Table.vue';
-import UiTextarea from '../../components/ui/Textarea.vue';
-import UiToggleButton from '../../components/ui/ToggleButton.vue';
+import UiBadge from '../../components/ui/data-display/Badge.vue';
+import UiButton from '../../components/ui/actions/Button.vue';
+import UiInput from '../../components/ui/forms/Input.vue';
+import UiProgress from '../../components/ui/feedback/Progress.vue';
+import UiSeparator from '../../components/ui/data-display/Separator.vue';
+import UiSwitch from '../../components/ui/forms/Switch.vue';
+import UiTable from '../../components/ui/data-display/Table.vue';
+import UiTextarea from '../../components/ui/forms/Textarea.vue';
+import UiToggleButton from '../../components/ui/forms/ToggleButton.vue';
 
 const quotas = [
     { label: 'API calls', used: 8.4, limit: 12, unit: 'M', rate: '$0.40 per extra 10k' },

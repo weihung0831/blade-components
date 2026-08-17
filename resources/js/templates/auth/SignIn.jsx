@@ -1,10 +1,10 @@
 import { AuthShell } from './Shell';
 import { AuthProviders } from './Providers';
-import { UiAvatar } from '../../components/ui/Avatar';
-import { UiFloatLabel } from '../../components/ui/FloatLabel';
-import { UiCheckbox } from '../../components/ui/Checkbox';
-import { UiSeparator } from '../../components/ui/Separator';
-import { UiButton } from '../../components/ui/Button';
+import { UiAvatar } from '../../components/ui/data-display/Avatar';
+import { UiFloatLabel } from '../../components/ui/forms/FloatLabel';
+import { UiCheckbox } from '../../components/ui/forms/Checkbox';
+import { UiSeparator } from '../../components/ui/data-display/Separator';
+import { UiButton } from '../../components/ui/actions/Button';
 
 const to = (screen) => `/templates/auth/screens/${screen}`;
 

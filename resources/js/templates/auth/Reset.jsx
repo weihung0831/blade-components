@@ -1,7 +1,7 @@
 import { AuthShell } from './Shell';
-import { UiFloatLabel } from '../../components/ui/FloatLabel';
-import { UiAlert } from '../../components/ui/Alert';
-import { UiButton } from '../../components/ui/Button';
+import { UiFloatLabel } from '../../components/ui/forms/FloatLabel';
+import { UiAlert } from '../../components/ui/feedback/Alert';
+import { UiButton } from '../../components/ui/actions/Button';
 
 const to = (screen) => `/templates/auth/screens/${screen}`;
 

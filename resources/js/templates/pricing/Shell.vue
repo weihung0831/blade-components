@@ -1,7 +1,7 @@
 <script setup>
-import UiButton from '../../components/ui/Button.vue';
-import UiDropdown from '../../components/ui/Dropdown.vue';
-import UiScrollTop from '../../components/ui/ScrollTop.vue';
+import UiButton from '../../components/ui/actions/Button.vue';
+import UiDropdown from '../../components/ui/overlay/Dropdown.vue';
+import UiScrollTop from '../../components/ui/navigation/ScrollTop.vue';
 
 defineProps({
     active: { type: String, default: 'Plans' },

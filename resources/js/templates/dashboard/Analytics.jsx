@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { DashboardShell } from './Shell';
 import { DashboardStat } from './Stat';
-import { UiCard } from '../../components/ui/Card';
-import { UiSelect } from '../../components/ui/Select';
-import { UiButton } from '../../components/ui/Button';
-import { UiSeparator } from '../../components/ui/Separator';
-import { UiTable } from '../../components/ui/Table';
-import { UiMeterGroup } from '../../components/ui/MeterGroup';
-import { UiAnimatedBarChart } from '../../components/ui/AnimatedBarChart';
-import { UiAnimatedColumnChart } from '../../components/ui/AnimatedColumnChart';
+import { UiCard } from '../../components/ui/data-display/Card';
+import { UiSelect } from '../../components/ui/forms/Select';
+import { UiButton } from '../../components/ui/actions/Button';
+import { UiSeparator } from '../../components/ui/data-display/Separator';
+import { UiTable } from '../../components/ui/data-display/Table';
+import { UiMeterGroup } from '../../components/ui/data-display/MeterGroup';
+import { UiAnimatedBarChart } from '../../components/ui/effects/AnimatedBarChart';
+import { UiAnimatedColumnChart } from '../../components/ui/effects/AnimatedColumnChart';
 
 const crumbs = [{ label: 'wharf', href: '#' }, { label: 'Analytics' }];
 

@@ -2,15 +2,15 @@ import { useState } from 'react';
 import { SettingsShell } from './Shell';
 import { SettingsSection } from './Section';
 import { SettingsRow } from './Row';
-import { UiBadge } from '../../components/ui/Badge';
-import { UiButton } from '../../components/ui/Button';
-import { UiInput } from '../../components/ui/Input';
-import { UiProgress } from '../../components/ui/Progress';
-import { UiSeparator } from '../../components/ui/Separator';
-import { UiSwitch } from '../../components/ui/Switch';
-import { UiTable } from '../../components/ui/Table';
-import { UiTextarea } from '../../components/ui/Textarea';
-import { UiToggleButton } from '../../components/ui/ToggleButton';
+import { UiBadge } from '../../components/ui/data-display/Badge';
+import { UiButton } from '../../components/ui/actions/Button';
+import { UiInput } from '../../components/ui/forms/Input';
+import { UiProgress } from '../../components/ui/feedback/Progress';
+import { UiSeparator } from '../../components/ui/data-display/Separator';
+import { UiSwitch } from '../../components/ui/forms/Switch';
+import { UiTable } from '../../components/ui/data-display/Table';
+import { UiTextarea } from '../../components/ui/forms/Textarea';
+import { UiToggleButton } from '../../components/ui/forms/ToggleButton';
 
 const quotas = [
     { label: 'API calls', used: 8.4, limit: 12, unit: 'M', rate: '$0.40 per extra 10k' },

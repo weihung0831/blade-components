@@ -3,16 +3,16 @@ import { ref } from 'vue';
 import SettingsShell from './Shell.vue';
 import SettingsSection from './Section.vue';
 import SettingsRow from './Row.vue';
-import UiAvatar from '../../components/ui/Avatar.vue';
-import UiBadge from '../../components/ui/Badge.vue';
-import UiButton from '../../components/ui/Button.vue';
-import UiIconButton from '../../components/ui/IconButton.vue';
-import UiPagination from '../../components/ui/Pagination.vue';
-import UiProgress from '../../components/ui/Progress.vue';
-import UiSearch from '../../components/ui/Search.vue';
-import UiSelect from '../../components/ui/Select.vue';
-import UiSwitch from '../../components/ui/Switch.vue';
-import UiTagsInput from '../../components/ui/TagsInput.vue';
+import UiAvatar from '../../components/ui/data-display/Avatar.vue';
+import UiBadge from '../../components/ui/data-display/Badge.vue';
+import UiButton from '../../components/ui/actions/Button.vue';
+import UiIconButton from '../../components/ui/actions/IconButton.vue';
+import UiPagination from '../../components/ui/navigation/Pagination.vue';
+import UiProgress from '../../components/ui/feedback/Progress.vue';
+import UiSearch from '../../components/ui/forms/Search.vue';
+import UiSelect from '../../components/ui/forms/Select.vue';
+import UiSwitch from '../../components/ui/forms/Switch.vue';
+import UiTagsInput from '../../components/ui/forms/TagsInput.vue';
 
 const members = [
     { name: 'Wei Hung', email: 'wei@northbeam.com', initials: 'WH', role: 'Owner', seen: '2m ago', state: 'active' },

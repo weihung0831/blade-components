@@ -1,8 +1,8 @@
 <script setup>
 import AuthShell from './Shell.vue';
-import UiFloatLabel from '../../components/ui/FloatLabel.vue';
-import UiAlert from '../../components/ui/Alert.vue';
-import UiButton from '../../components/ui/Button.vue';
+import UiFloatLabel from '../../components/ui/forms/FloatLabel.vue';
+import UiAlert from '../../components/ui/feedback/Alert.vue';
+import UiButton from '../../components/ui/actions/Button.vue';
 
 const to = (screen) => `/templates/auth/screens/${screen}`;
 </script>

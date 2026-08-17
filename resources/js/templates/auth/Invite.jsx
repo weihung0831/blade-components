@@ -1,8 +1,8 @@
 import { AuthShell } from './Shell';
-import { UiBadge } from '../../components/ui/Badge';
-import { UiSeparator } from '../../components/ui/Separator';
-import { UiProgress } from '../../components/ui/Progress';
-import { UiButton } from '../../components/ui/Button';
+import { UiBadge } from '../../components/ui/data-display/Badge';
+import { UiSeparator } from '../../components/ui/data-display/Separator';
+import { UiProgress } from '../../components/ui/feedback/Progress';
+import { UiButton } from '../../components/ui/actions/Button';
 
 const to = (screen) => `/templates/auth/screens/${screen}`;
 

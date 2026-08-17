@@ -1,14 +1,14 @@
 <script setup>
 import { ref } from 'vue';
 import DashboardShell from './Shell.vue';
-import UiCard from '../../components/ui/Card.vue';
-import UiSelect from '../../components/ui/Select.vue';
-import UiButton from '../../components/ui/Button.vue';
-import UiAlert from '../../components/ui/Alert.vue';
-import UiProgress from '../../components/ui/Progress.vue';
-import UiSeparator from '../../components/ui/Separator.vue';
-import UiTable from '../../components/ui/Table.vue';
-import UiAnimatedColumnChart from '../../components/ui/AnimatedColumnChart.vue';
+import UiCard from '../../components/ui/data-display/Card.vue';
+import UiSelect from '../../components/ui/forms/Select.vue';
+import UiButton from '../../components/ui/actions/Button.vue';
+import UiAlert from '../../components/ui/feedback/Alert.vue';
+import UiProgress from '../../components/ui/feedback/Progress.vue';
+import UiSeparator from '../../components/ui/data-display/Separator.vue';
+import UiTable from '../../components/ui/data-display/Table.vue';
+import UiAnimatedColumnChart from '../../components/ui/effects/AnimatedColumnChart.vue';
 
 const environment = ref('Production');
 

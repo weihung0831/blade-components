@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { SettingsShell } from './Shell';
 import { SettingsSection } from './Section';
 import { SettingsRow } from './Row';
-import { UiAvatar } from '../../components/ui/Avatar';
-import { UiBadge } from '../../components/ui/Badge';
-import { UiButton } from '../../components/ui/Button';
-import { UiInput } from '../../components/ui/Input';
-import { UiSelect } from '../../components/ui/Select';
-import { UiSwitch } from '../../components/ui/Switch';
+import { UiAvatar } from '../../components/ui/data-display/Avatar';
+import { UiBadge } from '../../components/ui/data-display/Badge';
+import { UiButton } from '../../components/ui/actions/Button';
+import { UiInput } from '../../components/ui/forms/Input';
+import { UiSelect } from '../../components/ui/forms/Select';
+import { UiSwitch } from '../../components/ui/forms/Switch';
 
 const sessions = [
     { device: 'MacBook Pro · Chrome 128', where: 'Taipei, TW · 203.0.113.42', seen: 'Active now', current: true },

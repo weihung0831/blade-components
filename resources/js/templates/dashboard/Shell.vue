@@ -1,13 +1,13 @@
 <script setup>
 import { computed } from 'vue';
-import UiSidebar from '../../components/ui/Sidebar.vue';
-import UiBreadcrumb from '../../components/ui/Breadcrumb.vue';
-import UiSearch from '../../components/ui/Search.vue';
-import UiSeparator from '../../components/ui/Separator.vue';
-import UiAvatar from '../../components/ui/Avatar.vue';
-import UiProgress from '../../components/ui/Progress.vue';
-import UiButton from '../../components/ui/Button.vue';
-import UiScrollTop from '../../components/ui/ScrollTop.vue';
+import UiSidebar from '../../components/ui/navigation/Sidebar.vue';
+import UiBreadcrumb from '../../components/ui/navigation/Breadcrumb.vue';
+import UiSearch from '../../components/ui/forms/Search.vue';
+import UiSeparator from '../../components/ui/data-display/Separator.vue';
+import UiAvatar from '../../components/ui/data-display/Avatar.vue';
+import UiProgress from '../../components/ui/feedback/Progress.vue';
+import UiButton from '../../components/ui/actions/Button.vue';
+import UiScrollTop from '../../components/ui/navigation/ScrollTop.vue';
 
 const props = defineProps({
     active: { type: String, default: 'Overview' },

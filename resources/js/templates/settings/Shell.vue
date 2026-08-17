@@ -1,11 +1,11 @@
 <script setup>
 import { computed } from 'vue';
-import UiSeparator from '../../components/ui/Separator.vue';
-import UiBreadcrumb from '../../components/ui/Breadcrumb.vue';
-import UiAvatar from '../../components/ui/Avatar.vue';
-import UiButton from '../../components/ui/Button.vue';
-import UiScrollTop from '../../components/ui/ScrollTop.vue';
-import UiDropdown from '../../components/ui/Dropdown.vue';
+import UiSeparator from '../../components/ui/data-display/Separator.vue';
+import UiBreadcrumb from '../../components/ui/navigation/Breadcrumb.vue';
+import UiAvatar from '../../components/ui/data-display/Avatar.vue';
+import UiButton from '../../components/ui/actions/Button.vue';
+import UiScrollTop from '../../components/ui/navigation/ScrollTop.vue';
+import UiDropdown from '../../components/ui/overlay/Dropdown.vue';
 
 const props = defineProps({
     active: { type: String, default: 'Profile' },

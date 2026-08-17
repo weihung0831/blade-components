@@ -2,14 +2,14 @@
 import { ref } from 'vue';
 import DashboardShell from './Shell.vue';
 import DashboardStat from './Stat.vue';
-import UiSearch from '../../components/ui/Search.vue';
-import UiSelect from '../../components/ui/Select.vue';
-import UiButton from '../../components/ui/Button.vue';
-import UiChip from '../../components/ui/Chip.vue';
-import UiSeparator from '../../components/ui/Separator.vue';
-import UiDropdown from '../../components/ui/Dropdown.vue';
-import UiTable from '../../components/ui/Table.vue';
-import UiPagination from '../../components/ui/Pagination.vue';
+import UiSearch from '../../components/ui/forms/Search.vue';
+import UiSelect from '../../components/ui/forms/Select.vue';
+import UiButton from '../../components/ui/actions/Button.vue';
+import UiChip from '../../components/ui/data-display/Chip.vue';
+import UiSeparator from '../../components/ui/data-display/Separator.vue';
+import UiDropdown from '../../components/ui/overlay/Dropdown.vue';
+import UiTable from '../../components/ui/data-display/Table.vue';
+import UiPagination from '../../components/ui/navigation/Pagination.vue';
 
 const plan = ref('All plans');
 const status = ref('Any status');

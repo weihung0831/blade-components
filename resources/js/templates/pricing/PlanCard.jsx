@@ -1,5 +1,5 @@
-import { UiButton } from '../../components/ui/Button';
-import { UiSeparator } from '../../components/ui/Separator';
+import { UiButton } from '../../components/ui/actions/Button';
+import { UiSeparator } from '../../components/ui/data-display/Separator';
 
 export function PricingPlanCard({
     name,

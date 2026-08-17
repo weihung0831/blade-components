@@ -1,12 +1,12 @@
 <script setup>
 import AuthShell from './Shell.vue';
 import AuthProviders from './Providers.vue';
-import UiFloatLabel from '../../components/ui/FloatLabel.vue';
-import UiInputGroup from '../../components/ui/InputGroup.vue';
-import UiPassword from '../../components/ui/Password.vue';
-import UiCheckbox from '../../components/ui/Checkbox.vue';
-import UiSeparator from '../../components/ui/Separator.vue';
-import UiButton from '../../components/ui/Button.vue';
+import UiFloatLabel from '../../components/ui/forms/FloatLabel.vue';
+import UiInputGroup from '../../components/ui/forms/InputGroup.vue';
+import UiPassword from '../../components/ui/forms/Password.vue';
+import UiCheckbox from '../../components/ui/forms/Checkbox.vue';
+import UiSeparator from '../../components/ui/data-display/Separator.vue';
+import UiButton from '../../components/ui/actions/Button.vue';
 
 const to = (screen) => `/templates/auth/screens/${screen}`;
 </script>

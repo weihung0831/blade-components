@@ -1,5 +1,5 @@
 <script setup>
-import UiNumberTicker from '../../components/ui/NumberTicker.vue';
+import UiNumberTicker from '../../components/ui/effects/NumberTicker.vue';
 
 defineProps({
     label: { type: String, default: '' },

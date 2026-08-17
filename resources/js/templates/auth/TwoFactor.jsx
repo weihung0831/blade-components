@@ -1,9 +1,9 @@
 import { AuthShell } from './Shell';
-import { UiAlert } from '../../components/ui/Alert';
-import { UiInputOtp } from '../../components/ui/InputOtp';
-import { UiCheckbox } from '../../components/ui/Checkbox';
-import { UiSeparator } from '../../components/ui/Separator';
-import { UiButton } from '../../components/ui/Button';
+import { UiAlert } from '../../components/ui/feedback/Alert';
+import { UiInputOtp } from '../../components/ui/forms/InputOtp';
+import { UiCheckbox } from '../../components/ui/forms/Checkbox';
+import { UiSeparator } from '../../components/ui/data-display/Separator';
+import { UiButton } from '../../components/ui/actions/Button';
 
 const to = (screen) => `/templates/auth/screens/${screen}`;
 

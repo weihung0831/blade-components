@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import { DashboardShell } from './Shell';
 import { DashboardStat } from './Stat';
-import { UiCard } from '../../components/ui/Card';
-import { UiSelect } from '../../components/ui/Select';
-import { UiButton } from '../../components/ui/Button';
-import { UiBadge } from '../../components/ui/Badge';
-import { UiProgress } from '../../components/ui/Progress';
-import { UiSeparator } from '../../components/ui/Separator';
-import { UiTimeline } from '../../components/ui/Timeline';
-import { UiMeterGroup } from '../../components/ui/MeterGroup';
-import { UiAnimatedColumnChart } from '../../components/ui/AnimatedColumnChart';
+import { UiCard } from '../../components/ui/data-display/Card';
+import { UiSelect } from '../../components/ui/forms/Select';
+import { UiButton } from '../../components/ui/actions/Button';
+import { UiBadge } from '../../components/ui/data-display/Badge';
+import { UiProgress } from '../../components/ui/feedback/Progress';
+import { UiSeparator } from '../../components/ui/data-display/Separator';
+import { UiTimeline } from '../../components/ui/data-display/Timeline';
+import { UiMeterGroup } from '../../components/ui/data-display/MeterGroup';
+import { UiAnimatedColumnChart } from '../../components/ui/effects/AnimatedColumnChart';
 
 const crumbs = [{ label: 'wharf', href: '#' }, { label: 'Overview' }];
 

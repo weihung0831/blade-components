@@ -1,10 +1,10 @@
 import { Fragment } from 'react';
-import { UiSeparator } from '../../components/ui/Separator';
-import { UiBreadcrumb } from '../../components/ui/Breadcrumb';
-import { UiAvatar } from '../../components/ui/Avatar';
-import { UiButton } from '../../components/ui/Button';
-import { UiScrollTop } from '../../components/ui/ScrollTop';
-import { UiDropdown } from '../../components/ui/Dropdown';
+import { UiSeparator } from '../../components/ui/data-display/Separator';
+import { UiBreadcrumb } from '../../components/ui/navigation/Breadcrumb';
+import { UiAvatar } from '../../components/ui/data-display/Avatar';
+import { UiButton } from '../../components/ui/actions/Button';
+import { UiScrollTop } from '../../components/ui/navigation/ScrollTop';
+import { UiDropdown } from '../../components/ui/overlay/Dropdown';
 
 const nav = [
     { label: 'Personal', items: [

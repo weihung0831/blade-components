@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { DashboardShell } from './Shell';
-import { UiCard } from '../../components/ui/Card';
-import { UiSelect } from '../../components/ui/Select';
-import { UiButton } from '../../components/ui/Button';
-import { UiAlert } from '../../components/ui/Alert';
-import { UiProgress } from '../../components/ui/Progress';
-import { UiSeparator } from '../../components/ui/Separator';
-import { UiTable } from '../../components/ui/Table';
-import { UiAnimatedColumnChart } from '../../components/ui/AnimatedColumnChart';
+import { UiCard } from '../../components/ui/data-display/Card';
+import { UiSelect } from '../../components/ui/forms/Select';
+import { UiButton } from '../../components/ui/actions/Button';
+import { UiAlert } from '../../components/ui/feedback/Alert';
+import { UiProgress } from '../../components/ui/feedback/Progress';
+import { UiSeparator } from '../../components/ui/data-display/Separator';
+import { UiTable } from '../../components/ui/data-display/Table';
+import { UiAnimatedColumnChart } from '../../components/ui/effects/AnimatedColumnChart';
 
 const crumbs = [{ label: 'wharf', href: '#' }, { label: 'Platform', href: '#' }, { label: 'Deploys' }];
 

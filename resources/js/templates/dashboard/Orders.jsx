@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { DashboardShell } from './Shell';
 import { DashboardStat } from './Stat';
-import { UiCard } from '../../components/ui/Card';
-import { UiSelect } from '../../components/ui/Select';
-import { UiButton } from '../../components/ui/Button';
-import { UiBadge } from '../../components/ui/Badge';
-import { UiSeparator } from '../../components/ui/Separator';
-import { UiTable } from '../../components/ui/Table';
-import { UiMeterGroup } from '../../components/ui/MeterGroup';
-import { UiNumberTicker } from '../../components/ui/NumberTicker';
-import { UiAnimatedBarChart } from '../../components/ui/AnimatedBarChart';
-import { UiAnimatedColumnChart } from '../../components/ui/AnimatedColumnChart';
+import { UiCard } from '../../components/ui/data-display/Card';
+import { UiSelect } from '../../components/ui/forms/Select';
+import { UiButton } from '../../components/ui/actions/Button';
+import { UiBadge } from '../../components/ui/data-display/Badge';
+import { UiSeparator } from '../../components/ui/data-display/Separator';
+import { UiTable } from '../../components/ui/data-display/Table';
+import { UiMeterGroup } from '../../components/ui/data-display/MeterGroup';
+import { UiNumberTicker } from '../../components/ui/effects/NumberTicker';
+import { UiAnimatedBarChart } from '../../components/ui/effects/AnimatedBarChart';
+import { UiAnimatedColumnChart } from '../../components/ui/effects/AnimatedColumnChart';
 
 const crumbs = [{ label: 'wharf', href: '#' }, { label: 'Commerce', href: '#' }, { label: 'Orders' }];
 

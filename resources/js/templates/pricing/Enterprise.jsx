@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { PricingShell } from './Shell';
-import { UiButton } from '../../components/ui/Button';
-import { UiCheckbox } from '../../components/ui/Checkbox';
-import { UiInput } from '../../components/ui/Input';
-import { UiSelect } from '../../components/ui/Select';
-import { UiTextarea } from '../../components/ui/Textarea';
+import { UiButton } from '../../components/ui/actions/Button';
+import { UiCheckbox } from '../../components/ui/forms/Checkbox';
+import { UiInput } from '../../components/ui/forms/Input';
+import { UiSelect } from '../../components/ui/forms/Select';
+import { UiTextarea } from '../../components/ui/forms/Textarea';
 
 const regions = [
     { label: 'ap-1', meta: 'Taipei', checked: true },

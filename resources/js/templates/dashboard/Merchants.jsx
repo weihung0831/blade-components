@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { DashboardShell } from './Shell';
 import { DashboardStat } from './Stat';
-import { UiSearch } from '../../components/ui/Search';
-import { UiSelect } from '../../components/ui/Select';
-import { UiButton } from '../../components/ui/Button';
-import { UiChip } from '../../components/ui/Chip';
-import { UiSeparator } from '../../components/ui/Separator';
-import { UiDropdown } from '../../components/ui/Dropdown';
-import { UiTable } from '../../components/ui/Table';
-import { UiPagination } from '../../components/ui/Pagination';
+import { UiSearch } from '../../components/ui/forms/Search';
+import { UiSelect } from '../../components/ui/forms/Select';
+import { UiButton } from '../../components/ui/actions/Button';
+import { UiChip } from '../../components/ui/data-display/Chip';
+import { UiSeparator } from '../../components/ui/data-display/Separator';
+import { UiDropdown } from '../../components/ui/overlay/Dropdown';
+import { UiTable } from '../../components/ui/data-display/Table';
+import { UiPagination } from '../../components/ui/navigation/Pagination';
 
 const crumbs = [{ label: 'wharf', href: '#' }, { label: 'Merchants' }];
 
