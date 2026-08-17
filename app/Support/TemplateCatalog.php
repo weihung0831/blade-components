@@ -23,7 +23,7 @@ class TemplateCatalog
             ['slug' => 'product', 'name' => 'Product page', 'description' => 'A storefront listing: gallery, spec sheet, reviews, and a build-your-own configurator.', 'pages' => 4],
             ['slug' => 'checkout', 'name' => 'Checkout', 'description' => 'A cart, an address, a card, and the receipt — with the total answering to all three.', 'pages' => 4],
             ['slug' => 'blog', 'name' => 'Blog', 'description' => 'A filtered index, a long read that keeps its place, a searchable archive, and the bench it all comes from.', 'pages' => 4],
-            ['slug' => 'kanban', 'name' => 'Kanban board', 'description' => 'Three-column board with draggable-looking cards.', 'pages' => 1],
+            ['slug' => 'kanban', 'name' => 'Kanban board', 'description' => 'A shop-floor board where the columns are machines, the limits bite, and every card drags.', 'pages' => 4],
             ['slug' => 'inbox', 'name' => 'Inbox', 'description' => 'Message list beside a conversation thread.', 'pages' => 1],
             ['slug' => 'faq', 'name' => 'FAQ', 'description' => 'Accordion Q&A powered by details and summary.', 'pages' => 1],
             ['slug' => 'contact', 'name' => 'Contact', 'description' => 'Contact form beside support details.', 'pages' => 1],
@@ -103,6 +103,12 @@ class TemplateCatalog
                 ['slug' => 'article', 'name' => 'Article', 'description' => 'A fourteen-minute read: a progress bar, a contents rail that follows the scroll, and three sizes to read it at.'],
                 ['slug' => 'archive', 'name' => 'Archive', 'description' => 'Every note since 2023, filtered as you type, with the year counts moving as the list narrows.'],
                 ['slug' => 'author', 'name' => 'Author', 'description' => 'Who writes these, what they have taken apart, and the two ways to get the next one.'],
+            ],
+            'kanban' => [
+                ['slug' => 'board', 'name' => 'Board', 'description' => 'Five stations and 21 jobs, dragged between them. Two columns are over their limit and say so before anything else does.'],
+                ['slug' => 'ticket', 'name' => 'Ticket', 'description' => 'One job opened up: the complaint behind it, the eleven things it has to clear, and what it is waiting on.'],
+                ['slug' => 'backlog', 'name' => 'Backlog', 'description' => 'What has not been scheduled — costed in bench hours, sorted three ways, and sent to a station in batches.'],
+                ['slug' => 'workload', 'name' => 'Workload', 'description' => 'Four people, five days, and the machines they are booked on. Thursday is where it falls over.'],
             ],
             default => [],
         };
