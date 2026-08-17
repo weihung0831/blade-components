@@ -21,7 +21,7 @@ class TemplateCatalog
             ['slug' => 'pricing', 'name' => 'Pricing', 'description' => 'Plan tiers, a feature matrix, a usage estimator, and a quote request.', 'pages' => 4],
             ['slug' => 'analytics', 'name' => 'Analytics', 'description' => 'Event explorer, funnel, retention grid, and a live stream.', 'pages' => 4],
             ['slug' => 'product', 'name' => 'Product page', 'description' => 'A storefront listing: gallery, spec sheet, reviews, and a build-your-own configurator.', 'pages' => 4],
-            ['slug' => 'checkout', 'name' => 'Checkout', 'description' => 'Address and payment form beside an order summary.', 'pages' => 2],
+            ['slug' => 'checkout', 'name' => 'Checkout', 'description' => 'A cart, an address, a card, and the receipt — with the total answering to all three.', 'pages' => 4],
             ['slug' => 'blog', 'name' => 'Blog', 'description' => 'Article index and a readable post layout.', 'pages' => 2],
             ['slug' => 'kanban', 'name' => 'Kanban board', 'description' => 'Three-column board with draggable-looking cards.', 'pages' => 1],
             ['slug' => 'inbox', 'name' => 'Inbox', 'description' => 'Message list beside a conversation thread.', 'pages' => 1],
@@ -91,6 +91,12 @@ class TemplateCatalog
                 ['slug' => 'specs', 'name' => 'Specs', 'description' => 'Five grouped tables, a dimension drawing, where to start on the dial for seven brews, and what the machine asks of you.'],
                 ['slug' => 'reviews', 'name' => 'Reviews', 'description' => '312 reviews with a distribution you can filter by, trait scores, and a three-star one the shop answered in public.'],
                 ['slug' => 'configure', 'name' => 'Configure', 'description' => 'Ten add-ons, a running total, and a build code that spells itself out as you tick boxes.'],
+            ],
+            'checkout' => [
+                ['slug' => 'cart', 'name' => 'Cart', 'description' => 'Three items whose quantities move the total, a code already applied, and the two things people add at the last minute.'],
+                ['slug' => 'delivery', 'name' => 'Delivery', 'description' => 'Four ways to get it there. Each one changes the freight, the date, and what the payment screen is allowed to offer.'],
+                ['slug' => 'payment', 'name' => 'Payment', 'description' => 'Card, six months at 0%, ATM transfer, or pay on collection — plus the e-invoice choice a Taiwanese checkout cannot skip.'],
+                ['slug' => 'confirmation', 'name' => 'Confirmation', 'description' => 'The order number, what happens on the bench tomorrow, and the window where it can still be changed for free.'],
             ],
             default => [],
         };

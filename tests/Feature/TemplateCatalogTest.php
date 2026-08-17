@@ -1,6 +1,7 @@
 <?php
 
 use App\Support\TemplateCatalog;
+use Illuminate\Support\Facades\View;
 
 it('links the dashboard card to its detail page', function () {
     $this->get('/templates')->assertSee(route('templates.show', 'dashboard'));
@@ -86,6 +87,24 @@ it('returns 404 for templates and screens that do not exist', function (string $
     'unknown template' => '/templates/nonsense',
     'unknown screen' => '/templates/dashboard/screens/nonsense',
 ]);
+
+it('renders every template that ships a page, screen by screen', function () {
+    foreach (TemplateCatalog::all() as $template) {
+        if (! View::exists('templates.pages.'.$template['slug'])) {
+            continue;
+        }
+
+        $page = $this->get(route('templates.show', $template['slug']))->assertSuccessful();
+
+        foreach (TemplateCatalog::screens($template['slug']) as $screen) {
+            $url = route('templates.screen', [$template['slug'], $screen['slug']]);
+
+            $page->assertSee($screen['name'])->assertSee($url);
+
+            $this->get($url.'?frame=1')->assertSuccessful();
+        }
+    }
+});
 
 it('renders the auth template page with every screen', function () {
     $response = $this->get(route('templates.show', 'auth'))->assertSuccessful();
