@@ -25,7 +25,7 @@ class TemplateCatalog
             ['slug' => 'blog', 'name' => 'Blog', 'description' => 'A filtered index, a long read that keeps its place, a searchable archive, and the bench it all comes from.', 'pages' => 4],
             ['slug' => 'kanban', 'name' => 'Kanban board', 'description' => 'A shop-floor board where the columns are machines, the limits bite, and every card drags.', 'pages' => 4],
             ['slug' => 'inbox', 'name' => 'Inbox', 'description' => 'A support desk where the clock is the point: what came in, what nobody has answered, and how late it already is.', 'pages' => 4],
-            ['slug' => 'faq', 'name' => 'FAQ', 'description' => 'Accordion Q&A powered by details and summary.', 'pages' => 1],
+            ['slug' => 'faq', 'name' => 'FAQ', 'description' => 'A help centre that keeps score — what it answers, what people vote useless, and what they searched for and never found.', 'pages' => 4],
             ['slug' => 'contact', 'name' => 'Contact', 'description' => 'Contact form beside support details.', 'pages' => 1],
             ['slug' => 'terms', 'name' => 'Terms', 'description' => 'Terms of service with numbered prose sections.', 'pages' => 1],
             ['slug' => 'privacy', 'name' => 'Privacy', 'description' => 'Privacy policy with a cookie consent bar.', 'pages' => 1],
@@ -115,6 +115,12 @@ class TemplateCatalog
                 ['slug' => 'conversation', 'name' => 'Thread', 'description' => 'One warranty complaint end to end: eleven messages, six of which the customer never sees, and the one that actually fixed it.'],
                 ['slug' => 'compose', 'name' => 'Compose', 'description' => 'Five canned replies that fill their own blanks, and a send button that knows it is 04:12 where he is.'],
                 ['slug' => 'search', 'name' => 'Search', 'description' => 'A small query language over fourteen months of mail, with the facet counts moving as you type.'],
+            ],
+            'faq' => [
+                ['slug' => 'questions', 'name' => 'Help centre', 'description' => 'Sixteen answers under six headings, narrowed as you type, each one carrying the score that decides whether it survives the month.'],
+                ['slug' => 'answer', 'name' => 'Answer', 'description' => 'The Batch 40 noise in full: how to tell it apart from burrs bedding in, the twenty minutes it takes to fix, and the two ways out if you would rather not open the machine.'],
+                ['slug' => 'ask', 'name' => 'Ask', 'description' => 'A form that tries to talk you out of sending it. Three answers surface while you type, and only what they miss reaches the desk.'],
+                ['slug' => 'editing', 'name' => 'Editing', 'description' => 'What the search box heard last month — 1,284 queries, the nine that found nothing, and the answer four people in a row voted useless.'],
             ],
             default => [],
         };
