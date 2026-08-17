@@ -20,7 +20,7 @@ class TemplateCatalog
             ['slug' => 'settings', 'name' => 'Settings', 'description' => 'Account, billing, and team panels with section nav.', 'pages' => 4],
             ['slug' => 'pricing', 'name' => 'Pricing', 'description' => 'Plan tiers, a feature matrix, a usage estimator, and a quote request.', 'pages' => 4],
             ['slug' => 'analytics', 'name' => 'Analytics', 'description' => 'Event explorer, funnel, retention grid, and a live stream.', 'pages' => 4],
-            ['slug' => 'product', 'name' => 'Product page', 'description' => 'Gallery, price block, and add-to-cart actions.', 'pages' => 2],
+            ['slug' => 'product', 'name' => 'Product page', 'description' => 'A storefront listing: gallery, spec sheet, reviews, and a build-your-own configurator.', 'pages' => 4],
             ['slug' => 'checkout', 'name' => 'Checkout', 'description' => 'Address and payment form beside an order summary.', 'pages' => 2],
             ['slug' => 'blog', 'name' => 'Blog', 'description' => 'Article index and a readable post layout.', 'pages' => 2],
             ['slug' => 'kanban', 'name' => 'Kanban board', 'description' => 'Three-column board with draggable-looking cards.', 'pages' => 1],
@@ -85,6 +85,12 @@ class TemplateCatalog
                 ['slug' => 'funnels', 'name' => 'Funnels', 'description' => 'Five steps from storefront to paid order, with how long each hop takes and where the orders go instead.'],
                 ['slug' => 'retention', 'name' => 'Retention', 'description' => 'A cohort grid that regroups with the range: daily over a week, weekly over a month, monthly over a quarter.'],
                 ['slug' => 'live', 'name' => 'Live', 'description' => 'The last sixty seconds — a tailing event log, per-minute volume, and whether now is unusual for this hour.'],
+            ],
+            'product' => [
+                ['slug' => 'overview', 'name' => 'Overview', 'description' => 'One grinder, three finishes, and four image slots waiting for photography — with the price, the stock line, and the buy button all answering to the same switch.'],
+                ['slug' => 'specs', 'name' => 'Specs', 'description' => 'Five grouped tables, a dimension drawing, where to start on the dial for seven brews, and what the machine asks of you.'],
+                ['slug' => 'reviews', 'name' => 'Reviews', 'description' => '312 reviews with a distribution you can filter by, trait scores, and a three-star one the shop answered in public.'],
+                ['slug' => 'configure', 'name' => 'Configure', 'description' => 'Ten add-ons, a running total, and a build code that spells itself out as you tick boxes.'],
             ],
             default => [],
         };

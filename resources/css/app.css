@@ -18,6 +18,11 @@
     --color-jade-500: #4ea396;
     --color-jade-600: #3a8478;
 
+    /* Finishes of the thing the Product template sells. Physical colours, so the light theme leaves them alone. */
+    --color-finish-graphite: #3f3f46;
+    --color-finish-cream: #fefbee;
+    --color-finish-jade: #4ea396;
+
     --ease-snap: cubic-bezier(0.23, 1, 0.32, 1);
 
     /* Code syntax palette: VS Code Dark+ roles, remapped to Light+ in the light theme. */
