@@ -27,7 +27,7 @@ class TemplateCatalog
             ['slug' => 'inbox', 'name' => 'Inbox', 'description' => 'A support desk where the clock is the point: what came in, what nobody has answered, and how late it already is.', 'pages' => 4],
             ['slug' => 'faq', 'name' => 'FAQ', 'description' => 'A help centre that keeps score — what it answers, what people vote useless, and what they searched for and never found.', 'pages' => 4],
             ['slug' => 'contact', 'name' => 'Contact', 'description' => 'The other side of the help centre: four ways in, the person behind each one, and a clock that admits when nobody is awake.', 'pages' => 4],
-            ['slug' => 'terms', 'name' => 'Terms', 'description' => 'Terms of service with numbered prose sections.', 'pages' => 1],
+            ['slug' => 'terms', 'name' => 'Terms', 'description' => 'Fourteen clauses, the plain-English column beside them, every version since 2019, and the one you personally agreed to.', 'pages' => 4],
             ['slug' => 'privacy', 'name' => 'Privacy', 'description' => 'Privacy policy with a cookie consent bar.', 'pages' => 1],
             ['slug' => 'refund', 'name' => 'Refund policy', 'description' => 'Refund terms with a request status card.', 'pages' => 1],
             ['slug' => 'onboarding', 'name' => 'Onboarding', 'description' => 'Multi-step wizard with a progress stepper.', 'pages' => 3],
@@ -127,6 +127,12 @@ class TemplateCatalog
                 ['slug' => 'write', 'name' => 'Write in', 'description' => 'The form changes shape with the reason you pick — a serial for a warranty, an order number for a parcel, a monthly volume for a shop — and names the desk it lands on while you fill it.'],
                 ['slug' => 'visit', 'name' => 'Visit', 'description' => 'Where the bench is, the two afternoons you can turn up, and the unmarked door everybody walks past twice.'],
                 ['slug' => 'sent', 'name' => 'Sent', 'description' => 'A reference, a clock that only counts working hours, and the three answers that might save you the wait.'],
+            ],
+            'terms' => [
+                ['slug' => 'document', 'name' => 'The terms', 'description' => 'Fourteen numbered clauses with a plain sentence under each one, three of them marked as the ones people get caught by, and a switch that hides everything untouched since the last version.'],
+                ['slug' => 'plain', 'name' => 'Short version', 'description' => 'The same fourteen in a line each, sorted by who the clause is actually for. Four favour us, and the page says which four rather than leaving you to find out.'],
+                ['slug' => 'changes', 'name' => 'What changed', 'description' => 'Seven versions since April 2019, and the diff for each — struck out, added, and the reason underneath. The one waiting to take effect gets 45 days rather than the 30 we promise.'],
+                ['slug' => 'record', 'name' => 'Your copy', 'description' => 'Which version you agreed to, when, and from where. Every order stays under the terms in force the day it was placed, so the list is of frozen copies, not one that quietly moves.'],
             ],
             default => [],
         };
