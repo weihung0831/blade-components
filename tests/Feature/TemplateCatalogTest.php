@@ -83,7 +83,7 @@ it('frames each screen in a device switcher', function () {
 it('returns 404 for templates and screens that do not exist', function (string $path) {
     $this->get($path)->assertNotFound();
 })->with([
-    'template without a page' => '/templates/inbox',
+    'template without a page' => '/templates/faq',
     'unknown template' => '/templates/nonsense',
     'unknown screen' => '/templates/dashboard/screens/nonsense',
 ]);

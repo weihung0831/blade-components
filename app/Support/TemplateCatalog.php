@@ -24,7 +24,7 @@ class TemplateCatalog
             ['slug' => 'checkout', 'name' => 'Checkout', 'description' => 'A cart, an address, a card, and the receipt — with the total answering to all three.', 'pages' => 4],
             ['slug' => 'blog', 'name' => 'Blog', 'description' => 'A filtered index, a long read that keeps its place, a searchable archive, and the bench it all comes from.', 'pages' => 4],
             ['slug' => 'kanban', 'name' => 'Kanban board', 'description' => 'A shop-floor board where the columns are machines, the limits bite, and every card drags.', 'pages' => 4],
-            ['slug' => 'inbox', 'name' => 'Inbox', 'description' => 'Message list beside a conversation thread.', 'pages' => 1],
+            ['slug' => 'inbox', 'name' => 'Inbox', 'description' => 'A support desk where the clock is the point: what came in, what nobody has answered, and how late it already is.', 'pages' => 4],
             ['slug' => 'faq', 'name' => 'FAQ', 'description' => 'Accordion Q&A powered by details and summary.', 'pages' => 1],
             ['slug' => 'contact', 'name' => 'Contact', 'description' => 'Contact form beside support details.', 'pages' => 1],
             ['slug' => 'terms', 'name' => 'Terms', 'description' => 'Terms of service with numbered prose sections.', 'pages' => 1],
@@ -109,6 +109,12 @@ class TemplateCatalog
                 ['slug' => 'ticket', 'name' => 'Ticket', 'description' => 'One job opened up: the complaint behind it, the eleven things it has to clear, and what it is waiting on.'],
                 ['slug' => 'backlog', 'name' => 'Backlog', 'description' => 'What has not been scheduled — costed in bench hours, sorted three ways, and sent to a station in batches.'],
                 ['slug' => 'workload', 'name' => 'Workload', 'description' => 'Four people, five days, and the machines they are booked on. Thursday is where it falls over.'],
+            ],
+            'inbox' => [
+                ['slug' => 'threads', 'name' => 'Inbox', 'description' => 'Nine live conversations, a reply clock running on each, and whichever one you click open beside the list.'],
+                ['slug' => 'conversation', 'name' => 'Thread', 'description' => 'One warranty complaint end to end: eleven messages, six of which the customer never sees, and the one that actually fixed it.'],
+                ['slug' => 'compose', 'name' => 'Compose', 'description' => 'Five canned replies that fill their own blanks, and a send button that knows it is 04:12 where he is.'],
+                ['slug' => 'search', 'name' => 'Search', 'description' => 'A small query language over fourteen months of mail, with the facet counts moving as you type.'],
             ],
             default => [],
         };
