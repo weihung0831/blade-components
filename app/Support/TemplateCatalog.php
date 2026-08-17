@@ -26,7 +26,7 @@ class TemplateCatalog
             ['slug' => 'kanban', 'name' => 'Kanban board', 'description' => 'A shop-floor board where the columns are machines, the limits bite, and every card drags.', 'pages' => 4],
             ['slug' => 'inbox', 'name' => 'Inbox', 'description' => 'A support desk where the clock is the point: what came in, what nobody has answered, and how late it already is.', 'pages' => 4],
             ['slug' => 'faq', 'name' => 'FAQ', 'description' => 'A help centre that keeps score — what it answers, what people vote useless, and what they searched for and never found.', 'pages' => 4],
-            ['slug' => 'contact', 'name' => 'Contact', 'description' => 'Contact form beside support details.', 'pages' => 1],
+            ['slug' => 'contact', 'name' => 'Contact', 'description' => 'The other side of the help centre: four ways in, the person behind each one, and a clock that admits when nobody is awake.', 'pages' => 4],
             ['slug' => 'terms', 'name' => 'Terms', 'description' => 'Terms of service with numbered prose sections.', 'pages' => 1],
             ['slug' => 'privacy', 'name' => 'Privacy', 'description' => 'Privacy policy with a cookie consent bar.', 'pages' => 1],
             ['slug' => 'refund', 'name' => 'Refund policy', 'description' => 'Refund terms with a request status card.', 'pages' => 1],
@@ -121,6 +121,12 @@ class TemplateCatalog
                 ['slug' => 'answer', 'name' => 'Answer', 'description' => 'The Batch 40 noise in full: how to tell it apart from burrs bedding in, the twenty minutes it takes to fix, and the two ways out if you would rather not open the machine.'],
                 ['slug' => 'ask', 'name' => 'Ask', 'description' => 'A form that tries to talk you out of sending it. Three answers surface while you type, and only what they miss reaches the desk.'],
                 ['slug' => 'editing', 'name' => 'Editing', 'description' => 'What the search box heard last month — 1,284 queries, the nine that found nothing, and the answer four people in a row voted useless.'],
+            ],
+            'contact' => [
+                ['slug' => 'desk', 'name' => 'The desk', 'description' => 'Four ways in, each one a named person with the hours they keep and the time they actually take. It is 04:12 at the bench, and the page says so before you start typing.'],
+                ['slug' => 'write', 'name' => 'Write in', 'description' => 'The form changes shape with the reason you pick — a serial for a warranty, an order number for a parcel, a monthly volume for a shop — and names the desk it lands on while you fill it.'],
+                ['slug' => 'visit', 'name' => 'Visit', 'description' => 'Where the bench is, the two afternoons you can turn up, and the unmarked door everybody walks past twice.'],
+                ['slug' => 'sent', 'name' => 'Sent', 'description' => 'A reference, a clock that only counts working hours, and the three answers that might save you the wait.'],
             ],
             default => [],
         };
