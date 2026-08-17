@@ -19,7 +19,7 @@ class TemplateCatalog
             ['slug' => 'auth', 'name' => 'Auth pages', 'description' => 'Sign in, sign up, reset, two-factor, and seat invites.', 'pages' => 5],
             ['slug' => 'settings', 'name' => 'Settings', 'description' => 'Account, billing, and team panels with section nav.', 'pages' => 4],
             ['slug' => 'pricing', 'name' => 'Pricing', 'description' => 'Plan tiers, a feature matrix, a usage estimator, and a quote request.', 'pages' => 4],
-            ['slug' => 'analytics', 'name' => 'Analytics', 'description' => 'KPI row, trend chart, and breakdown panels.', 'pages' => 2],
+            ['slug' => 'analytics', 'name' => 'Analytics', 'description' => 'Event explorer, funnel, retention grid, and a live stream.', 'pages' => 4],
             ['slug' => 'product', 'name' => 'Product page', 'description' => 'Gallery, price block, and add-to-cart actions.', 'pages' => 2],
             ['slug' => 'checkout', 'name' => 'Checkout', 'description' => 'Address and payment form beside an order summary.', 'pages' => 2],
             ['slug' => 'blog', 'name' => 'Blog', 'description' => 'Article index and a readable post layout.', 'pages' => 2],
@@ -79,6 +79,12 @@ class TemplateCatalog
                 ['slug' => 'compare', 'name' => 'Compare', 'description' => 'The whole matrix: quotas, seats, regions, and terms, grouped so a buyer can find the one row they came for.'],
                 ['slug' => 'calculator', 'name' => 'Calculator', 'description' => 'Four sliders, three plans costed side by side, and the invoice that comes out the other end.'],
                 ['slug' => 'enterprise', 'name' => 'Enterprise', 'description' => 'The quote request, plus what procurement and security ask for before the contract moves.'],
+            ],
+            'analytics' => [
+                ['slug' => 'explore', 'name' => 'Explore', 'description' => 'One query — an event, two filters, a breakdown — answered by a chart, a table, and the SQL it compiles to.'],
+                ['slug' => 'funnels', 'name' => 'Funnels', 'description' => 'Five steps from storefront to paid order, with how long each hop takes and where the orders go instead.'],
+                ['slug' => 'retention', 'name' => 'Retention', 'description' => 'A cohort grid that regroups with the range: daily over a week, weekly over a month, monthly over a quarter.'],
+                ['slug' => 'live', 'name' => 'Live', 'description' => 'The last sixty seconds — a tailing event log, per-minute volume, and whether now is unusual for this hour.'],
             ],
             default => [],
         };
