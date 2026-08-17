@@ -22,7 +22,7 @@ class TemplateCatalog
             ['slug' => 'analytics', 'name' => 'Analytics', 'description' => 'Event explorer, funnel, retention grid, and a live stream.', 'pages' => 4],
             ['slug' => 'product', 'name' => 'Product page', 'description' => 'A storefront listing: gallery, spec sheet, reviews, and a build-your-own configurator.', 'pages' => 4],
             ['slug' => 'checkout', 'name' => 'Checkout', 'description' => 'A cart, an address, a card, and the receipt — with the total answering to all three.', 'pages' => 4],
-            ['slug' => 'blog', 'name' => 'Blog', 'description' => 'Article index and a readable post layout.', 'pages' => 2],
+            ['slug' => 'blog', 'name' => 'Blog', 'description' => 'A filtered index, a long read that keeps its place, a searchable archive, and the bench it all comes from.', 'pages' => 4],
             ['slug' => 'kanban', 'name' => 'Kanban board', 'description' => 'Three-column board with draggable-looking cards.', 'pages' => 1],
             ['slug' => 'inbox', 'name' => 'Inbox', 'description' => 'Message list beside a conversation thread.', 'pages' => 1],
             ['slug' => 'faq', 'name' => 'FAQ', 'description' => 'Accordion Q&A powered by details and summary.', 'pages' => 1],
@@ -97,6 +97,12 @@ class TemplateCatalog
                 ['slug' => 'delivery', 'name' => 'Delivery', 'description' => 'Four ways to get it there. Each one changes the freight, the date, and what the payment screen is allowed to offer.'],
                 ['slug' => 'payment', 'name' => 'Payment', 'description' => 'Card, six months at 0%, ATM transfer, or pay on collection — plus the e-invoice choice a Taiwanese checkout cannot skip.'],
                 ['slug' => 'confirmation', 'name' => 'Confirmation', 'description' => 'The order number, what happens on the bench tomorrow, and the window where it can still be changed for free.'],
+            ],
+            'blog' => [
+                ['slug' => 'latest', 'name' => 'Latest', 'description' => 'Nine notes off the workshop bench, narrowed by topic and re-ordered by length without leaving the page.'],
+                ['slug' => 'article', 'name' => 'Article', 'description' => 'A fourteen-minute read: a progress bar, a contents rail that follows the scroll, and three sizes to read it at.'],
+                ['slug' => 'archive', 'name' => 'Archive', 'description' => 'Every note since 2023, filtered as you type, with the year counts moving as the list narrows.'],
+                ['slug' => 'author', 'name' => 'Author', 'description' => 'Who writes these, what they have taken apart, and the two ways to get the next one.'],
             ],
             default => [],
         };
