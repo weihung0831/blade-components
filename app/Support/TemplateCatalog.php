@@ -28,7 +28,7 @@ class TemplateCatalog
             ['slug' => 'faq', 'name' => 'FAQ', 'description' => 'A help centre that keeps score — what it answers, what people vote useless, and what they searched for and never found.', 'pages' => 4],
             ['slug' => 'contact', 'name' => 'Contact', 'description' => 'The other side of the help centre: four ways in, the person behind each one, and a clock that admits when nobody is awake.', 'pages' => 4],
             ['slug' => 'terms', 'name' => 'Terms', 'description' => 'Fourteen clauses, the plain-English column beside them, every version since 2019, and the one you personally agreed to.', 'pages' => 4],
-            ['slug' => 'privacy', 'name' => 'Privacy', 'description' => 'Privacy policy with a cookie consent bar.', 'pages' => 1],
+            ['slug' => 'privacy', 'name' => 'Privacy', 'description' => 'Twenty-one fields we hold, nine outsiders who see any of them, four switches that do something, and the log of who opened your record.', 'pages' => 4],
             ['slug' => 'refund', 'name' => 'Refund policy', 'description' => 'Refund terms with a request status card.', 'pages' => 1],
             ['slug' => 'onboarding', 'name' => 'Onboarding', 'description' => 'Multi-step wizard with a progress stepper.', 'pages' => 3],
             ['slug' => 'changelog', 'name' => 'Changelog', 'description' => 'Versioned release notes on a timeline.', 'pages' => 1],
@@ -133,6 +133,12 @@ class TemplateCatalog
                 ['slug' => 'plain', 'name' => 'Short version', 'description' => 'The same fourteen in a line each, sorted by who the clause is actually for. Four favour us, and the page says which four rather than leaving you to find out.'],
                 ['slug' => 'changes', 'name' => 'What changed', 'description' => 'Seven versions since April 2019, and the diff for each — struck out, added, and the reason underneath. The one waiting to take effect gets 45 days rather than the 30 we promise.'],
                 ['slug' => 'record', 'name' => 'Your copy', 'description' => 'Which version you agreed to, when, and from where. Every order stays under the terms in force the day it was placed, so the list is of frozen copies, not one that quietly moves.'],
+            ],
+            'privacy' => [
+                ['slug' => 'held', 'name' => 'What we hold', 'description' => 'Twenty-one fields under five headings, each with the reason it exists, the clock it runs on, and whether you can have it deleted this afternoon or the tax office says no.'],
+                ['slug' => 'shared', 'name' => 'Who sees it', 'description' => 'Nine companies outside the workshop, what each one is handed, and which country it lands in. Underneath, the three who asked and were told no, with dates.'],
+                ['slug' => 'controls', 'name' => 'Your switches', 'description' => 'Four switches, three of them off until you say otherwise, each naming the cookies it sets and what stops working without it. Refusing everything is one click, same as accepting.'],
+                ['slug' => 'request', 'name' => 'Ask for it', 'description' => 'A copy of the lot in six files, what stays behind and the act that pins it there, and the log of every time somebody at the workshop opened your record — including the one who opened it by mistake.'],
             ],
             default => [],
         };
