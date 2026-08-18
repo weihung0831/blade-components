@@ -34,7 +34,7 @@ class TemplateCatalog
             ['slug' => 'changelog', 'name' => 'Changelog', 'description' => 'Forty-one releases since 2023, the three we took back out, what each one broke and for whom, and the eleven weeks between announcing a thing and shipping it.', 'pages' => 4],
             ['slug' => 'error-pages', 'name' => 'Error pages', 'description' => 'Four dead ends that answer the question you actually came with: where the page went, whether your order survived, why your seat cannot open this, and what still works while we are off.', 'pages' => 4],
             ['slug' => 'landing', 'name' => 'Landing', 'description' => 'A shop front with the adjectives taken out: what the machine measures, the five people who should not buy one, and how far down the next batch you are standing.', 'pages' => 4],
-            ['slug' => 'invoice', 'name' => 'Invoice', 'description' => 'Printable invoice with line items and totals.', 'pages' => 1],
+            ['slug' => 'invoice', 'name' => 'Invoice', 'description' => 'One invoice built to be printed, the desk that writes it, the 42 nobody has paid yet, and the four letters it took to settle one of them.', 'pages' => 4],
         ];
     }
 
@@ -157,6 +157,12 @@ class TemplateCatalog
                 ['slug' => 'release', 'name' => 'One release', 'description' => '4.2.0 in full: the field that changed name, the sixteen lines of migration, the six days it took to reach every region, and the hotfix that followed it eleven hours later.'],
                 ['slug' => 'subscribe', 'name' => 'Getting told', 'description' => 'Four ways to hear about this, and a filter that costs you 9 mails a year instead of 214. Set it and the page counts what last year would have looked like.'],
                 ['slug' => 'record', 'name' => 'The record', 'description' => 'Fourteen things announced, nine shipped, three dropped, and the average eleven weeks between the two. Plus the three releases we pulled, with what went wrong written out.'],
+            ],
+            'invoice' => [
+                ['slug' => 'document', 'name' => 'The invoice', 'description' => 'A4, printable, and written for the only two people who read it: the buyer checking the total and the accountant who needs the tax kept in its own column. Nine lines, 5% business tax, and the bank details large enough to type from.'],
+                ['slug' => 'compose', 'name' => 'Writing one', 'description' => 'Pick the customer, add lines, and watch the total move. Zero-rated for export, a company invoice that cannot be amended once issued, and payment terms that name the Friday they land on.'],
+                ['slug' => 'ledger', 'name' => 'What is owed', 'description' => 'NT$1.94m out across 42 invoices, a quarter of it past sixty days. Sorted by how late rather than how large, because the large one is not the one that hurts.'],
+                ['slug' => 'chase', 'name' => 'Getting paid', 'description' => 'One invoice 74 days past due: four letters with the tone shifting between them, a part payment that arrived with no reference, and the date the account stops shipping.'],
             ],
             'landing' => [
                 ['slug' => 'pitch', 'name' => 'The pitch', 'description' => 'One grinder, its weight, its price, and the four things it does that a NT$12,000 machine does not. Underneath, the 6,142 already in kitchens and what they have cost their owners since.'],

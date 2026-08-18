@@ -24,15 +24,14 @@ it('renders the templates index with every template', function () {
     }
 });
 
-it('marks templates without a detail page as coming soon', function () {
+it('links every template to a detail page, with none left coming soon', function () {
     $response = $this->get('/templates')->assertSuccessful();
 
-    $soonCount = collect(TemplateCatalog::all())
-        ->reject(fn (array $template): bool => View::exists('templates.pages.'.$template['slug']))
-        ->count();
+    foreach (TemplateCatalog::all() as $template) {
+        $response->assertSee(route('templates.show', $template['slug']));
+    }
 
-    expect($soonCount)->toBeGreaterThan(0)
-        ->and(substr_count($response->getContent(), '>Soon</span>'))->toBe($soonCount);
+    expect(substr_count($response->getContent(), '>Soon</span>'))->toBe(0);
 });
 
 it('renders component detail pages', function (string $slug, string $name) {
