@@ -16,7 +16,7 @@
     $bar = $toolbar ?? null;
 @endphp
 
-<div {{ $attributes->class('flex h-full w-full flex-col overflow-hidden bg-ink-950') }}>
+<div {{ $attributes->class('relative flex h-full w-full flex-col overflow-hidden bg-ink-950') }}>
 
     <header class="shrink-0 border-b border-white/5 bg-ink-950">
         <div class="flex h-14 items-center gap-5 px-4 sm:px-5">
@@ -66,6 +66,8 @@
 
     @if ($padded)
         <main data-ui-scroll-region class="min-h-0 flex-1 overflow-y-auto px-4 py-6 sm:px-5">{{ $slot }}</main>
+
+        <x-ui.scroll-top anchor="container" variant="progress" :threshold="300" />
     @else
         <main class="flex min-h-0 flex-1 flex-col">{{ $slot }}</main>
     @endif

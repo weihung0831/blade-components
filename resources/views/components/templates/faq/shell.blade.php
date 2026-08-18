@@ -68,7 +68,7 @@
         @endif
     </header>
 
-    <div class="flex min-h-0 flex-1">
+    <div class="relative flex min-h-0 flex-1">
         @if ($rail)
             <aside class="hidden w-56 shrink-0 flex-col justify-between overflow-y-auto border-r border-white/5 py-4 lg:flex">
                 <div>
@@ -118,6 +118,8 @@
 
         @if ($padded)
             <main data-ui-scroll-region class="min-h-0 flex-1 overflow-y-auto px-4 py-6 sm:px-5">{{ $slot }}</main>
+
+            <x-ui.scroll-top anchor="container" variant="progress" :threshold="300" />
         @else
             <main class="flex min-h-0 flex-1 flex-col overflow-hidden">{{ $slot }}</main>
         @endif

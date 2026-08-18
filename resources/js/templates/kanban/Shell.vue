@@ -1,5 +1,6 @@
 <script setup>
 import KanbanAssignee from './Assignee.vue';
+import UiScrollTop from '../../components/ui/navigation/ScrollTop.vue';
 
 defineProps({
     active: { type: String, default: 'Board' },
@@ -17,7 +18,7 @@ const crew = ['Mei Tsai', 'Idris Bahar', 'Lena Kohler', 'Piotr Adamek'];
 </script>
 
 <template>
-    <div class="flex h-full w-full flex-col overflow-hidden bg-ink-950">
+    <div class="relative flex h-full w-full flex-col overflow-hidden bg-ink-950">
         <header class="shrink-0 border-b border-white/5 bg-ink-950">
             <div class="flex h-14 items-center gap-5 px-4 sm:px-5">
                 <a href="/templates/kanban/screens/board" target="_top" class="flex shrink-0 items-center gap-2.5">
@@ -64,11 +65,13 @@ const crew = ['Mei Tsai', 'Idris Bahar', 'Lena Kohler', 'Piotr Adamek'];
             </div>
         </header>
 
-        <main v-if="padded" class="min-h-0 flex-1 overflow-y-auto px-4 py-6 sm:px-5">
+        <main v-if="padded" data-ui-scroll-region class="min-h-0 flex-1 overflow-y-auto px-4 py-6 sm:px-5">
             <slot />
         </main>
         <main v-else class="flex min-h-0 flex-1 flex-col">
             <slot />
         </main>
+
+        <UiScrollTop v-if="padded" anchor="container" variant="progress" :threshold="300" />
     </div>
 </template>

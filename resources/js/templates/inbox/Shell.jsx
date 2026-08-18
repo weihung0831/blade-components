@@ -1,4 +1,5 @@
 import { InboxAvatar } from './Avatar';
+import { UiScrollTop } from '../../components/ui/navigation/ScrollTop';
 
 const LINKS = [
     { label: 'Inbox', screen: 'threads' },
@@ -84,7 +85,7 @@ export function InboxShell({
                 {toolbar && <div className="border-t border-white/5 px-4 py-2.5 sm:px-5">{toolbar}</div>}
             </header>
 
-            <div className="flex min-h-0 flex-1">
+            <div className="relative flex min-h-0 flex-1">
                 {rail && (
                     <aside className="hidden w-52 shrink-0 flex-col justify-between overflow-y-auto border-r border-white/5 py-4 lg:flex">
                         <div>
@@ -137,10 +138,12 @@ export function InboxShell({
                 )}
 
                 {padded ? (
-                    <main className="min-h-0 flex-1 overflow-y-auto px-4 py-6 sm:px-5">{children}</main>
+                    <main data-ui-scroll-region className="min-h-0 flex-1 overflow-y-auto px-4 py-6 sm:px-5">{children}</main>
                 ) : (
                     <main className="flex min-h-0 flex-1 flex-col overflow-hidden">{children}</main>
                 )}
+
+                {padded && <UiScrollTop anchor="container" variant="progress" threshold={300} />}
             </div>
         </div>
     );

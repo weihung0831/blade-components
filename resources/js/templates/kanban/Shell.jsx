@@ -1,4 +1,5 @@
 import { KanbanAssignee } from './Assignee';
+import { UiScrollTop } from '../../components/ui/navigation/ScrollTop';
 
 const LINKS = [
     { label: 'Board', screen: 'board' },
@@ -10,7 +11,7 @@ const CREW = ['Mei Tsai', 'Idris Bahar', 'Lena Kohler', 'Piotr Adamek'];
 
 export function KanbanShell({ active = 'Board', padded = true, batch = 'Batch 41 · week 33', toolbar = null, children }) {
     return (
-        <div className="flex h-full w-full flex-col overflow-hidden bg-ink-950">
+        <div className="relative flex h-full w-full flex-col overflow-hidden bg-ink-950">
             <header className="shrink-0 border-b border-white/5 bg-ink-950">
                 <div className="flex h-14 items-center gap-5 px-4 sm:px-5">
                     <a href="/templates/kanban/screens/board" target="_top" className="flex shrink-0 items-center gap-2.5">
@@ -60,10 +61,12 @@ export function KanbanShell({ active = 'Board', padded = true, batch = 'Batch 41
             </header>
 
             {padded ? (
-                <main className="min-h-0 flex-1 overflow-y-auto px-4 py-6 sm:px-5">{children}</main>
+                <main data-ui-scroll-region className="min-h-0 flex-1 overflow-y-auto px-4 py-6 sm:px-5">{children}</main>
             ) : (
                 <main className="flex min-h-0 flex-1 flex-col">{children}</main>
             )}
+
+            {padded && <UiScrollTop anchor="container" variant="progress" threshold={300} />}
         </div>
     );
 }
