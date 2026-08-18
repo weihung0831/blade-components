@@ -32,7 +32,7 @@ class TemplateCatalog
             ['slug' => 'refund', 'name' => 'Refund policy', 'description' => 'Eight ways a machine comes back, the one deduction we make and how it is worked out, a refund you can watch move, and the nine we turned down — one of them wrongly.', 'pages' => 4],
             ['slug' => 'onboarding', 'name' => 'Onboarding', 'description' => 'Five steps a new shop walks through, two of which it may skip, the import that eats a fifth of an afternoon, and the count of everybody who never finished.', 'pages' => 4],
             ['slug' => 'changelog', 'name' => 'Changelog', 'description' => 'Forty-one releases since 2023, the three we took back out, what each one broke and for whom, and the eleven weeks between announcing a thing and shipping it.', 'pages' => 4],
-            ['slug' => 'error-pages', 'name' => 'Error pages', 'description' => '404, 500, and maintenance screens.', 'pages' => 3],
+            ['slug' => 'error-pages', 'name' => 'Error pages', 'description' => 'Four dead ends that answer the question you actually came with: where the page went, whether your order survived, why your seat cannot open this, and what still works while we are off.', 'pages' => 4],
             ['slug' => 'landing', 'name' => 'Landing', 'description' => 'Marketing hero, feature grid, and call to action.', 'pages' => 1],
             ['slug' => 'invoice', 'name' => 'Invoice', 'description' => 'Printable invoice with line items and totals.', 'pages' => 1],
         ];
@@ -157,6 +157,12 @@ class TemplateCatalog
                 ['slug' => 'release', 'name' => 'One release', 'description' => '4.2.0 in full: the field that changed name, the sixteen lines of migration, the six days it took to reach every region, and the hotfix that followed it eleven hours later.'],
                 ['slug' => 'subscribe', 'name' => 'Getting told', 'description' => 'Four ways to hear about this, and a filter that costs you 9 mails a year instead of 214. Set it and the page counts what last year would have looked like.'],
                 ['slug' => 'record', 'name' => 'The record', 'description' => 'Fourteen things announced, nine shipped, three dropped, and the average eleven weeks between the two. Plus the three releases we pulled, with what went wrong written out.'],
+            ],
+            'error-pages' => [
+                ['slug' => 'missing', 'name' => 'Nothing here', 'description' => 'The address, what stood at it until November 2024, where that thing went, and the four nearest ones. 1,284 people have asked for this URL since March, most of them off a printed catalogue.'],
+                ['slug' => 'broken', 'name' => 'Our fault', 'description' => 'A 500 in the middle of a checkout, which makes only one question worth answering. The order number is at the top, the card was never charged, and the reference to quote is one click away.'],
+                ['slug' => 'blocked', 'name' => 'Not your seat', 'description' => 'You are signed in, just not as somebody who can open this. Who took the permission away and when, the two people who can give it back, and the message that goes to whichever one is awake.'],
+                ['slug' => 'down', 'name' => 'Off on purpose', 'description' => 'Thirty-eight minutes of scheduled work: what keeps running without us, what is stacking up in the queue, and the twelve windows before this one — including the two that ran over.'],
             ],
             default => [],
         };
