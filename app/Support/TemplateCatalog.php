@@ -31,7 +31,7 @@ class TemplateCatalog
             ['slug' => 'privacy', 'name' => 'Privacy', 'description' => 'Twenty-one fields we hold, nine outsiders who see any of them, four switches that do something, and the log of who opened your record.', 'pages' => 4],
             ['slug' => 'refund', 'name' => 'Refund policy', 'description' => 'Eight ways a machine comes back, the one deduction we make and how it is worked out, a refund you can watch move, and the nine we turned down — one of them wrongly.', 'pages' => 4],
             ['slug' => 'onboarding', 'name' => 'Onboarding', 'description' => 'Five steps a new shop walks through, two of which it may skip, the import that eats a fifth of an afternoon, and the count of everybody who never finished.', 'pages' => 4],
-            ['slug' => 'changelog', 'name' => 'Changelog', 'description' => 'Versioned release notes on a timeline.', 'pages' => 1],
+            ['slug' => 'changelog', 'name' => 'Changelog', 'description' => 'Forty-one releases since 2023, the three we took back out, what each one broke and for whom, and the eleven weeks between announcing a thing and shipping it.', 'pages' => 4],
             ['slug' => 'error-pages', 'name' => 'Error pages', 'description' => '404, 500, and maintenance screens.', 'pages' => 3],
             ['slug' => 'landing', 'name' => 'Landing', 'description' => 'Marketing hero, feature grid, and call to action.', 'pages' => 1],
             ['slug' => 'invoice', 'name' => 'Invoice', 'description' => 'Printable invoice with line items and totals.', 'pages' => 1],
@@ -151,6 +151,12 @@ class TemplateCatalog
                 ['slug' => 'import', 'name' => 'Bringing it over', 'description' => 'A 412-row export from the platform you are leaving: what maps cleanly, the nineteen rows that will not survive the trip, and what to do about the SKUs you already have here.'],
                 ['slug' => 'checklist', 'name' => 'What is left', 'description' => 'Nine things, five done. Three of them hold the shop shut and six do not, and two moved out of the first group once we noticed nobody was doing them.'],
                 ['slug' => 'dropout', 'name' => 'Where people stop', 'description' => '1,847 shops started this and 1,113 opened. Where the rest went, how long each step really takes against what we claimed, and the two steps this page argued us out of.'],
+            ],
+            'changelog' => [
+                ['slug' => 'releases', 'name' => 'The log', 'description' => 'Thirteen releases across three months, every line saying who would notice it. Two of them are marked as things we broke, and one of those was out for four hours before it came back off.'],
+                ['slug' => 'release', 'name' => 'One release', 'description' => '4.2.0 in full: the field that changed name, the sixteen lines of migration, the six days it took to reach every region, and the hotfix that followed it eleven hours later.'],
+                ['slug' => 'subscribe', 'name' => 'Getting told', 'description' => 'Four ways to hear about this, and a filter that costs you 9 mails a year instead of 214. Set it and the page counts what last year would have looked like.'],
+                ['slug' => 'record', 'name' => 'The record', 'description' => 'Fourteen things announced, nine shipped, three dropped, and the average eleven weeks between the two. Plus the three releases we pulled, with what went wrong written out.'],
             ],
             default => [],
         };
