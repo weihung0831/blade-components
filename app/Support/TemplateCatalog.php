@@ -33,7 +33,7 @@ class TemplateCatalog
             ['slug' => 'onboarding', 'name' => 'Onboarding', 'description' => 'Five steps a new shop walks through, two of which it may skip, the import that eats a fifth of an afternoon, and the count of everybody who never finished.', 'pages' => 4],
             ['slug' => 'changelog', 'name' => 'Changelog', 'description' => 'Forty-one releases since 2023, the three we took back out, what each one broke and for whom, and the eleven weeks between announcing a thing and shipping it.', 'pages' => 4],
             ['slug' => 'error-pages', 'name' => 'Error pages', 'description' => 'Four dead ends that answer the question you actually came with: where the page went, whether your order survived, why your seat cannot open this, and what still works while we are off.', 'pages' => 4],
-            ['slug' => 'landing', 'name' => 'Landing', 'description' => 'Marketing hero, feature grid, and call to action.', 'pages' => 1],
+            ['slug' => 'landing', 'name' => 'Landing', 'description' => 'A shop front with the adjectives taken out: what the machine measures, the five people who should not buy one, and how far down the next batch you are standing.', 'pages' => 4],
             ['slug' => 'invoice', 'name' => 'Invoice', 'description' => 'Printable invoice with line items and totals.', 'pages' => 1],
         ];
     }
@@ -157,6 +157,12 @@ class TemplateCatalog
                 ['slug' => 'release', 'name' => 'One release', 'description' => '4.2.0 in full: the field that changed name, the sixteen lines of migration, the six days it took to reach every region, and the hotfix that followed it eleven hours later.'],
                 ['slug' => 'subscribe', 'name' => 'Getting told', 'description' => 'Four ways to hear about this, and a filter that costs you 9 mails a year instead of 214. Set it and the page counts what last year would have looked like.'],
                 ['slug' => 'record', 'name' => 'The record', 'description' => 'Fourteen things announced, nine shipped, three dropped, and the average eleven weeks between the two. Plus the three releases we pulled, with what went wrong written out.'],
+            ],
+            'landing' => [
+                ['slug' => 'pitch', 'name' => 'The pitch', 'description' => 'One grinder, its weight, its price, and the four things it does that a NT$12,000 machine does not. Underneath, the 6,142 already in kitchens and what they have cost their owners since.'],
+                ['slug' => 'proof', 'name' => 'The measurements', 'description' => 'Grind spread against three other machines, every warranty claim since 2019 sorted by which part failed, and the drop test we failed twice before it passed.'],
+                ['slug' => 'objections', 'name' => 'Not for you', 'description' => 'Five people who should buy something else, named along with what they should buy instead. Plus the two machines that beat this one, and what the 214 returns said.'],
+                ['slug' => 'batch', 'name' => 'The next batch', 'description' => 'Batch 41 opens on 2 September: 180 machines, 134 already spoken for, and the eleven weeks batch 39 ran late with the reason written out.'],
             ],
             'error-pages' => [
                 ['slug' => 'missing', 'name' => 'Nothing here', 'description' => 'The address, what stood at it until November 2024, where that thing went, and the four nearest ones. 1,284 people have asked for this URL since March, most of them off a printed catalogue.'],
