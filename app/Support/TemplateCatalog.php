@@ -29,7 +29,7 @@ class TemplateCatalog
             ['slug' => 'contact', 'name' => 'Contact', 'description' => 'The other side of the help centre: four ways in, the person behind each one, and a clock that admits when nobody is awake.', 'pages' => 4],
             ['slug' => 'terms', 'name' => 'Terms', 'description' => 'Fourteen clauses, the plain-English column beside them, every version since 2019, and the one you personally agreed to.', 'pages' => 4],
             ['slug' => 'privacy', 'name' => 'Privacy', 'description' => 'Twenty-one fields we hold, nine outsiders who see any of them, four switches that do something, and the log of who opened your record.', 'pages' => 4],
-            ['slug' => 'refund', 'name' => 'Refund policy', 'description' => 'Refund terms with a request status card.', 'pages' => 1],
+            ['slug' => 'refund', 'name' => 'Refund policy', 'description' => 'Eight ways a machine comes back, the one deduction we make and how it is worked out, a refund you can watch move, and the nine we turned down — one of them wrongly.', 'pages' => 4],
             ['slug' => 'onboarding', 'name' => 'Onboarding', 'description' => 'Multi-step wizard with a progress stepper.', 'pages' => 3],
             ['slug' => 'changelog', 'name' => 'Changelog', 'description' => 'Versioned release notes on a timeline.', 'pages' => 1],
             ['slug' => 'error-pages', 'name' => 'Error pages', 'description' => '404, 500, and maintenance screens.', 'pages' => 3],
@@ -139,6 +139,12 @@ class TemplateCatalog
                 ['slug' => 'shared', 'name' => 'Who sees it', 'description' => 'Nine companies outside the workshop, what each one is handed, and which country it lands in. Underneath, the three who asked and were told no, with dates.'],
                 ['slug' => 'controls', 'name' => 'Your switches', 'description' => 'Four switches, three of them off until you say otherwise, each naming the cookies it sets and what stops working without it. Refusing everything is one click, same as accepting.'],
                 ['slug' => 'request', 'name' => 'Ask for it', 'description' => 'A copy of the lot in six files, what stays behind and the act that pins it there, and the log of every time somebody at the workshop opened your record — including the one who opened it by mistake.'],
+            ],
+            'refund' => [
+                ['slug' => 'policy', 'name' => 'The policy', 'description' => 'Eight reasons a machine comes back, sorted by how much of your money follows it. Four give you everything, two give you most of it, and two are a no printed in the same size as the rest.'],
+                ['slug' => 'send', 'name' => 'Send it back', 'description' => 'Pick the reason and the page costs it out before you fill anything in — who books the courier, what lands back, how long it takes. One of the five reasons tells you not to send it.'],
+                ['slug' => 'progress', 'name' => 'Where yours is', 'description' => 'One refund mid-flight: what the bench found when it opened the box, the arithmetic underneath the figure, and the last hop that belongs to your bank rather than to us.'],
+                ['slug' => 'ledger', 'name' => 'The ledger', 'description' => '214 refunds since 2019, what they were for, the nine we refused with the reason written out, and the three faults that only got fixed because the returns kept pointing at them.'],
             ],
             default => [],
         };
