@@ -1,4 +1,6 @@
 <script setup>
+import UiScrollTop from '../../components/ui/navigation/ScrollTop.vue';
+
 defineProps({
     active: { type: String, default: 'The desk' },
     rail: { type: Boolean, default: true },
@@ -66,7 +68,7 @@ const routes = [
             </div>
         </header>
 
-        <div class="flex min-h-0 flex-1">
+        <div class="relative flex min-h-0 flex-1">
             <aside v-if="rail" class="hidden w-56 shrink-0 flex-col justify-between overflow-y-auto border-r border-white/5 py-4 lg:flex">
                 <div>
                     <p class="px-4 font-mono text-[10px] tracking-wider text-zinc-700 uppercase">Where it lands</p>
@@ -111,12 +113,14 @@ const routes = [
                 </div>
             </aside>
 
-            <main v-if="padded" data-contact-scroll class="min-h-0 flex-1 overflow-y-auto px-4 py-6 sm:px-5">
+            <main v-if="padded" data-contact-scroll data-ui-scroll-region class="min-h-0 flex-1 overflow-y-auto px-4 py-6 sm:px-5">
                 <slot />
             </main>
             <main v-else class="flex min-h-0 flex-1 flex-col overflow-hidden">
                 <slot />
             </main>
+
+            <UiScrollTop v-if="padded" anchor="container" variant="progress" :threshold="300" />
         </div>
     </div>
 </template>
