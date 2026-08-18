@@ -30,7 +30,7 @@ class TemplateCatalog
             ['slug' => 'terms', 'name' => 'Terms', 'description' => 'Fourteen clauses, the plain-English column beside them, every version since 2019, and the one you personally agreed to.', 'pages' => 4],
             ['slug' => 'privacy', 'name' => 'Privacy', 'description' => 'Twenty-one fields we hold, nine outsiders who see any of them, four switches that do something, and the log of who opened your record.', 'pages' => 4],
             ['slug' => 'refund', 'name' => 'Refund policy', 'description' => 'Eight ways a machine comes back, the one deduction we make and how it is worked out, a refund you can watch move, and the nine we turned down — one of them wrongly.', 'pages' => 4],
-            ['slug' => 'onboarding', 'name' => 'Onboarding', 'description' => 'Multi-step wizard with a progress stepper.', 'pages' => 3],
+            ['slug' => 'onboarding', 'name' => 'Onboarding', 'description' => 'Five steps a new shop walks through, two of which it may skip, the import that eats a fifth of an afternoon, and the count of everybody who never finished.', 'pages' => 4],
             ['slug' => 'changelog', 'name' => 'Changelog', 'description' => 'Versioned release notes on a timeline.', 'pages' => 1],
             ['slug' => 'error-pages', 'name' => 'Error pages', 'description' => '404, 500, and maintenance screens.', 'pages' => 3],
             ['slug' => 'landing', 'name' => 'Landing', 'description' => 'Marketing hero, feature grid, and call to action.', 'pages' => 1],
@@ -145,6 +145,12 @@ class TemplateCatalog
                 ['slug' => 'send', 'name' => 'Send it back', 'description' => 'Pick the reason and the page costs it out before you fill anything in — who books the courier, what lands back, how long it takes. One of the five reasons tells you not to send it.'],
                 ['slug' => 'progress', 'name' => 'Where yours is', 'description' => 'One refund mid-flight: what the bench found when it opened the box, the arithmetic underneath the figure, and the last hop that belongs to your bank rather than to us.'],
                 ['slug' => 'ledger', 'name' => 'The ledger', 'description' => '214 refunds since 2019, what they were for, the nine we refused with the reason written out, and the three faults that only got fixed because the returns kept pointing at them.'],
+            ],
+            'onboarding' => [
+                ['slug' => 'setup', 'name' => 'Setting up', 'description' => 'Five steps, three of them required, each saying what breaks if you skip it and how long the last hundred shops spent on it. The region step is the one you cannot come back and change.'],
+                ['slug' => 'import', 'name' => 'Bringing it over', 'description' => 'A 412-row export from the platform you are leaving: what maps cleanly, the nineteen rows that will not survive the trip, and what to do about the SKUs you already have here.'],
+                ['slug' => 'checklist', 'name' => 'What is left', 'description' => 'Nine things, five done. Three of them hold the shop shut and six do not, and two moved out of the first group once we noticed nobody was doing them.'],
+                ['slug' => 'dropout', 'name' => 'Where people stop', 'description' => '1,847 shops started this and 1,113 opened. Where the rest went, how long each step really takes against what we claimed, and the two steps this page argued us out of.'],
             ],
             default => [],
         };
