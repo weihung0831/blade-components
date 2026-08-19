@@ -20,6 +20,18 @@ if (themeToggle) {
     });
 }
 
+const navToggle = document.querySelector('[data-nav-toggle]');
+const navPanel = document.querySelector('[data-nav-panel]');
+
+if (navToggle && navPanel) {
+    navToggle.addEventListener('click', () => {
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+
+        navToggle.setAttribute('aria-expanded', String(!expanded));
+        navPanel.classList.toggle('hidden', expanded);
+    });
+}
+
 window.addEventListener('storage', (event) => {
     if (event.key !== 'theme') {
         return;

@@ -32,15 +32,31 @@
                 <a href="{{ route('templates') }}"
                     class="hidden transition-colors duration-150 sm:block {{ request()->routeIs('templates') ? 'text-jade-400' : 'text-zinc-400 hover:text-jade-400' }}">Templates</a>
                 <a href="#" class="hidden text-zinc-400 transition-colors duration-150 hover:text-jade-400 sm:block">Docs</a>
-                <a href="https://github.com/weihung0831/blade-components" target="_blank" rel="noopener" class="text-zinc-400 transition-colors duration-150 hover:text-jade-400">GitHub</a>
+                <a href="https://github.com/weihung0831/blade-components" target="_blank" rel="noopener" class="hidden text-zinc-400 transition-colors duration-150 hover:text-jade-400 sm:block">GitHub</a>
                 <button type="button" data-theme-toggle aria-label="Toggle color theme"
                     class="grid size-7 place-items-center rounded-md text-zinc-400 transition-[transform,color] duration-150 ease-snap hover:text-cream active:scale-[0.92]">
                     <svg class="size-4 light:hidden" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3.25" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.5v1.6M8 12.9v1.6M1.5 8h1.6M12.9 8h1.6M3.4 3.4l1.13 1.13M11.47 11.47l1.13 1.13M12.6 3.4l-1.13 1.13M4.53 11.47 3.4 12.6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
                     <svg class="hidden size-4 light:block" viewBox="0 0 16 16" fill="none"><path d="M13.5 9.8A5.8 5.8 0 0 1 6.2 2.5a5.8 5.8 0 1 0 7.3 7.3Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
                 </button>
-                <span class="rounded-full border border-white/10 px-2.5 py-0.5 font-mono text-xs text-zinc-500">v0.1.0</span>
+                <span class="hidden rounded-full border border-white/10 px-2.5 py-0.5 font-mono text-xs text-zinc-500 sm:inline">v0.1.0</span>
+                <button type="button" data-nav-toggle aria-label="Toggle navigation menu" aria-expanded="false"
+                    class="group grid size-7 place-items-center rounded-md text-zinc-400 transition-[transform,color] duration-150 ease-snap hover:text-cream active:scale-[0.92] sm:hidden">
+                    <svg class="size-4 group-aria-expanded:hidden" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+                    <svg class="hidden size-4 group-aria-expanded:block" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 3.5 12.5 12.5M12.5 3.5 3.5 12.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+                </button>
             </nav>
         </div>
+        <nav data-nav-panel class="hidden border-t border-white/5 sm:hidden">
+            <div class="mx-auto max-w-6xl space-y-1 px-6 py-4 text-sm">
+                <a href="{{ route('components') }}"
+                    class="block rounded-md px-3 py-2 transition-colors duration-150 {{ request()->routeIs('components', 'components.*') ? 'bg-white/5 text-jade-400' : 'text-zinc-400 hover:bg-white/5 hover:text-jade-400' }}">Components</a>
+                <a href="{{ route('templates') }}"
+                    class="block rounded-md px-3 py-2 transition-colors duration-150 {{ request()->routeIs('templates') ? 'bg-white/5 text-jade-400' : 'text-zinc-400 hover:bg-white/5 hover:text-jade-400' }}">Templates</a>
+                <a href="#" class="block rounded-md px-3 py-2 text-zinc-400 transition-colors duration-150 hover:bg-white/5 hover:text-jade-400">Docs</a>
+                <a href="https://github.com/weihung0831/blade-components" target="_blank" rel="noopener" class="block rounded-md px-3 py-2 text-zinc-400 transition-colors duration-150 hover:bg-white/5 hover:text-jade-400">GitHub</a>
+                <div class="px-3 pt-2 font-mono text-xs text-zinc-600">v0.1.0</div>
+            </div>
+        </nav>
     </header>
 
     {{ $slot }}
