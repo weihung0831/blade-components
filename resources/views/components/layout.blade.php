@@ -59,7 +59,9 @@
         </nav>
     </header>
 
-    {{ $slot }}
+    <main class="w-full min-w-0">
+        {{ $slot }}
+    </main>
 
     {{-- Back to top --}}
     <x-ui.scroll-top variant="progress" :threshold="300" class="z-40" />
