@@ -35,6 +35,10 @@ BLADE-COMPONENTS：Laravel 13 + Tailwind v4 的元件庫展示站。站上有三
 | `php artisan boost:update` | 重新產生 BOOST.md |
 </important>
 
+<important if="使用者用 /software-requirements 或要你規劃新功能、釐清需求">
+先產出需求書，寫到 `docs/requirements/<feature-slug>.md`，不要先動程式碼。需求書照 software-requirements skill 的結構：背景與目的、範圍與邊界、使用者類別、業務規則（獨立編號，需求引用 ID）、使用情境（主流程加例外）、事件－回應表、shall 格式的功能需求與 MoSCoW、驗證決策表、Given–When–Then 驗收測試、影響分析、決策紀錄。使用者確認後才進實作。
+</important>
+
 <important if="你要寫或修改任何 PHP">
 先讀 `BOOST.md`。
 </important>
