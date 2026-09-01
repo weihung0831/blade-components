@@ -73,7 +73,7 @@
 
                 <x-ui.separator vertical class="my-2" />
 
-                <a href="{{ route('templates.screen', [$template['slug'], $screen]) }}?frame=1" target="_blank" rel="noopener"
+                <a href="{{ route('templates.frame', [$template['slug'], $screen]) }}" target="_blank" rel="noopener"
                     title="Open without the frame"
                     class="grid size-7 place-items-center rounded-md text-zinc-500 transition-colors duration-150 hover:text-cream">
                     <svg class="size-4" viewBox="0 0 16 16" fill="none"><path d="M6 2.5H3.5A1 1 0 0 0 2.5 3.5V6M10 2.5h2.5a1 1 0 0 1 1 1V6M6 13.5H3.5a1 1 0 0 1-1-1V10M10 13.5h2.5a1 1 0 0 0 1-1V10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -90,7 +90,7 @@
 
         <div class="dot-grid flex min-h-0 flex-1 justify-center p-0 sm:p-5">
             <div class="h-full w-full max-w-[var(--frame,100%)] overflow-hidden border-white/10 bg-ink-950 transition-[max-width] duration-300 ease-snap sm:rounded-xl sm:border sm:shadow-xl sm:shadow-black/40">
-                <iframe src="{{ route('templates.screen', [$template['slug'], $screen]) }}?frame=1"
+                <iframe src="{{ route('templates.frame', [$template['slug'], $screen]) }}"
                     title="{{ $current['name'] }} preview" class="size-full border-0"></iframe>
             </div>
         </div>

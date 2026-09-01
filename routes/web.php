@@ -36,12 +36,25 @@ Route::get('/templates/{slug}/screens/{screen}', function (string $slug, string 
 
     abort_unless($template !== null && View::exists('components.'.$component), 404);
 
-    return view(request()->boolean('frame') ? 'templates.frame' : 'templates.screen', [
+    return view('templates.screen', [
         'template' => $template,
         'component' => $component,
         'screen' => $screen,
     ]);
 })->name('templates.screen');
+
+Route::get('/templates/{slug}/screens/{screen}/frame', function (string $slug, string $screen) {
+    $template = TemplateCatalog::find($slug);
+    $component = 'templates.'.$slug.'.'.$screen;
+
+    abort_unless($template !== null && View::exists('components.'.$component), 404);
+
+    return view('templates.frame', [
+        'template' => $template,
+        'component' => $component,
+        'screen' => $screen,
+    ]);
+})->name('templates.frame');
 
 Route::get('/components/{slug}', function (string $slug) {
     $entry = ComponentCatalog::find($slug);

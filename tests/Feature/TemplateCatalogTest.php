@@ -55,12 +55,12 @@ it('renders every dashboard screen on its own', function () {
         $url = route('templates.screen', ['dashboard', $screen['slug']]);
 
         $this->get($url)->assertSuccessful()->assertSee($screen['name']);
-        $this->get($url.'?frame=1')->assertSuccessful()->assertSee('wharf');
+        $this->get(route('templates.frame', ['dashboard', $screen['slug']]))->assertSuccessful()->assertSee('wharf');
     }
 });
 
 it('wires the dashboard sidebar to its sibling screens', function () {
-    $response = $this->get(route('templates.screen', ['dashboard', 'overview']).'?frame=1')->assertSuccessful();
+    $response = $this->get(route('templates.frame', ['dashboard', 'overview']))->assertSuccessful();
 
     foreach (TemplateCatalog::screens('dashboard') as $screen) {
         $response->assertSee(route('templates.screen', ['dashboard', $screen['slug']]));
@@ -77,7 +77,7 @@ it('frames each screen in a device switcher', function () {
     }
 
     $response->assertSee('<iframe', false)
-        ->assertSee(route('templates.screen', ['dashboard', 'overview']).'?frame=1');
+        ->assertSee(route('templates.frame', ['dashboard', 'overview']));
 });
 
 it('returns 404 for templates and screens that do not exist', function (string $path) {
@@ -85,6 +85,7 @@ it('returns 404 for templates and screens that do not exist', function (string $
 })->with([
     'unknown template' => '/templates/nonsense',
     'unknown screen' => '/templates/dashboard/screens/nonsense',
+    'unknown screen frame' => '/templates/dashboard/screens/nonsense/frame',
     'screen on a template that has none' => '/templates/invoice/screens/nonsense',
 ]);
 
@@ -101,7 +102,7 @@ it('renders every template that ships a page, screen by screen', function () {
 
             $page->assertSee($screen['name'])->assertSee($url);
 
-            $this->get($url.'?frame=1')->assertSuccessful();
+            $this->get(route('templates.frame', [$template['slug'], $screen['slug']]))->assertSuccessful();
         }
     }
 });
@@ -139,12 +140,12 @@ it('renders every auth screen on its own', function () {
         $url = route('templates.screen', ['auth', $screen['slug']]);
 
         $this->get($url)->assertSuccessful()->assertSee($screen['name']);
-        $this->get($url.'?frame=1')->assertSuccessful()->assertSee('wharf');
+        $this->get(route('templates.frame', ['auth', $screen['slug']]))->assertSuccessful()->assertSee('wharf');
     }
 });
 
 it('walks the auth flow from one screen to the next', function () {
-    $this->get(route('templates.screen', ['auth', 'sign-in']).'?frame=1')
+    $this->get(route('templates.frame', ['auth', 'sign-in']))
         ->assertSuccessful()
         ->assertSee(route('templates.screen', ['auth', 'sign-up']))
         ->assertSee(route('templates.screen', ['auth', 'reset']))
