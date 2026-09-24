@@ -107,7 +107,9 @@ class ExportStaticSite extends Command
 
     private function copyPublicAssets(string $dist): void
     {
-        File::copyDirectory(public_path('build'), $dist.'/build');
+        foreach (['build', 'img'] as $directory) {
+            File::copyDirectory(public_path($directory), $dist.'/'.$directory);
+        }
 
         foreach (['favicon.ico', 'favicon.svg', 'apple-touch-icon.png', 'robots.txt'] as $asset) {
             if (File::exists(public_path($asset))) {
